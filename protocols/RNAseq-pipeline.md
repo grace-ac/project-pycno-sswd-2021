@@ -68,6 +68,5 @@ All RNAseq data and checksums are now in [`owl/nightingales/P_Helianthoides`](ht
 ### A. Get FastQC
 https://www.bioinformatics.babraham.ac.uk/projects/download.html#fastqc 
 
-### Open up a new jupyter notebook
-
-### Follow this notebook: [notebooks/202206016-FastQC_pre-trim.ipynb](https://github.com/grace-ac/project_pycno/blob/main/notebooks/202206016-FastQC_pre-trim.ipynb)
+### B. Open up a new jupyter notebook     
+Follow this notebook: [notebooks/202206016-FastQC_pre-trim.ipynb](https://github.com/grace-ac/project_pycno/blob/main/notebooks/202206016-FastQC_pre-trim.ipynb)

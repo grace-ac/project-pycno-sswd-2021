@@ -14,6 +14,8 @@ https://www.genomesize.com/result_species.php?id=1584
 
 https://www.ncbi.nlm.nih.gov/data-hub/taxonomy/7614/
 
+FISH546-2021 syllabus: https://github.com/sr320/course-fish546-2021/wiki 
+
 ---
 
 Received data from Azenta (FKA Genewiz) 

@@ -1,6 +1,4 @@
-Beginning notes:
-
-Issues:
+notes:
 
 [trasnferring raw data to owl from genefish](https://github.com/RobertsLab/resources/issues/1460)
 
@@ -12,6 +10,9 @@ https://github.com/RobertsLab/resources/blob/master/docs/bio-Gene-expression.md
 
 list of issues that I authored, some related to sea star RNAseq: https://github.com/RobertsLab/resources/issues?q=is%3Aissue+is%3Aclosed+author%3Agrace-ac 
 
+https://www.genomesize.com/result_species.php?id=1584
+
+https://www.ncbi.nlm.nih.gov/data-hub/taxonomy/7614/
 
 ---
 

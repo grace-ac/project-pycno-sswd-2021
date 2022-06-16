@@ -17,7 +17,7 @@ list of issues that I authored, some related to sea star RNAseq: https://github.
 
 Received data from Azenta (FKA Genewiz) 
 
-# 1. Download all RNAseq and checksum data     
+# 1. Download all RNAseq and checksum files     
 Downloaded to genefish using: [cyberduck](https://cyberduck.io/download/)     
 Azenta provided log-in credentials of how to access their servers. 
 

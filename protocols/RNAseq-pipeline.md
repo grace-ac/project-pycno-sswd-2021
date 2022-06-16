@@ -64,5 +64,7 @@ done
 
 All RNAseq data and checksums are now in [`owl/nightingales/P_Helianthoides`](http://owl.fish.washington.edu/nightingales/P_helianthoides/)     
 
-
+# 2. Quality check RNAseq data (FastQC)
+### A. Get FastQC
+https://www.bioinformatics.babraham.ac.uk/projects/download.html#fastqc 
 

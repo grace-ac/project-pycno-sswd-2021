@@ -59,6 +59,7 @@ do
 done
 ```
 
+All RNAseq data and checksums are now in [`owl/nightingales/P_Helianthoides`](http://owl.fish.washington.edu/nightingales/P_helianthoides/)     
 
 
 

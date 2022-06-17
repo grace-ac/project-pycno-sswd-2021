@@ -20,10 +20,11 @@ Check working directory:
 pwd
 ```
 
-From command line:
-1. `ssh` into Raven
-2. `ssh` into Owl and navigate to `web/nightingales/P_helianthoides`
+Files are stored on OWL. How do I connect OWL to Raven... 
 
+Try:
+1. `ssh` into Raven
+2. `ssh` in to Owl from Raven? 
 
 
 

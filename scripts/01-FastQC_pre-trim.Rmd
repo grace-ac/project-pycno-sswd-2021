@@ -1,0 +1,31 @@
+---
+title: "FastQC_pre-trim"
+output: html_document
+---
+
+Rmd to use FastQC on pre-trimmed RNAseq data from _Pycnopodia helianthoides_ coelomocytes sampled summer/fall 2021 at USGS Marrowstone Field Station as part of the large SSWD _Pycnopodia_ Epidemiology project. Personell: Drew Harvell, Alyssa Gehman, TNC, Hakai, USGS, WDFW, UWSAFS. 
+
+All RAW fastq files (Libraries: n = 32) are found on owl: http://owl.fish.washington.edu/nightingales/P_helianthoides/ 
+
+All samples from this project have the beginning of "PSC_" filename. 
+
+FastQC on Raven lives: `/home/shared/FastQC/fastqc`
+
+```{bash}
+/home/shared/FastQC/fastqc -h
+```
+
+Check working directory:
+```{bash}
+pwd
+```
+
+From command line:
+1. `ssh` into Raven
+2. `ssh` into Owl and navigate to `web/nightingales/P_helianthoides`
+
+
+
+
+
+

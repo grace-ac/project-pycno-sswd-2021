@@ -2,6 +2,8 @@ notes:
 
 [trasnferring raw data to owl from genefish](https://github.com/RobertsLab/resources/issues/1460)
 
+https://www.earthdatascience.org/courses/intro-to-earth-data-science/open-reproducible-science/bash/bash-commands-to-manage-directories-files/
+
 [RNAseq workflow](https://github.com/RobertsLab/resources/issues/1476)
 
 [RobertsLab data management](https://github.com/RobertsLab/resources/issues/1459) 

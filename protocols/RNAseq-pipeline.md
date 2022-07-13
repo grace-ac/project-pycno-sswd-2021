@@ -65,14 +65,20 @@ done
 All RNAseq data and checksums are now in [`owl/nightingales/P_Helianthoides`](http://owl.fish.washington.edu/nightingales/P_helianthoides/)     
 
 # 3. Quality check RNAseq data (FastQC)
-### A. Get FastQC
+### A. Get FastQC if you want to run on your laptop
 https://www.bioinformatics.babraham.ac.uk/projects/download.html#fastqc 
 
-### B. Connect to Raven RStudio
+### B. Possible Best Practice --> Run on RStudio on Raven
+Get .fastq.gz files from OWL onto Raven
+- use `rsync`
+
+Use RStudio on Raven to run FASTQC
 1. Have Husky OnNet App (BIG-IP Edge Client in Applications folder after downloaded)    
 2. Log in with UW credentials
 3. Put RStudio IP into browser: http://172.25.149.12:8787 
 4. Log in using Raven Credentials
+
+
 
 ### C. Clone GitHub repo to Raven's Rstudio
 

@@ -69,8 +69,13 @@ All RNAseq data and checksums are now in [`owl/nightingales/P_Helianthoides`](ht
 https://www.bioinformatics.babraham.ac.uk/projects/download.html#fastqc 
 
 ### B. Connect to Raven RStudio
+1. Have Husky OnNet App (BIG-IP Edge Client in Applications folder after downloaded)    
+2. Log in with UW credentials
+3. Put RStudio IP into browser: http://172.25.149.12:8787 
+4. Log in using Raven Credentials
 
 ### C. Clone GitHub repo to Raven's Rstudio
 
 ### D. Run FastQC (lives in /home/shared/FastQC/fastqc on Raven) in Rmd
+Files are in OWL 
 

@@ -70,8 +70,7 @@ All RNAseq data and checksums are now in [`owl/nightingales/P_Helianthoides`](ht
 ### A. Get FastQC if you want to run on your laptop
 https://www.bioinformatics.babraham.ac.uk/projects/download.html#fastqc 
 
-### B. Possible Best Practice --> Run on RStudio on Raven
-Get .fastq.gz files from OWL onto Raven
+### B. Get .fastq.gz files from OWL onto Raven
 1. `ssh` into Raven using credentials in command line
 2. Make a directory for all PSC .fastq.gz files (made one called `pycnornaseq` in my `graceac9@raven` 
 
@@ -85,18 +84,19 @@ graceac9@raven:~$ cd pycnornaseq/
 graceac9@raven:~/pycnornaseq$ 
 ```
 
-3. Then `ssh` into OWL and `rsync` files to `pycnornaseq` directory in Raven: 
+3. Then move files from OWL to `pycnornaseq` directory in Raven: 
 
+a. Have Husky OnNet App (BIG-IP Edge Client in Applications folder after downloaded)    
+b. Log in with UW credentials
+c. Put RStudio IP into browser: http://172.25.149.12:8787 
+d. Log in using Raven Credentials
+e. `cd` into `pycnornaseq/` and run: 
+```
+wget -r --no-directories --no-parent  -A "PSC*" https://owl.fish.washington.edu/nightingales/P_helianthoides
+```
 
-Use RStudio on Raven to run FASTQC
-1. Have Husky OnNet App (BIG-IP Edge Client in Applications folder after downloaded)    
-2. Log in with UW credentials
-3. Put RStudio IP into browser: http://172.25.149.12:8787 
-4. Log in using Raven Credentials
+### C. Get into RStudio on Raven to run FASTQC:
 
-
-
-### C. Clone GitHub repo to Raven's Rstudio
 
 ### D. Run FastQC (lives in /home/shared/FastQC/fastqc on Raven) in Rmd
 Files are in OWL 

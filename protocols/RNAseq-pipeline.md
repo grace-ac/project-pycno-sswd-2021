@@ -86,18 +86,22 @@ graceac9@raven:~/pycnornaseq$
 
 3. Then move files from OWL to `pycnornaseq` directory in Raven: 
 
-a. Have Husky OnNet App (BIG-IP Edge Client in Applications folder after downloaded)    
-b. Log in with UW credentials
-c. Put RStudio IP into browser: http://172.25.149.12:8787 
-d. Log in using Raven Credentials
-e. `cd` into `pycnornaseq/` and run: 
+a. Have Husky OnNet App (BIG-IP Edge Client in Applications folder after downloaded)        
+b. Log in with UW credentials         
+c. Put RStudio IP into browser: http://172.25.149.12:8787         
+d. Log in using Raven Credentials         
+e. `cd` into `pycnornaseq/` and run:        
 ```
 wget -r --no-directories --no-parent  -A "PSC*" https://owl.fish.washington.edu/nightingales/P_helianthoides
 ```
 
 ### C. Get into RStudio on Raven to run FASTQC:
+Follow the steps a-d in Step 3 above. 
 
+Then, follow the code outlined in this script: [scripts/01-FastQC_pre-trim.Rmd](https://github.com/grace-ac/project_pycno/blob/main/scripts/01-FastQC_pre-trim.Rmd)      
 
-### D. Run FastQC (lives in /home/shared/FastQC/fastqc on Raven) in Rmd
-Files are in OWL 
+The FASTQC files are saved on Raven: `/home/shared/8TB_HDD_02/graceac9/analyses/pycno/`
+
+# 4. Run MultiQC 
+
 

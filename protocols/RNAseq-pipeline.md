@@ -128,3 +128,7 @@ The report will be generated in seconds to minutes.
 
 <img width="1413" alt="Screen Shot 2022-08-04 at 11 36 09 AM" src="https://user-images.githubusercontent.com/14934314/182928170-293e7d28-44e4-448a-8226-3d2ba7d3c57e.png">
 
+To view the report, transfer the .html report to Gannet or Owl, then you can view the .html report on your own browser. 
+
+I moved the untrimmed MultiQC report to Owl: 
+# NEED TO DO THIS

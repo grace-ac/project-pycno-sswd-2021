@@ -87,6 +87,9 @@ examples.desktop  GitHub  pycnornaseq  R
 graceac9@raven:~$ cd pycnornaseq/
 graceac9@raven:~/pycnornaseq$ 
 ```
+<img width="573" alt="PSC_files_on_RAVEN" src="https://user-images.githubusercontent.com/14934314/182927133-a905bdf5-85f4-4b7d-8dcb-9e40579f9a98.png">
+
+
 
 3. Then move files from OWL to `pycnornaseq` directory in Raven: 
 
@@ -109,5 +112,19 @@ The FASTQC files are saved on Raven: `/home/shared/8TB_HDD_02/graceac9/analyses/
 ---
 
 # 4. Untrimmed Data Quality Check Part II: MultiQC
+In the terminal of the same RSstudio project used in part C of section 3, run:     
+```
+eval "$(/opt/anaconda/anaconda3/bin/conda shell.bash hook)"
+conda activate
+```
 
+Then navigate into the directory where the FASTQC output lives, in this case: graceac9@raven:~/analyses/pycno$, then run:    
+```
+multiqc .
+```
+
+The report will be generated in seconds to minutes. 
+<img width="1426" alt="pretrim-multiqc" src="https://user-images.githubusercontent.com/14934314/182927019-e671cc93-4d57-4627-9ab1-57eb8e772513.png">
+
+<img width="1413" alt="Screen Shot 2022-08-04 at 11 36 09 AM" src="https://user-images.githubusercontent.com/14934314/182928170-293e7d28-44e4-448a-8226-3d2ba7d3c57e.png">
 

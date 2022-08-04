@@ -29,7 +29,9 @@ Azenta provided log-in credentials of how to access their servers.
 All downloaded files were put into a folder on genefish called: "" 
 
 Azenta (FKA Genewiz) pdf of different ways to download the data: [here](https://f.hubspotusercontent00.net/hubfs/3478602/Sell%20Sheet%20Collateral%20Library/NGS/NGS%20User%20Guides/NGS_sFTP-Data-Download-Guide_Option%201_Nov03_2020.pdf)
- 
+
+---
+
 # 2. Move data to OWL        
 
 GitHub Issue: [#1460](https://github.com/RobertsLab/resources/issues/1460)
@@ -66,6 +68,8 @@ done
 
 All RNAseq data and checksums are now in [`owl/nightingales/P_Helianthoides`](http://owl.fish.washington.edu/nightingales/P_helianthoides/)     
 
+---
+
 # 3. Quality check RNAseq data (FastQC)
 ### A. Get FastQC if you want to run on your laptop
 https://www.bioinformatics.babraham.ac.uk/projects/download.html#fastqc 
@@ -101,6 +105,8 @@ Follow the steps a-d in Step 3 above.
 Then, follow the code outlined in this script: [scripts/01-FastQC_pre-trim.Rmd](https://github.com/grace-ac/project_pycno/blob/main/scripts/01-FastQC_pre-trim.Rmd)      
 
 The FASTQC files are saved on Raven: `/home/shared/8TB_HDD_02/graceac9/analyses/pycno/`
+
+---
 
 # 4. Run MultiQC 
 

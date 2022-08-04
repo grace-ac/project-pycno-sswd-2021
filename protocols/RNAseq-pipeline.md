@@ -70,7 +70,7 @@ All RNAseq data and checksums are now in [`owl/nightingales/P_Helianthoides`](ht
 
 ---
 
-# 3. Quality check RNAseq data (FastQC)
+# 3. Untrimmed Data Quality Check Part I: FASTQC
 ### A. Get FastQC if you want to run on your laptop
 https://www.bioinformatics.babraham.ac.uk/projects/download.html#fastqc 
 
@@ -108,6 +108,6 @@ The FASTQC files are saved on Raven: `/home/shared/8TB_HDD_02/graceac9/analyses/
 
 ---
 
-# 4. Run MultiQC 
+# 4. Untrimmed Data Quality Check Part II: MultiQC
 
 

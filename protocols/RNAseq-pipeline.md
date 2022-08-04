@@ -131,4 +131,17 @@ The report will be generated in seconds to minutes.
 To view the report, transfer the .html report to Gannet or Owl, then you can view the .html report on your own browser. 
 
 I moved the untrimmed MultiQC report to Owl: 
-# NEED TO DO THIS
+naviagate in terminal to directory where the .html report lives, then `rsync` file to where I want it on owl.  
+
+```
+graceac9@raven:~/analyses/pycno$ rsync --archive --progress --verbose multiqc_report.html grace@owl.fish.washington.edu:/volume1/web/scaphapoda/grace/pycno_2021/multiqc
+grace@owl.fish.washington.edu's password: 
+sending incremental file list
+multiqc_report.html
+      1,853,263 100%   72.34MB/s    0:00:00 (xfr#1, to-chk=0/1)
+
+sent 1,853,829 bytes  received 34 bytes  195,143.47 bytes/sec
+total size is 1,853,263  speedup is 1.00
+graceac9@raven:~/analyses/pycno$ 
+```
+REPORT: [pycno_2021/multiqc/multiqc_report.html](http://owl.fish.washington.edu/scaphapoda/grace/pycno_2021/multiqc/multiqc_report.html)

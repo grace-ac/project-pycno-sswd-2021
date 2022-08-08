@@ -29,7 +29,9 @@ Azenta provided log-in credentials of how to access their servers.
 All downloaded files were put into a folder on genefish called: "" 
 
 Azenta (FKA Genewiz) pdf of different ways to download the data: [here](https://f.hubspotusercontent00.net/hubfs/3478602/Sell%20Sheet%20Collateral%20Library/NGS/NGS%20User%20Guides/NGS_sFTP-Data-Download-Guide_Option%201_Nov03_2020.pdf)
- 
+
+---
+
 # 2. Move data to OWL        
 
 GitHub Issue: [#1460](https://github.com/RobertsLab/resources/issues/1460)
@@ -66,7 +68,9 @@ done
 
 All RNAseq data and checksums are now in [`owl/nightingales/P_Helianthoides`](http://owl.fish.washington.edu/nightingales/P_helianthoides/)     
 
-# 3. Quality check RNAseq data (FastQC)
+---
+
+# 3. Untrimmed Data Quality Check Part I: FASTQC
 ### A. Get FastQC if you want to run on your laptop
 https://www.bioinformatics.babraham.ac.uk/projects/download.html#fastqc 
 
@@ -83,21 +87,61 @@ examples.desktop  GitHub  pycnornaseq  R
 graceac9@raven:~$ cd pycnornaseq/
 graceac9@raven:~/pycnornaseq$ 
 ```
+<img width="573" alt="PSC_files_on_RAVEN" src="https://user-images.githubusercontent.com/14934314/182927133-a905bdf5-85f4-4b7d-8dcb-9e40579f9a98.png">
+
+
 
 3. Then move files from OWL to `pycnornaseq` directory in Raven: 
 
-a. Have Husky OnNet App (BIG-IP Edge Client in Applications folder after downloaded)    
-b. Log in with UW credentials
-c. Put RStudio IP into browser: http://172.25.149.12:8787 
-d. Log in using Raven Credentials
-e. `cd` into `pycnornaseq/` and run: 
+a. Have Husky OnNet App (BIG-IP Edge Client in Applications folder after downloaded)        
+b. Log in with UW credentials         
+c. Put RStudio IP into browser: http://172.25.149.12:8787         
+d. Log in using Raven Credentials         
+e. `cd` into `pycnornaseq/` and run:        
 ```
 wget -r --no-directories --no-parent  -A "PSC*" https://owl.fish.washington.edu/nightingales/P_helianthoides
 ```
 
 ### C. Get into RStudio on Raven to run FASTQC:
+Follow the steps a-d in Step 3 above. 
 
+Then, follow the code outlined in this script: [scripts/01-FastQC_pre-trim.Rmd](https://github.com/grace-ac/project_pycno/blob/main/scripts/01-FastQC_pre-trim.Rmd)      
 
-### D. Run FastQC (lives in /home/shared/FastQC/fastqc on Raven) in Rmd
-Files are in OWL 
+The FASTQC files are saved on Raven: `/home/shared/8TB_HDD_02/graceac9/analyses/pycno/`
 
+---
+
+# 4. Untrimmed Data Quality Check Part II: MultiQC
+In the terminal of the same RSstudio project used in part C of section 3, run:     
+```
+eval "$(/opt/anaconda/anaconda3/bin/conda shell.bash hook)"
+conda activate
+```
+
+Then navigate into the directory where the FASTQC output lives, in this case: graceac9@raven:~/analyses/pycno$, then run:    
+```
+multiqc .
+```
+
+The report will be generated in seconds to minutes. 
+<img width="1426" alt="pretrim-multiqc" src="https://user-images.githubusercontent.com/14934314/182927019-e671cc93-4d57-4627-9ab1-57eb8e772513.png">
+
+<img width="1413" alt="Screen Shot 2022-08-04 at 11 36 09 AM" src="https://user-images.githubusercontent.com/14934314/182928170-293e7d28-44e4-448a-8226-3d2ba7d3c57e.png">
+
+To view the report, transfer the .html report to Gannet or Owl, then you can view the .html report on your own browser. 
+
+I moved the untrimmed MultiQC report to Owl: 
+naviagate in terminal to directory where the .html report lives, then `rsync` file to where I want it on owl.  
+
+```
+graceac9@raven:~/analyses/pycno$ rsync --archive --progress --verbose multiqc_report.html grace@owl.fish.washington.edu:/volume1/web/scaphapoda/grace/pycno_2021/multiqc
+grace@owl.fish.washington.edu's password: 
+sending incremental file list
+multiqc_report.html
+      1,853,263 100%   72.34MB/s    0:00:00 (xfr#1, to-chk=0/1)
+
+sent 1,853,829 bytes  received 34 bytes  195,143.47 bytes/sec
+total size is 1,853,263  speedup is 1.00
+graceac9@raven:~/analyses/pycno$ 
+```
+REPORT: [pycno_2021/multiqc/multiqc_report.html](http://owl.fish.washington.edu/scaphapoda/grace/pycno_2021/multiqc/multiqc_report.html)

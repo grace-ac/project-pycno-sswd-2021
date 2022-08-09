@@ -15,7 +15,7 @@
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user=graceac9@uw.edu
 ## Specify the working directory for this job
-#SBATCH --chdir=/gscratch/srlab/graceac9/scripts/20220809_pycno_fastp
+#SBATCH --chdir=/gscratch/srlab/graceac9/analyses/pycno/20220809_PSC2021_trimming
 
 ### Fastp for Pycnopodia helianthoides RNAseq
 

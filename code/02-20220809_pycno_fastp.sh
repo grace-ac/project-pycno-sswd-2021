@@ -1,6 +1,6 @@
 #!/bin/bash
 ## Job Name
-#SBATCH --job-name=20220808_pycno_fastp
+#SBATCH --job-name=20220809_pycno_fastp
 ## Allocation Definition
 #SBATCH --account=coenv
 #SBATCH --partition=coenv
@@ -15,7 +15,7 @@
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user=graceac9@uw.edu
 ## Specify the working directory for this job
-#SBATCH --chdir=/gscratch/srlab/graceac9/scripts/20220808_pycno_fastp
+#SBATCH --chdir=/gscratch/srlab/graceac9/scripts/20220809_pycno_fastp
 
 ### Fastp for Pycnopodia helianthoides RNAseq
 

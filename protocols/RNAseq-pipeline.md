@@ -148,10 +148,10 @@ REPORT: [pycno_2021/multiqc/multiqc_report.html](http://owl.fish.washington.edu/
 
 ---
 
-# 5 Run `fastp` on Mox
+# 5. Run `fastp` on Mox
 1. `rsync` RNAseq data (fastq.gz) from `nightingales` to `/gscratch/srlab/graceac9/data/pycno/RNAseq`
 a. navigate into `/nightingales/P_helianthoides` in command line on Owl
-b. Copy in code: `rsync —archive —progress —verbose PSC*.fastq.gz  graceac9@###.##.###.##:/gscratch/srlab/graceac9/analyses/pycno/RNAseq`, where `@###.##.###.##`is the IP address for Mox 
+b. Copy in code: `rsync —archive —progress —verbose PSC*.fastq.gz  graceac9@###.##.###.##:/gscratch/srlab/graceac9/analyses/pycno/RNAseq`, where `@###.##.###.##`is the IP address for Mox
 
 2. Add .sh script to my /gscratch/srlab/graceac9/jobs directory on Mox --> here's what I have based on [Sam's script](https://raw.githubusercontent.com/RobertsLab/sams-notebook/master/sbatch_scripts/20210714_cvir_gonad_RNAseq_fastp_trimming.sh): [code/02-20220809_pycno_fastp.sh](https://raw.githubusercontent.com/grace-ac/project_pycno/main/code/02-20220809_pycno_fastp.sh?token=GHSAT0AAAAAABWSNKWLMPAMQE4VEQ3JGB5IYXT5RBQ)
 3. Run the job using `sbatch 02-20220810_pycno_fastp.sh` and it will put output into ``/gscratch/srlab/graceac9/analyses/pycno/20220810_PSC2021_trimming`

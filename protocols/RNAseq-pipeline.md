@@ -148,7 +148,7 @@ REPORT: [pycno_2021/multiqc/multiqc_report.html](http://owl.fish.washington.edu/
 
 ---
 
-# 5. Run `fastp` on Mox
+# 5. Trim RNAseq data: Run `fastp` on Mox
 1. `rsync` RNAseq data (fastq.gz) from `nightingales` to `/gscratch/srlab/graceac9/data/pycno/RNAseq`
 a. navigate into `/nightingales/P_helianthoides` in command line on Owl
 b. Copy in code: `rsync —archive —progress —verbose PSC*.fastq.gz  graceac9@###.##.###.##:/gscratch/srlab/graceac9/analyses/pycno/RNAseq`, where `@###.##.###.##`is the IP address for Mox

@@ -2,8 +2,8 @@
 ## Job Name
 #SBATCH --job-name=20220809_pycno_fastp
 ## Allocation Definition
-#SBATCH --account=coenv
-#SBATCH --partition=coenv
+#SBATCH --account=srlab
+#SBATCH --partition=srlab
 ## Resources
 ## Nodes
 #SBATCH --nodes=1

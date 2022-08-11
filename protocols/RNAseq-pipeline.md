@@ -20,9 +20,11 @@ FISH546-2021 syllabus: https://github.com/sr320/course-fish546-2021/wiki
 
 ---
 
+# 1. Data Management
+
+## Download all RNAseq and checksum files
 Received data from Azenta (FKA Genewiz)
 
-# 1. Download all RNAseq and checksum files     
 Downloaded to genefish using: [cyberduck](https://cyberduck.io/download/)     
 Azenta provided log-in credentials of how to access their servers.
 
@@ -32,7 +34,7 @@ Azenta (FKA Genewiz) pdf of different ways to download the data: [here](https://
 
 ---
 
-# 2. Move data to OWL        
+## Move data to OWL        
 
 GitHub Issue: [#1460](https://github.com/RobertsLab/resources/issues/1460)
 
@@ -70,13 +72,15 @@ All RNAseq data and checksums are now in [`owl/nightingales/P_Helianthoides`](ht
 
 ---
 
-# 3. Untrimmed Data Quality Check Part I: FASTQC
+# 2. Quality Check and Trimming
+
+## 1. Untrimmed Data Quality Check Part I: FASTQC
 ### A. Get FastQC if you want to run on your laptop
 https://www.bioinformatics.babraham.ac.uk/projects/download.html#fastqc
 
 ### B. Get .fastq.gz files from OWL onto Raven
-1. `ssh` into Raven using credentials in command line
-2. Make a directory for all PSC .fastq.gz files (made one called `pycnornaseq` in my `graceac9@raven`
+i. `ssh` into Raven using credentials in command line
+ii. Make a directory for all PSC .fastq.gz files (made one called `pycnornaseq` in my `graceac9@raven`
 
 ```
 graceac9@raven:~$ ls
@@ -91,7 +95,7 @@ graceac9@raven:~/pycnornaseq$
 
 
 
-3. Then move files from OWL to `pycnornaseq` directory in Raven:
+### C. Then move files from OWL to `pycnornaseq` directory in Raven:
 
 a. Have Husky OnNet App (BIG-IP Edge Client in Applications folder after downloaded)        
 b. Log in with UW credentials         
@@ -102,7 +106,7 @@ e. `cd` into `pycnornaseq/` and run:
 wget -r --no-directories --no-parent  -A "PSC*" https://owl.fish.washington.edu/nightingales/P_helianthoides
 ```
 
-### C. Get into RStudio on Raven to run FASTQC:
+### D. Get into RStudio on Raven to run FASTQC:
 Follow the steps a-d in Step 3 above.
 
 Then, follow the code outlined in this script: [scripts/01-FastQC_pre-trim.Rmd](https://github.com/grace-ac/project_pycno/blob/main/scripts/01-FastQC_pre-trim.Rmd)      
@@ -111,7 +115,7 @@ The FASTQC files are saved on Raven: `/home/shared/8TB_HDD_02/graceac9/analyses/
 
 ---
 
-# 4. Untrimmed Data Quality Check Part II: MultiQC
+## 2. Untrimmed Data Quality Check Part II: MultiQC
 In the terminal of the same RSstudio project used in part C of section 3, run:     
 ```
 eval "$(/opt/anaconda/anaconda3/bin/conda shell.bash hook)"
@@ -148,7 +152,7 @@ REPORT: [pycno_2021/multiqc/multiqc_report.html](http://owl.fish.washington.edu/
 
 ---
 
-# 5. Trim RNAseq data: Run `fastp` on Mox, then `multiqc`          
+## 3. Trim RNAseq data: Run `fastp` on Mox, then `multiqc`          
 ### A. `rsync` RNAseq data (fastq.gz) from `nightingales` to `/gscratch/srlab/graceac9/data/pycno/RNAseq`        
 i. navigate into `/nightingales/P_helianthoides` in command line on Owl       
 ii. Copy in code: `rsync —archive —progress —verbose PSC*.fastq.gz  graceac9@mox.hyak.uw.edu:/gscratch/srlab/graceac9/data/pycno/RNAseq`         

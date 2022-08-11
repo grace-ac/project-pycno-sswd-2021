@@ -34,9 +34,9 @@ export PATH="$PATH:\
 /gscratch/srlab/programs/Trinity-v2.8.3/Trinity \
 --seqType fq \
 --max_memory 100G \
---left /gscratch/srlab/graceac9/data/304428_S1_L001_R1_001.fastq.gz,\
-/gscratch/srlab/graceac9/data/304428_S1_L002_R1_001.fastq.gz \
---right /gscratch/srlab/graceac9/data/304428_S1_L001_R2_001.fastq.gz,\
-/gscratch/srlab/graceac9/data/304428_S1_L002_R2_001.fastq.gz \
+--left /gscratch/srlab/graceac9/data/pycno/RNAseq/PSC-19_R1_001.fastq.gz,\
+/gscratch/srlab/graceac9/data/pycno/RNAseq/PSC-23_R1_001.fastq.gz \
+--right /gscratch/srlab/graceac9/data/pycno/RNAseq/PSC-19_R2_001.fastq.gz,\
+/gscratch/srlab/graceac9/data/pycno/RNAseq/PSC-23_R2_001.fastq.gz \
 --trimmomatic \
 --CPU 28

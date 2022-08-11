@@ -181,7 +181,7 @@ Anyway, you could copy mine to your home directory and re-run MultiQC:
 
 Copy file to your home directory:
 
-`cp /usr/lusers/samwhite/.multiqc_config.yaml ~`
+`cp /gscratch/srlab/sam/.multiqc_config.yaml ~`
 
 Confirm copy command worked:
 
@@ -190,3 +190,12 @@ Confirm copy command worked:
 Then, you can move to your working directory with all the trimming reports and run MultiQC:
 
 `/gscratch/srlab/programs/anaconda3/bin/multiqc .`
+
+NOTE: to get to home directory, while `ssh` in Mox, type `cd`, then `pwd`... mine is `/usr/lusers/graceac9`
+
+My working directory with all the trimmed data is:    
+`/gscratch/srlab/graceac9/analyses/pycno/20220810_PSC2021_trimming`
+
+`multiqc` should run very fast.
+
+4. Move the 

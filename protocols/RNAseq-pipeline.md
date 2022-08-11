@@ -175,6 +175,8 @@ Where `##` is the library number. Since they're paired end, the reports (report.
 
 When I ran the `20220810_pycno_fastp.sh`, `multiqc` didn't run. Notes from Sam ([Issue #1476](https://github.com/RobertsLab/resources/issues/1476)):      
 
+---
+
 Looks like you don't have a default config file for MultiQC. Not sure why...
 
 Anyway, you could copy mine to your home directory and re-run MultiQC:
@@ -190,6 +192,8 @@ Confirm copy command worked:
 Then, you can move to your working directory with all the trimming reports and run MultiQC:
 
 `/gscratch/srlab/programs/anaconda3/bin/multiqc .`
+
+---
 
 NOTE: to get to home directory, while `ssh` in Mox, type `cd`, then `pwd`... mine is `/usr/lusers/graceac9`
 
@@ -215,4 +219,4 @@ total size is 1,608,848  speedup is 1.00
 [graceac9@mox2 20220810_PSC2021_trimming]$
 ```
 
-REPORT for trimmed data: [scaphapoda/grace/pycno_2021/multiqc/trimmed/multiqc_report.html](http://owl.fish.washington.edu/scaphapoda/grace/pycno_2021/multiqc/trimmed/multiqc_report.html) 
+REPORT for trimmed data: [scaphapoda/grace/pycno_2021/multiqc/trimmed/multiqc_report.html](http://owl.fish.washington.edu/scaphapoda/grace/pycno_2021/multiqc/trimmed/multiqc_report.html)

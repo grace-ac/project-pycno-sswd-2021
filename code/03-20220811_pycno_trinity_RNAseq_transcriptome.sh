@@ -23,6 +23,8 @@ module load intel-python3_2017
 
 
 data_dir=/gscratch/srlab/graceac9/data/pycno/RNAseq/
+trinity_dir=/gscratch/srlab/programs/Trinity-v2.8.3
+assembly_stats=assembly_stats.txt
 
 # Custom PATH
 
@@ -34,7 +36,8 @@ export PATH="$PATH:\
 /gscratch/srlab/programs/salmon-0.11.2-linux_x86_64/bin:\
 /gscratch/srlab/programs/samtools-1.9"
 
-/gscratch/srlab/programs/Trinity-v2.8.3/Trinity \
+# Run Trinity
+${trinity_dir}/Trinity \
 --seqType fq \
 --max_memory 100G \
 --left ${data_dir}/PSC-19_R1_001.fastq.gz,\

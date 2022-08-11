@@ -230,4 +230,6 @@ REPORT for trimmed data: [scaphapoda/grace/pycno_2021/multiqc/trimmed/multiqc_re
 # 3. Assemble Transcriptome
 There is no reference genome for _P. helianthoides_ (though one is in the works and may be published within this year...!). So, to continue with RNAseq analyses, a transcriptome must first be assembled.
 
-First, [Trinity](https://github.com/trinityrnaseq/trinityrnaseq/wiki) will be used for assembly, then Transrate can be used for evaluating the assembly. 
+First, [Trinity](https://github.com/trinityrnaseq/trinityrnaseq/wiki) will be used for assembly, then Transrate can be used for evaluating the assembly.
+
+## 1. Use Trinity on Mox to Assemble Transcriptome

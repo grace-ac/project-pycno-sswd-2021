@@ -105,3 +105,7 @@ ${data_dir}/PSC-81_R2_001.fastq.gz, \
 ${data_dir}/PSC-83_R2_001.fastq.gz \
 --trimmomatic \
 --CPU 28
+
+# Assembly stats
+${trinity_dir}/util/TrinityStats.pl trinity_out_dir/Trinity.fasta \
+> ${assembly_stats}

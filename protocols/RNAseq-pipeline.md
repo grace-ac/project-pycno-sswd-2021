@@ -164,3 +164,29 @@ job submitted at 17:35, 20220810
 Check job status by running: `squeue | grep "srlab"`          
 Also, you should get an email at start time and end, as well as any errors occur.      
 Run time: 2:21:56
+
+The output will be that each library has 4 files:      
+PSC-##_R1_001.fastq.gz.fastp-trim.20220810.fq.gz
+PSC-##_R1_001.fastq.gz.fastp-trim.20220810.report.html
+PSC-##_R1_001.fastq.gz.fastp-trim.20220810.report.json
+PSC-##_R2_001.fastq.gz.fastp-trim.20220810.fq.gz
+
+Where `##` is the library number. Since they're paired end, the reports (report.html and report.json) contain info for both sets of reads (note from Sam White).
+
+When I ran the `20220810_pycno_fastp.sh`, `multiqc` didn't run. Notes from Sam ([Issue #1476](https://github.com/RobertsLab/resources/issues/1476)):      
+
+Looks like you don't have a default config file for MultiQC. Not sure why...
+
+Anyway, you could copy mine to your home directory and re-run MultiQC:
+
+Copy file to your home directory:
+
+`cp /usr/lusers/samwhite/.multiqc_config.yaml ~`
+
+Confirm copy command worked:
+
+`ls ~/.multiqc_config.yaml`
+
+Then, you can move to your working directory with all the trimming reports and run MultiQC:
+
+`/gscratch/srlab/programs/anaconda3/bin/multiqc .`

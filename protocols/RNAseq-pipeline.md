@@ -162,5 +162,5 @@ a. navigate to `/gscratch/graceac9/jobs`, type `nano 20220810_pycno_fastp.sh`, t
 3. Run the job. Navigate into `/gscratch/srlab/graceac9/jobs`, then run `sbatch 20220810_pycno_fastp.sh` and it will put output into `/gscratch/srlab/graceac9/analyses/pycno/20220810_PSC2021_trimming`  
 job submitted at 17:35, 20220810         
 Check job status by running: `squeue | grep "srlab"`          
-Also, you should get an email at start time and end, as well as any errors occur.
-Time start: ; time end:
+Also, you should get an email at start time and end, as well as any errors occur.      
+Run time: 2:21:56

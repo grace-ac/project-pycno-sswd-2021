@@ -214,3 +214,5 @@ sent 1,609,360 bytes  received 34 bytes  153,275.62 bytes/sec
 total size is 1,608,848  speedup is 1.00
 [graceac9@mox2 20220810_PSC2021_trimming]$
 ```
+
+REPORT for trimmed data: [scaphapoda/grace/pycno_2021/multiqc/trimmed/multiqc_report.html](http://owl.fish.washington.edu/scaphapoda/grace/pycno_2021/multiqc/trimmed/multiqc_report.html) 

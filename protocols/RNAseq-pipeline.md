@@ -160,7 +160,7 @@ Takes ~ 2 hours for 32 libraries. (started at ~12:51pm, ended 2:38pm)
 a. navigate to `/gscratch/graceac9/jobs`, type `nano 20220810_pycno_fastp.sh`, then paste in code for 20220810_pycno_fastp.sh, and save. Typing `nano 20220810_pycno_fastp.sh` creates the .sh file and allows you to name it at the same time.
 
 3. Run the job. Navigate into `/gscratch/srlab/graceac9/jobs`, then run `sbatch 20220810_pycno_fastp.sh` and it will put output into `/gscratch/srlab/graceac9/analyses/pycno/20220810_PSC2021_trimming`  
-job submitted at 2:40pm, 20220810         
+job submitted at 17:35, 20220810         
 Check job status by running: `squeue | grep "srlab"`          
 Also, you should get an email at start time and end, as well as any errors occur.
 Time start: ; time end:

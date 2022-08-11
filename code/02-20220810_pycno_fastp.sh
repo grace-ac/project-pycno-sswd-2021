@@ -65,16 +65,16 @@ timestamp=$(date +%Y%m%d)
 
 # Sync raw FastQ files to working directory
 rsync --archive --verbose \
-"${raw_reads_dir}"/1*.fq.gz .
+"${raw_reads_dir}"/PSC*.fastq.gz .
 
 # Create arrays of fastq R1 files and sample names
-for fastq in 1*_1*.fq.gz
+for fastq in PSC*R1*.fastq.gz
 do
   fastq_array_R1+=("${fastq}")
 done
 
 # Create array of fastq R2 files
-for fastq in 1*_2*.fq.gz
+for fastq in PSC*R2*.fastq.gz
 do
   fastq_array_R2+=("${fastq}")
 done

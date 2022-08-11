@@ -166,9 +166,9 @@ Also, you should get an email at start time and end, as well as any errors occur
 Run time: 2:21:56
 
 The output will be that each library has 4 files:      
-PSC-##_R1_001.fastq.gz.fastp-trim.20220810.fq.gz
-PSC-##_R1_001.fastq.gz.fastp-trim.20220810.report.html
-PSC-##_R1_001.fastq.gz.fastp-trim.20220810.report.json
+PSC-##_R1_001.fastq.gz.fastp-trim.20220810.fq.gz        
+PSC-##_R1_001.fastq.gz.fastp-trim.20220810.report.html       
+PSC-##_R1_001.fastq.gz.fastp-trim.20220810.report.json        
 PSC-##_R2_001.fastq.gz.fastp-trim.20220810.fq.gz
 
 Where `##` is the library number. Since they're paired end, the reports (report.html and report.json) contain info for both sets of reads (note from Sam White).

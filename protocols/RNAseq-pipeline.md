@@ -198,4 +198,19 @@ My working directory with all the trimmed data is:
 
 `multiqc` should run very fast.
 
-4. Move the 
+4. Move the multiqc report to OWL where the other one lives, but add the date and that it's for trimmed data.
+
+Navigate in terminal to directory on Mox where the multiqc report lives
+
+Then:
+```
+[graceac9@mox2 20220810_PSC2021_trimming]$ rsync --archive --progress --verbose multiqc_report.html grace@owl.fish.washington.edu:/volume1/web/scaphapoda/grace/pycno_2021/multiqc/trimmed
+grace@owl.fish.washington.edu's password:
+sending incremental file list
+multiqc_report.html
+      1,608,848 100%  375.77MB/s    0:00:00 (xfr#1, to-chk=0/1)
+
+sent 1,609,360 bytes  received 34 bytes  153,275.62 bytes/sec
+total size is 1,608,848  speedup is 1.00
+[graceac9@mox2 20220810_PSC2021_trimming]$
+```

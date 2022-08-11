@@ -56,7 +56,7 @@ ssh username@owl.fish.washington.edu
 
 Will be prompted for password
 
-#### B.2 Navigate to folder you want to work in, in my case: `owl/nightingales/P_Helianthoides`
+#### B.2 Navigate to folder you want to work in, in my case: `owl/nightingales/P_helianthoides`
 
 #### B.3 Put below code in and hit ENTER:
 ```

@@ -21,7 +21,7 @@
 
 module load intel-python3_2017
 
-#
+
 data_dir=/gscratch/srlab/graceac9/data/pycno/RNAseq/
 
 # Custom PATH

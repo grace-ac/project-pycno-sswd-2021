@@ -23,7 +23,7 @@ module load intel-python3_2017
 
 
 data_dir=/gscratch/srlab/graceac9/analyses/pycno/20220810_PSC2021_trimming
-trinity_dir=/gscratch/srlab/programs/Trinity-v2.8.3
+trinity_dir=/gscratch/srlab/programs/trinityrnaseq-v2.12.0
 assembly_stats=assembly_stats.txt
 
 # Custom PATH

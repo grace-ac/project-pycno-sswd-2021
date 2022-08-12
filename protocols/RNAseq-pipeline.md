@@ -246,3 +246,9 @@ iv. Check status of job: `squeue | grep "srlab"`
 Note: Submitted official job 20220812
 
 # Note: Up In Arms paper has a published transcriptome from taht study. So... while this new transcriptome is assembling, I'll move forward to psuedoalignment of the new libraries to the old transcriptome using `kallisto`.
+
+---
+
+# 4. Pseudoalign New RNAseq data to Up in Arms transcriptome using `kallisto`
+
+Run `kallisto` on Raven, based on this notebook: [notebooks/kallisto-4libraries.ipynb](https://github.com/RobertsLab/paper-tanner-crab/blob/master/notebooks/kallisto-4libraries.ipynb) from crab paper

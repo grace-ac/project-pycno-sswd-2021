@@ -233,3 +233,5 @@ There is no reference genome for _P. helianthoides_ (though one is in the works 
 First, [Trinity](https://github.com/trinityrnaseq/trinityrnaseq/wiki) will be used for assembly, then Transrate can be used for evaluating the assembly.
 
 ## 1. Use Trinity on Mox to Assemble Transcriptome
+Use the trimmed data that was created in the previous section. Lives in:
+`/gscratch/srlab/graceac9/analyses/pycno/20220810_PSC2021_trimming`, and the trimmed files end in `.fq.gz`

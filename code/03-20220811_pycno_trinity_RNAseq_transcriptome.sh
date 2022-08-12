@@ -15,7 +15,7 @@
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user=graceac9@uw.edu
 ## Specify the working directory for this job
-#SBATCH --workdir=/gscratch/srlab/graceac9/analyses/pycno/20220811_trinity_out
+#SBATCH --chdir=/gscratch/srlab/graceac9/analyses/pycno/20220811_trinity_out
 
 # Load Python Mox module for Python module availability
 

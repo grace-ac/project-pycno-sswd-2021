@@ -251,4 +251,7 @@ Note: Submitted official job 20220812
 
 # 4. Pseudoalign New RNAseq data to Up in Arms transcriptome using `kallisto`
 
-Run `kallisto` on Raven, based on this notebook: [notebooks/kallisto-4libraries.ipynb](https://github.com/RobertsLab/paper-tanner-crab/blob/master/notebooks/kallisto-4libraries.ipynb) from crab paper
+Run `kallisto` on Mox, based on this notebook: [notebooks/kallisto-4libraries.ipynb](https://github.com/RobertsLab/paper-tanner-crab/blob/master/notebooks/kallisto-4libraries.ipynb) from crab paper.
+
+Instructions for running jupyter notebooks on Mox:     
+[https://robertslab.github.io/resources/mox_Jupyter-Notebooks/](https://robertslab.github.io/resources/mox_Jupyter-Notebooks/)

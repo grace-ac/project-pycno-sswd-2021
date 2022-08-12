@@ -244,4 +244,19 @@ iii. Run script: `sbatch 20220811_pycno_trinity_RNAseq_transcriptome.sh`
 iv. Check status of job: `squeue | grep "srlab"`
 
 Note: submitted job at 1732 on 11 August 2022     
-Job: 3461343
+Job: 3461343 --> failed in a couple minutes. 
+
+Error:
+```
+-ERROR: couldn't run the network check to confirm latest Trinity software version.
+
+Thursday, August 11, 2022: 17:33:26     CMD: java -Xmx64m -XX:ParallelGCThreads=2  -jar /gscratch/srlab/programs/Trinity-v2.8.3/util/support_scripts/ExitTester.jar 0
+Thursday, August 11, 2022: 17:33:26     CMD: java -Xmx4g -XX:ParallelGCThreads=2  -jar /gscratch/srlab/programs/Trinity-v2.8.3/util/support_scripts/ExitTester.jar 1
+Thursday, August 11, 2022: 17:33:26     CMD: mkdir -p /gscratch/srlab/graceac9/analyses/pycno/20220811_trinity_out/trinity_out_dir
+Error, cannot locate file:  at /gscratch/srlab/programs/Trinity-v2.8.3/Trinity line 2653.
+        main::create_full_path('ARRAY(0x119ada8)', 1) called at /gscratch/srlab/programs/Trinity-v2.8.3/Trinity line 1227
+Error: Couldn't open trinity_out_dir/Trinity.fasta
+Can't open trinity_out_dir/Trinity.fasta: No such file or directory at /gscratch/srlab/programs/Trinity-v2.8.3/util/support_scripts/get_Trinity_gene_to_trans_map.pl line 7.
+Error: Couldn't open trinity_out_dir/Trinity.fasta
+/var/spool/slurm/d/job3461343/slurm_script: line 125: trinity_out_dir/Trinity.fasta: No such file or directory
+```

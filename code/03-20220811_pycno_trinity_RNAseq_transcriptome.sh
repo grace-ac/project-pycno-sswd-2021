@@ -8,7 +8,7 @@
 ## Nodes
 #SBATCH --nodes=1
 ## Walltime (days-hours:minutes:seconds format)
-#SBATCH --time=90:30:00
+#SBATCH --time=10-00:00:00
 ## Memory per node
 #SBATCH --mem=500G
 ##turn on e-mail notification
@@ -104,9 +104,22 @@ ${data_dir}/PSC-76_R2_001.fastq.gz.fastp-trim.20220810.fq.gz, \
 ${data_dir}/PSC-78_R2_001.fastq.gz.fastp-trim.20220810.fq.gz, \
 ${data_dir}/PSC-81_R2_001.fastq.gz.fastp-trim.20220810.fq.gz, \
 ${data_dir}/PSC-83_R2_001.fastq.gz.fastp-trim.20220810.fq.gz \
---trimmomatic \
 --CPU 28
 
 # Assembly stats
 ${trinity_dir}/util/TrinityStats.pl trinity_out_dir/Trinity.fasta \
 > ${assembly_stats}
+
+# Create gene map files
+${trinity_dir}/util/support_scripts/get_Trinity_gene_to_trans_map.pl \
+trinity_out_dir/Trinity.fasta \
+> trinity_out_dir/Trinity.fasta.gene_trans_map
+
+# Create sequence lengths file (used for differential gene expression)
+${trinity_dir}/util/misc/fasta_seq_length.pl \
+trinity_out_dir/Trinity.fasta \
+> trinity_out_dir/Trinity.fasta.seq_lens
+
+# Create FastA index
+${programs_array[samtools_faidx]} \
+trinity_out_dir/Trinity.fasta

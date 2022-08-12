@@ -235,3 +235,10 @@ First, [Trinity](https://github.com/trinityrnaseq/trinityrnaseq/wiki) will be us
 ## 1. Use Trinity on Mox to Assemble Transcriptome
 Use the trimmed data that was created in the previous section. Lives in:
 `/gscratch/srlab/graceac9/analyses/pycno/20220810_PSC2021_trimming`, and the trimmed files end in `.fq.gz`
+
+.sh script: [code/03-20220811_pycno_trinity_RNAseq_transcriptome.sh](https://raw.githubusercontent.com/grace-ac/project_pycno/main/code/03-20220811_pycno_trinity_RNAseq_transcriptome.sh?token=GHSAT0AAAAAABWSNKWK2K2D2CXVZIZOC7TYYXVTWRQ)
+
+i. `ssh` into Mox and navigate to `/gscratch/srlab/graceac9/jobs`        
+ii. Type `nano 20220811_pycno_trinity_RNAseq_transcriptome.sh` and copy code from [code/03-20220811_pycno_trinity_RNAseq_transcriptome.sh](https://raw.githubusercontent.com/grace-ac/project_pycno/main/code/03-20220811_pycno_trinity_RNAseq_transcriptome.sh?token=GHSAT0AAAAAABWSNKWK2K2D2CXVZIZOC7TYYXVTWRQ) and save      
+iii. Run script: `sbatch 20220811_pycno_trinity_RNAseq_transcriptome.sh`     
+iv. Check status of job: `squeue | grep "srlab"`

@@ -107,7 +107,8 @@ ${data_dir}/PSC-83_R2_001.fastq.gz.fastp-trim.20220810.fq.gz \
 --CPU 28
 
 # Assembly stats
-${trinity_dir}/util/TrinityStats.pl trinity_out_dir/Trinity.fasta \
+${trinity_dir}/util/TrinityStats.pl \
+trinity_out_dir/Trinity.fasta \
 > ${assembly_stats}
 
 # Create gene map files

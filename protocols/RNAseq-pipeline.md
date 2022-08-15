@@ -302,7 +302,10 @@ This will help free up space on the srlab account. Then, when you re-run your SL
 
 Run `kallisto`, based on this notebook: [notebooks/kallisto-4libraries.ipynb](https://github.com/RobertsLab/paper-tanner-crab/blob/master/notebooks/kallisto-4libraries.ipynb) from crab paper.
 
-NOTE: Use trimmed RNAseq data... which currently lives on Mox, so will need to move to Raven. 
+NOTE: Use trimmed RNAseq data... which currently lives on Mox, so will need to move to Raven.
 
 `kallisto` can be run in R... so run it on Raven.
 Code from SR: [P_generosa/code/02-kallisto.Rmd](https://github.com/sr320/nb-2022/blob/main/P_generosa/code/02-kallisto.Rmd)
+
+FASTA for 2015 P_helianthoides transcriptome: https://github.com/sr320/eimd-sswd/blob/master/data/Phel_transcriptome.fasta
+... Also figshare link: https://figshare.com/articles/software/eimd_sswd_v1_0_Supplemental_Jupyter_notebooks_and_data/1441384 

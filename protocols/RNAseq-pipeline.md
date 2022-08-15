@@ -255,3 +255,11 @@ Run `kallisto` on Mox, based on this notebook: [notebooks/kallisto-4libraries.ip
 
 Instructions for running jupyter notebooks on Mox:     
 [https://robertslab.github.io/resources/mox_Jupyter-Notebooks/](https://robertslab.github.io/resources/mox_Jupyter-Notebooks/)
+
+## 1. Navigate into working directory on Mox.      
+
+## 2. Run a jupyter notebook on Mox in working directory      
+
+## 3. Move transcriptome from Up in Arms into directory
+
+## 4. Run notebook with the trimmed RNAseq files for each library

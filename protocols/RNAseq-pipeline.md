@@ -251,13 +251,7 @@ Note: Submitted official job 20220812
 
 # 4. Pseudoalign New RNAseq data to Up in Arms transcriptome using `kallisto`
 
-Run `kallisto` on Mox, based on this notebook: [notebooks/kallisto-4libraries.ipynb](https://github.com/RobertsLab/paper-tanner-crab/blob/master/notebooks/kallisto-4libraries.ipynb) from crab paper.
+Run `kallisto`, based on this notebook: [notebooks/kallisto-4libraries.ipynb](https://github.com/RobertsLab/paper-tanner-crab/blob/master/notebooks/kallisto-4libraries.ipynb) from crab paper.
 
-Instructions for running jupyter notebooks on Mox:     
-[https://robertslab.github.io/resources/mox_Jupyter-Notebooks/](https://robertslab.github.io/resources/mox_Jupyter-Notebooks/)
-
-## 1. may be best to use jupyter on Ostrich using screen sharing.... jupyter on mox might not work anymore...? [GitHub Issue #1511](https://github.com/RobertsLab/resources/issues/1511)   
-
-## 3. Move transcriptome from Up in Arms into directory
-
-## 4. Run notebook with the trimmed RNAseq files for each library
+`kallisto` can be run in R... so run it on Raven.
+Code from SR: [P_generosa/code/02-kallisto.Rmd](https://github.com/sr320/nb-2022/blob/main/P_generosa/code/02-kallisto.Rmd)

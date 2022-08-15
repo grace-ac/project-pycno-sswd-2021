@@ -245,6 +245,55 @@ iv. Check status of job: `squeue | grep "srlab"`
 
 Note: Submitted official job 20220812
 
+Job failed because wasn't enough disk space in `/gscratch/srlab/`... so I will be moving it all to `/gscratch/scrubbed/` per Sam White's suggestion:   
+
+```
+If you look a little higher up in the slurm file (tail -n 50), you'll see these errors:
+
+/usr/bin/sort: write failed: standard output: Disk quota exceeded
+/usr/bin/sort: write error
+/usr/bin/sort: write failed: standard output: Disk quota exceeded
+/usr/bin/sort: write error
+Thread 6 terminated abnormally: Error, cmd: head -n1 right.fa.K25.stats > right.fa.K25.stats.sort && tail -n +2 right.fa.K25.stats | /usr/bin/sort --parallel=28 -k1,1 -T . -S 50G >> right.fa.K25.stats.sort died with ret 512 at /gscratch/srlab/programs/trinityrnaseq-v2.12.0/util/insilico_read_normalization.pl line 793.
+We're over our disk quota:
+
+cat usage_report.txt
+Name             Type       Use (GB)  Quota (GB)  Limit (GB)  Grace Period  Files      Files Quota  Files Limit  Files Grace
+----             ----       --------  ----------  ----------  ------------  ---------  -----------  -----------  -----------
+srlab            FILESET    8176      7500        8250        4 days        2783469    8250000      9075000      none
+557445           USR        24        0           0           none          156981     0            0            none
+afcoyle          USR        109       0           0           none          22261      0            0            none
+cnmntgna         USR        30        0           0           none          312        0            0            none
+graceac9         USR        1058      0           0           none          116478     0            0            none
+hyak-coenv       GRP        2293      0           0           none          1866       0            0            none
+hyak-srlab       GRP        5883      0           0           none          2781603    0            0            none
+jldimond         USR        50        0           0           none          14         0            0            none
+lapita           USR        227       0           0           none          9          0            0            none
+lhs3             USR        393       0           0           none          465714     0            0            none
+mewing0          USR        110       0           0           none          41         0            0            none
+mngeorge         USR        205       0           0           none          79         0            0            none
+nclowell         USR        1         0           0           none          17784      0            0            none
+ocattau          USR        2         0           0           none          20         0            0            none
+root             USR        0         0           0           none          2          0            0            none
+samwhite         USR        2183      0           0           none          1810396    0            0            none
+sr320            USR        3282      0           0           none          3825       0            0            none
+strigg           USR        494       0           0           none          182460     0            0            none
+yaaminiv         USR        2         0           0           none          7093       0            0            none
+I highly recommend using /gscratch/scrubbed/ for most jobs, as there's no quota there (essentially, anyway). NOTE: Files are automatically deleted from the scrubbed partition after 21 days.
+
+Make a working directory for yourself and work out of there instead of your directory on /gscratch/srlab/:
+
+mkdir --parents /gscratch/scrubbed/graceac9/analyses/pycno/
+In the meantime, I'll work on clearing out some files from my account. Maybe @sr320 can clear some stuff from his, too, but he's travelling and may not have the ability/time to tackle this any time soon.
+
+Also, in order to maintain your Trinity progress, I'd move your current working directory to scrubbed:
+
+mv /gscratch/srlab/graceac9/analyses/pycno/20220811_trinity_out/ /gscratch/scrubbed/graceac9/analyses/pycno/
+Then, update your SLURM script to match the new --chdir location on scrubbed.
+
+This will help free up space on the srlab account. Then, when you re-run your SLURM script (with the new --chdir location), Trinity will pick up where it left off when the job crashed!
+```
+
 # Note: Up In Arms paper has a published transcriptome from taht study. So... while this new transcriptome is assembling, I'll move forward to psuedoalignment of the new libraries to the old transcriptome using `kallisto`.
 
 ---

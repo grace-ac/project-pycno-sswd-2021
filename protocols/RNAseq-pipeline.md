@@ -256,9 +256,7 @@ Run `kallisto` on Mox, based on this notebook: [notebooks/kallisto-4libraries.ip
 Instructions for running jupyter notebooks on Mox:     
 [https://robertslab.github.io/resources/mox_Jupyter-Notebooks/](https://robertslab.github.io/resources/mox_Jupyter-Notebooks/)
 
-## 1. Navigate into working directory on Mox.      
-
-## 2. Run a jupyter notebook on Mox in working directory      
+## 1. `ssh` into Mox, and follow the instructions for running jupyter notebooks on Mox - may need to submit an issue to ask for permission/access from Sam/Steven.     
 
 ## 3. Move transcriptome from Up in Arms into directory
 

@@ -302,5 +302,7 @@ This will help free up space on the srlab account. Then, when you re-run your SL
 
 Run `kallisto`, based on this notebook: [notebooks/kallisto-4libraries.ipynb](https://github.com/RobertsLab/paper-tanner-crab/blob/master/notebooks/kallisto-4libraries.ipynb) from crab paper.
 
+NOTE: Use trimmed RNAseq data... which currently lives on Mox, so will need to move to Raven. 
+
 `kallisto` can be run in R... so run it on Raven.
 Code from SR: [P_generosa/code/02-kallisto.Rmd](https://github.com/sr320/nb-2022/blob/main/P_generosa/code/02-kallisto.Rmd)

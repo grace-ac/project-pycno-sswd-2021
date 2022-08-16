@@ -305,7 +305,7 @@ Run `kallisto`, based on this notebook: [notebooks/kallisto-4libraries.ipynb](ht
 NOTE: Use trimmed RNAseq data... which currently lives on Mox, so will need to move to Raven.
 
 `kallisto` can be run in R... so run it on Raven.
-Code from SR: [P_generosa/code/02-kallisto.Rmd](https://github.com/sr320/nb-2022/blob/main/P_generosa/code/02-kallisto.Rmd)
+Code from Steven's work: [P_generosa/code/02-kallisto.Rmd](https://github.com/sr320/nb-2022/blob/main/P_generosa/code/02-kallisto.Rmd)
 
 FASTA for 2015 P_helianthoides transcriptome: https://github.com/sr320/eimd-sswd/blob/master/data/Phel_transcriptome.fasta
-... Also figshare link: https://figshare.com/articles/software/eimd_sswd_v1_0_Supplemental_Jupyter_notebooks_and_data/1441384 
+... Also figshare link: https://figshare.com/articles/software/eimd_sswd_v1_0_Supplemental_Jupyter_notebooks_and_data/1441384

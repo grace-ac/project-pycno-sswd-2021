@@ -20,11 +20,11 @@ FISH546-2021 syllabus: https://github.com/sr320/course-fish546-2021/wiki
 
 ---
 
-RNAseq Workflow breaks down into the following major sections:
-1. [Data Management](https://github.com/grace-ac/project_pycno/blob/main/protocols/RNAseq-pipeline.md#1-data-management)       
-2. [Quality Checks and Trimming](https://github.com/grace-ac/project_pycno/blob/main/protocols/RNAseq-pipeline.md#2-quality-check-and-trimming)       
-3. [Transcriptome Assembly](https://github.com/grace-ac/project_pycno/blob/main/protocols/RNAseq-pipeline.md#3-assemble-transcriptome)       
-4. [Alignment and Count Matrices with `kallisto`](https://github.com/grace-ac/project_pycno/blob/main/protocols/RNAseq-pipeline.md#4-pseudoalign-new-rnaseq-data-to-up-in-arms-transcriptome-using-kallisto)         
+# RNAseq Workflow breaks down into the following major sections:
+## 1. [Data Management](https://github.com/grace-ac/project_pycno/blob/main/protocols/RNAseq-pipeline.md#1-data-management)       
+## 2. [Quality Checks and Trimming](https://github.com/grace-ac/project_pycno/blob/main/protocols/RNAseq-pipeline.md#2-quality-check-and-trimming)       
+## 3. [Transcriptome Assembly](https://github.com/grace-ac/project_pycno/blob/main/protocols/RNAseq-pipeline.md#3-assemble-transcriptome)       
+## 4. [Alignment and Count Matrices with `kallisto`](https://github.com/grace-ac/project_pycno/blob/main/protocols/RNAseq-pipeline.md#4-pseudoalign-new-rnaseq-data-to-up-in-arms-transcriptome-using-kallisto)         
 
 ---
 

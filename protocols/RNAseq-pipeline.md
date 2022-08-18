@@ -322,7 +322,7 @@ nano /gscratch/srlab/graceac9/jobs/20220811_pycno_trinity_RNAseq_transcriptome.s
 ```
 sbatch 20220811_pycno_trinity_RNAseq_transcriptome.sh
 ```       
-20220818 - job number: 3601297
+20220818 - job number: 3601297, start time: 13:08
 
 
 # Note: Up In Arms paper has a published transcriptome from taht study. So... while this new transcriptome is assembling, I'll move forward to psuedoalignment of the new libraries to the old transcriptome using `kallisto`.

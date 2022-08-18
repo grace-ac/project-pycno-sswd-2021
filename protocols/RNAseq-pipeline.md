@@ -18,6 +18,8 @@ https://www.ncbi.nlm.nih.gov/data-hub/taxonomy/7614/
 
 FISH546-2021 syllabus: https://github.com/sr320/course-fish546-2021/wiki
 
+How `kallisto` works: https://tinyheero.github.io/2015/09/02/pseudoalignments-kallisto.html 
+
 ---
 
 # RNAseq Workflow:
@@ -302,13 +304,23 @@ Then, update your SLURM script to match the new --chdir location on scrubbed.
 This will help free up space on the srlab account. Then, when you re-run your SLURM script (with the new --chdir location), Trinity will pick up where it left off when the job crashed!
 ```
 
+20220818
+1. Made a directory in `/gscratch/scrubbed/`:
+```
+mkdir --parents /gscratch/scrubbed/graceac9/analyses/pycno/   
+```
+2. Move current working directory to scrubbed:    
+```
+mv /gscratch/srlab/graceac9/analyses/pycno/20220811_trinity_out/ /gscratch/scrubbed/graceac9/analyses/pycno/
+```
+
 # Note: Up In Arms paper has a published transcriptome from taht study. So... while this new transcriptome is assembling, I'll move forward to psuedoalignment of the new libraries to the old transcriptome using `kallisto`.
 
 ---
 
 # 4. Pseudoalign and Count Matrix using `kallisto`
 
-Will run Summer 2021 coelomocyte libraries with 2015 transcriptome. 
+Will run Summer 2021 coelomocyte libraries with 2015 transcriptome.
 
 Run `kallisto`, based on this notebook: [notebooks/kallisto-4libraries.ipynb](https://github.com/RobertsLab/paper-tanner-crab/blob/master/notebooks/kallisto-4libraries.ipynb) from crab paper.
 

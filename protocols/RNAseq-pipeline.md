@@ -18,7 +18,7 @@ https://www.ncbi.nlm.nih.gov/data-hub/taxonomy/7614/
 
 FISH546-2021 syllabus: https://github.com/sr320/course-fish546-2021/wiki
 
-How `kallisto` works: https://tinyheero.github.io/2015/09/02/pseudoalignments-kallisto.html 
+How `kallisto` works: https://tinyheero.github.io/2015/09/02/pseudoalignments-kallisto.html
 
 ---
 
@@ -312,7 +312,18 @@ mkdir --parents /gscratch/scrubbed/graceac9/analyses/pycno/
 2. Move current working directory to scrubbed:    
 ```
 mv /gscratch/srlab/graceac9/analyses/pycno/20220811_trinity_out/ /gscratch/scrubbed/graceac9/analyses/pycno/
+```    
+3. Open script:    
 ```
+nano /gscratch/srlab/graceac9/jobs/20220811_pycno_trinity_RNAseq_transcriptome.sh
+```     
+4. Change the `--chdir` to `/gscratch/scrubbed/graceac9/analyses/pycno/20220811_trinity_out`    
+5. Re-run script (should pick up where trinity left off):    
+```
+sbatch 20220811_pycno_trinity_RNAseq_transcriptome.sh
+```       
+20220818 - job number: 3601297
+
 
 # Note: Up In Arms paper has a published transcriptome from taht study. So... while this new transcriptome is assembling, I'll move forward to psuedoalignment of the new libraries to the old transcriptome using `kallisto`.
 

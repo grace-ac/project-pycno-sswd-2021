@@ -345,5 +345,5 @@ FASTA for 2015 P_helianthoides transcriptome: https://github.com/sr320/eimd-sswd
 
 1. Opened IP client for getting into Raven and `ssh` into Raven     
 2. Made a directory called `data`    
-3. Make a subdirectory called `pycno`    
+3. Make a subdirectory called `pycno2021`    
 4. Move trimmed RNAseq data from Mox in this directory on Raven

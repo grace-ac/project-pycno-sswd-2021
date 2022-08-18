@@ -306,7 +306,9 @@ This will help free up space on the srlab account. Then, when you re-run your SL
 
 ---
 
-# 4. Pseudoalign New RNAseq data to Up in Arms transcriptome using `kallisto`
+# 4. Pseudoalign and Count Matrix using `kallisto`
+
+Will run Summer 2021 coelomocyte libraries with 2015 transcriptome. 
 
 Run `kallisto`, based on this notebook: [notebooks/kallisto-4libraries.ipynb](https://github.com/RobertsLab/paper-tanner-crab/blob/master/notebooks/kallisto-4libraries.ipynb) from crab paper.
 

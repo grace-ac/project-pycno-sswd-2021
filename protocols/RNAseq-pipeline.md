@@ -346,4 +346,15 @@ FASTA for 2015 P_helianthoides transcriptome: https://github.com/sr320/eimd-sswd
 1. Opened IP client for getting into Raven and `ssh` into Raven     
 2. Made a directory called `data`    
 3. Make a subdirectory called `pycno2021`    
-4. Move trimmed RNAseq data from Mox in this directory on Raven
+4. Move trimmed RNAseq data from Mox in this directory on Raven   
+Get into raven directory, then:
+```
+rsync --archive --progress --verbose PSC*fq.gz graceac9@mox.hyak.uw.edu:/gscratch/srlab/graceac9/analyses/pycno/20220810_PSC2021_trimming /home/shared/8TB_HDD_02/graceac9/data/pycno2021
+Unexpected remote arg: graceac9@mox.hyak.uw.edu:/gscratch/srlab/graceac9/analyses/pycno/20220810_PSC2021_trimming
+rsync error: syntax or usage error (code 1) at main.c(1361) [sender=3.1.2]
+```
+
+Not sure what's going on here... maybe I don't need to specify home directory on Raven... maybe I navigate to the directory I want the files in on Raven then just run the      
+```
+rsync --archive --progress --verbose PSC*fq.gz graceac9@mox.hyak.uw.edu:/gscratch/srlab/graceac9/analyses/pycno/20220810_PSC2021_trimming
+```

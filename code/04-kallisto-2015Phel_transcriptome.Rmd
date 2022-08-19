@@ -23,9 +23,30 @@ pwd
 Make the 2015 _P. helianthoides_ transcriptome from the Up In Arms paper an index:     
 ```{bash}
 /home/shared/kallisto/kallisto \
-index -i /home/shared/8TB_HDD_02/graceac9/analyses/pycno/kallisto/2015_phel_transcriptome.index \
+index -i /home/shared/8TB_HDD_02/graceac9/GitHub/project_pycno/code/2015_phel_transcriptome.index \
 /home/shared/8TB_HDD_02/graceac9/data/transcriptomes/Phel_transcriptome.fasta
 ```
 
+Get `quant` info:   
+```{bash}
+/home/shared/kallisto/kallisto \
+quant
+```
+
+Note 1: I want `kallisto` output files to go to: https://github.com/grace-ac/project_pycno/tree/main/analyses/Kallisto/2015Phel_transcriptome 
+
+`../analyses/Kallisto/2015Phel_transcriptome` 
+
+Note 2: All trimmed RNAseq libraries from summer2021 Pycno coelomocytes lives in `/home/shared/8TB_HDD_02/graceac9/data/pycno2021`
+
+PSC-19
+```{bash}
+/home/shared/kallisto/kallisto quant \ 
+-i /home/shared/8TB_HDD_02/graceac9/analyses/pycno/kallisto/2015_phel_transcriptome.index \ 
+-o /home/shared/8TB_HDD_02/graceac9/GitHub/project_pycno/Kallisto/2015Phel_transcriptome/ \
+-t 40 \ 
+/home/shared/8TB_HDD_02/graceac9/data/pycno2021/PSC-19_R1_001.fastq.gz.fastp-trim.20220810.fq.gz 
+/home/shared/8TB_HDD_02/graceac9/data/pycno2021/PSC-19_R2_001.fastq.gz.fastp-trim.20220810.fq.gz
+```
 
 

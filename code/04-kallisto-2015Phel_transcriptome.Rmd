@@ -2,5 +2,24 @@
 title: "04-20220819-kallisto-2015Phel_transcriptome"
 output: html_document
 ---
+20220819
 
 Rmd to pseudoalign and get count matrices for Summer 2021 _P. helianthoides_ coelomocyte trimmed RNAseq libraries with Up In Arms 2015 Paper _P. helianthoides_ transcriptome using `kallisto`. 
+
+Based on my old Jupyter notebook from the crab paper ([notebooks/kallisto-4libraries.ipynb](https://github.com/RobertsLab/paper-tanner-crab/blob/master/notebooks/kallisto-4libraries.ipynb)) and code from Steven Roberts' 2022 work ([P_generosa/code/02-kallisto.Rmd](https://github.com/sr320/nb-2022/blob/main/P_generosa/code/02-kallisto.Rmd)). 
+
+Use bash chunks to run `kallisto`. 
+
+Confirm `kallisto` location on Raven:    
+```{bash}
+/home/shared/kallisto/kallisto
+```
+
+Print working directory
+```{bash}
+pwd
+```
+
+
+
+

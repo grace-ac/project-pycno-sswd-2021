@@ -358,3 +358,13 @@ Not sure what's going on here... maybe I don't need to specify home directory on
 ```
 rsync --archive --progress --verbose PSC*fq.gz graceac9@mox.hyak.uw.edu:/gscratch/srlab/graceac9/analyses/pycno/20220810_PSC2021_trimming
 ```
+
+20220819     
+Figured out issue:    
+```
+graceac9@raven:~$ rsync --archive --progress --verbose graceac9@mox.hyak.uw.edu://gscratch/srlab/graceac9/analyses/pycno/20220810_PSC2021_trimming/*.fq.gz /home/shared/8TB_HDD_02/graceac9/data/pycno2021
+Password:
+```
+Needed to specify the files I want to `rsync` after I provide their location on Mox. After I hit `ENTER`, I was prompted for Mox password, and then Duo second authentification.
+
+Files started transferring at 10:03 on 20220819. 

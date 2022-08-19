@@ -374,9 +374,9 @@ Needed to specify the files I want to `rsync` after I provide their location on 
 Files started transferring at 10:03 on 20220819. Finished at 10:31 on 20220819.
 
 Continuing from above list:      
-5. Move transcriptome from 2015 up in arms paper https://github.com/sr320/eimd-sswd/blob/master/data/Phel_transcriptome.fasta to Raven directory `/home/shared/8TB_HDD_02/graceac9/data/transcriptomes`    
-5.1 `ssh` into Raven on command line and navigate to `/home/shared/8TB_HDD_02/graceac9/data/transcriptomes`    
-5.2 run:     
+ 5. Move transcriptome from 2015 up in arms paper https://github.com/sr320/eimd-sswd/blob/master/data/Phel_transcriptome.fasta to Raven directory `/home/shared/8TB_HDD_02/graceac9/data/transcriptomes`    
+   5.1 `ssh` into Raven on command line and navigate to `/home/shared/8TB_HDD_02/graceac9/data/transcriptomes`    
+   5.2 run:     
 ```
 wget -r --no-directories --no-parent -A "Phel_transcriptome.fasta" https://http://owl.fish.washington.edu/halfshell/genomic-databank
 ```
@@ -387,3 +387,6 @@ Check how many transcripts there are:
 graceac9@raven:~/data/transcriptomes$ grep -o ">" Phel_transcriptome.fasta | wc -l
 29476
 ```
+
+ 6. open Rstudio in Raven following instructions above.     
+ 

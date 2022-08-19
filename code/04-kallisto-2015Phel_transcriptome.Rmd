@@ -44,7 +44,7 @@ PSC-19
 /home/shared/kallisto/kallisto quant \ 
 -i /home/shared/8TB_HDD_02/graceac9/analyses/pycno/kallisto/2015_phel_transcriptome.index \ 
 -o /home/shared/8TB_HDD_02/graceac9/GitHub/project_pycno/Kallisto/2015Phel_transcriptome/ \
--t 40 \ 
+-t 4 \ 
 /home/shared/8TB_HDD_02/graceac9/data/pycno2021/PSC-19_R1_001.fastq.gz.fastp-trim.20220810.fq.gz 
 /home/shared/8TB_HDD_02/graceac9/data/pycno2021/PSC-19_R2_001.fastq.gz.fastp-trim.20220810.fq.gz
 ```

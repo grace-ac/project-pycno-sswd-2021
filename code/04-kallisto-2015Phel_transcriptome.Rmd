@@ -20,6 +20,12 @@ Print working directory
 pwd
 ```
 
+Make the 2015 _P. helianthoides_ transcriptome from the Up In Arms paper an index:     
+```{bash}
+/home/shared/kallisto/kallisto \
+index -i /home/shared/8TB_HDD_02/graceac9/analyses/pycno/kallisto/2015_phel_transcriptome.index \
+/home/shared/8TB_HDD_02/graceac9/data/transcriptomes/Phel_transcriptome.fasta
+```
 
 
 

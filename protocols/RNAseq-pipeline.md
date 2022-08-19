@@ -345,6 +345,8 @@ Code from Steven's work: [P_generosa/code/02-kallisto.Rmd](https://github.com/sr
 FASTA for 2015 P_helianthoides transcriptome: https://github.com/sr320/eimd-sswd/blob/master/data/Phel_transcriptome.fasta
 ... Also figshare link: https://figshare.com/articles/software/eimd_sswd_v1_0_Supplemental_Jupyter_notebooks_and_data/1441384
 
+Note: Steven Roberts moved Up in Arms Phel transcriptome to owl/halfshell/genomic-databank 20220819 [GitHub Issue #1515](https://github.com/RobertsLab/resources/issues/1515)
+
 1. Opened IP client for getting into Raven and `ssh` into Raven     
 2. Made a directory called `data`    
 3. Make a subdirectory called `pycno2021`    

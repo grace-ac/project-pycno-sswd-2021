@@ -20,7 +20,7 @@ FISH546-2021 syllabus: https://github.com/sr320/course-fish546-2021/wiki
 
 How `kallisto` works: https://tinyheero.github.io/2015/09/02/pseudoalignments-kallisto.html
 
-Pachter Lab: using `kallisto`: https://pachterlab.github.io/kallisto/starting 
+Pachter Lab: using `kallisto`: https://pachterlab.github.io/kallisto/starting
 
 ---
 
@@ -372,4 +372,4 @@ Needed to specify the files I want to `rsync` after I provide their location on 
 Files started transferring at 10:03 on 20220819. Finished at 10:31 on 20220819.
 
 Continuing from above list:      
-5. Move 2015 transcriptome from https://github.com/sr320/eimd-sswd/blob/master/data/Phel_transcriptome.fasta to Raven directory `/home/shared/8TB_HDD_02/graceac9/data/transcriptomes`
+5. Move transcriptome from 2015 up in arms paper https://github.com/sr320/eimd-sswd/blob/master/data/Phel_transcriptome.fasta to Raven directory `/home/shared/8TB_HDD_02/graceac9/data/transcriptomes`

@@ -380,4 +380,10 @@ Continuing from above list:
 ```
 wget -r --no-directories --no-parent -A "Phel_transcriptome.fasta" https://http://owl.fish.washington.edu/halfshell/genomic-databank
 ```
-Start 20220819 at 13:04 
+Start 20220819, took 10 min 59 sec
+
+Check how many transcripts there are:
+```
+graceac9@raven:~/data/transcriptomes$ grep -o ">" Phel_transcriptome.fasta | wc -l
+29476
+```

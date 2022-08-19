@@ -3,3 +3,4 @@ title: "04-20220819-kallisto-2015Phel_transcriptome"
 output: html_document
 ---
 
+Rmd to pseudoalign and get count matrices for Summer 2021 _P. helianthoides_ coelomocyte trimmed RNAseq libraries with Up In Arms 2015 Paper _P. helianthoides_ transcriptome using `kallisto`. 

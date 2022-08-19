@@ -41,12 +41,29 @@ Note 2: All trimmed RNAseq libraries from summer2021 Pycno coelomocytes lives in
 
 PSC-19
 ```{bash}
-/home/shared/kallisto/kallisto quant \ 
--i /home/shared/8TB_HDD_02/graceac9/analyses/pycno/kallisto/2015_phel_transcriptome.index \ 
--o /home/shared/8TB_HDD_02/graceac9/GitHub/project_pycno/Kallisto/2015Phel_transcriptome/ \
--t 4 \ 
-/home/shared/8TB_HDD_02/graceac9/data/pycno2021/PSC-19_R1_001.fastq.gz.fastp-trim.20220810.fq.gz 
-/home/shared/8TB_HDD_02/graceac9/data/pycno2021/PSC-19_R2_001.fastq.gz.fastp-trim.20220810.fq.gz
+/home/shared/kallisto/kallisto quant \
+-i /home/shared/8TB_HDD_02/graceac9/analyses/pycno/kallisto/2015_phel_transcriptome.index \
+-o /home/shared/8TB_HDD_02/graceac9/GitHub/project_pycno/analyses/Kallisto/2015Phel_transcriptome \
+-t 4 \
+/home/shared/8TB_HDD_02/graceac9/data/pycno2021/PSC-19_R1_001.fastq.gz.fastp-trim.20220810.fq.gz /home/shared/8TB_HDD_02/graceac9/data/pycno2021/PSC-19_R2_001.fastq.gz.fastp-trim.20220810.fq.gz
+```
+
+PSC-23
+```{bash}
+/home/shared/kallisto/kallisto quant \
+-i /home/shared/8TB_HDD_02/graceac9/analyses/pycno/kallisto/2015_phel_transcriptome.index \
+-o /home/shared/8TB_HDD_02/graceac9/GitHub/project_pycno/analyses/Kallisto/2015Phel_transcriptome \
+-t 4 \
+/home/shared/8TB_HDD_02/graceac9/data/pycno2021/PSC-23_R1_001.fastq.gz.fastp-trim.20220810.fq.gz /home/shared/8TB_HDD_02/graceac9/data/pycno2021/PSC-23_R2_001.fastq.gz.fastp-trim.20220810.fq.gz
+```
+
+PSC-24   
+```{bash}
+/home/shared/kallisto/kallisto quant \
+-i /home/shared/8TB_HDD_02/graceac9/analyses/pycno/kallisto/2015_phel_transcriptome.index \
+-o /home/shared/8TB_HDD_02/graceac9/GitHub/project_pycno/analyses/Kallisto/2015Phel_transcriptome \
+-t 4 \
+/home/shared/8TB_HDD_02/graceac9/data/pycno2021/PSC-24_R1_001.fastq.gz.fastp-trim.20220810.fq.gz /home/shared/8TB_HDD_02/graceac9/data/pycno2021/PSC-24_R2_001.fastq.gz.fastp-trim.20220810.fq.gz
 ```
 
 

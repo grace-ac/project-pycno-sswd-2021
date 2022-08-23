@@ -2,44 +2,50 @@
 title: "04-20220819-kallisto-2015Phel_transcriptome"
 output: html_document
 ---
+
 20220819
 
-Rmd to pseudoalign and get count matrices for Summer 2021 _P. helianthoides_ coelomocyte trimmed RNAseq libraries with Up In Arms 2015 Paper _P. helianthoides_ transcriptome using `kallisto`. 
+Rmd to pseudoalign and get count matrices for Summer 2021 *P. helianthoides* coelomocyte trimmed RNAseq libraries with Up In Arms 2015 Paper *P. helianthoides* transcriptome using `kallisto`.
 
-Based on my old Jupyter notebook from the crab paper ([notebooks/kallisto-4libraries.ipynb](https://github.com/RobertsLab/paper-tanner-crab/blob/master/notebooks/kallisto-4libraries.ipynb)) and code from Steven Roberts' 2022 work ([P_generosa/code/02-kallisto.Rmd](https://github.com/sr320/nb-2022/blob/main/P_generosa/code/02-kallisto.Rmd)). 
+Based on my old Jupyter notebook from the crab paper ([notebooks/kallisto-4libraries.ipynb](https://github.com/RobertsLab/paper-tanner-crab/blob/master/notebooks/kallisto-4libraries.ipynb)) and code from Steven Roberts' 2022 work ([P_generosa/code/02-kallisto.Rmd](https://github.com/sr320/nb-2022/blob/main/P_generosa/code/02-kallisto.Rmd)).
 
-Use bash chunks to run `kallisto`. 
+Use bash chunks to run `kallisto`.
 
-Confirm `kallisto` location on Raven:    
+Confirm `kallisto` location on Raven:
+
 ```{bash}
 /home/shared/kallisto/kallisto
 ```
 
 Print working directory
+
 ```{bash}
 pwd
 ```
 
-Make the 2015 _P. helianthoides_ transcriptome from the Up In Arms paper an index:     
+Make the 2015 *P. helianthoides* transcriptome from the Up In Arms paper an index:
+
 ```{bash}
 /home/shared/kallisto/kallisto \
 index -i /home/shared/8TB_HDD_02/graceac9/GitHub/project_pycno/code/2015_phel_transcriptome.index \
 /home/shared/8TB_HDD_02/graceac9/data/transcriptomes/Phel_transcriptome.fasta
 ```
 
-Get `quant` info:   
+Get `quant` info:
+
 ```{bash}
 /home/shared/kallisto/kallisto \
 quant
 ```
 
-Note 1: I want `kallisto` output files to go to: https://github.com/grace-ac/project_pycno/tree/main/analyses/Kallisto/2015Phel_transcriptome 
+Note 1: I want `kallisto` output files to go to: <https://github.com/grace-ac/project_pycno/tree/main/analyses/Kallisto/2015Phel_transcriptome>
 
-`../analyses/Kallisto/2015Phel_transcriptome` 
+`../analyses/Kallisto/2015Phel_transcriptome`
 
 Note 2: All trimmed RNAseq libraries from summer2021 Pycno coelomocytes lives in `/home/shared/8TB_HDD_02/graceac9/data/pycno2021`
 
 PSC-19
+
 ```{bash}
 /home/shared/kallisto/kallisto quant \
 -i /home/shared/8TB_HDD_02/graceac9/analyses/pycno/kallisto/2015_phel_transcriptome.index \
@@ -49,6 +55,7 @@ PSC-19
 ```
 
 PSC-23
+
 ```{bash}
 /home/shared/kallisto/kallisto quant \
 -i /home/shared/8TB_HDD_02/graceac9/analyses/pycno/kallisto/2015_phel_transcriptome.index \
@@ -57,7 +64,8 @@ PSC-23
 /home/shared/8TB_HDD_02/graceac9/data/pycno2021/PSC-23_R1_001.fastq.gz.fastp-trim.20220810.fq.gz /home/shared/8TB_HDD_02/graceac9/data/pycno2021/PSC-23_R2_001.fastq.gz.fastp-trim.20220810.fq.gz
 ```
 
-PSC-24   
+PSC-24
+
 ```{bash}
 /home/shared/kallisto/kallisto quant \
 -i /home/shared/8TB_HDD_02/graceac9/analyses/pycno/kallisto/2015_phel_transcriptome.index \
@@ -65,5 +73,258 @@ PSC-24
 -t 4 \
 /home/shared/8TB_HDD_02/graceac9/data/pycno2021/PSC-24_R1_001.fastq.gz.fastp-trim.20220810.fq.gz /home/shared/8TB_HDD_02/graceac9/data/pycno2021/PSC-24_R2_001.fastq.gz.fastp-trim.20220810.fq.gz
 ```
+
+PSC-34
+
+```{bash}
+/home/shared/kallisto/kallisto quant \
+-i /home/shared/8TB_HDD_02/graceac9/analyses/pycno/kallisto/2015_phel_transcriptome.index \
+-o /home/shared/8TB_HDD_02/graceac9/GitHub/project_pycno/analyses/Kallisto/2015Phel_transcriptome/PSC-34 \
+-t 4 \
+/home/shared/8TB_HDD_02/graceac9/data/pycno2021/PSC-34_R1_001.fastq.gz.fastp-trim.20220810.fq.gz /home/shared/8TB_HDD_02/graceac9/data/pycno2021/PSC-34_R2_001.fastq.gz.fastp-trim.20220810.fq.gz
+```
+
+PSC-35
+
+```{bash}
+/home/shared/kallisto/kallisto quant \
+-i /home/shared/8TB_HDD_02/graceac9/analyses/pycno/kallisto/2015_phel_transcriptome.index \
+-o /home/shared/8TB_HDD_02/graceac9/GitHub/project_pycno/analyses/Kallisto/2015Phel_transcriptome/PSC-35 \
+-t 4 \
+/home/shared/8TB_HDD_02/graceac9/data/pycno2021/PSC-35_R1_001.fastq.gz.fastp-trim.20220810.fq.gz /home/shared/8TB_HDD_02/graceac9/data/pycno2021/PSC-35_R2_001.fastq.gz.fastp-trim.20220810.fq.gz
+```
+
+PSC-36
+
+```{bash}
+/home/shared/kallisto/kallisto quant \
+-i /home/shared/8TB_HDD_02/graceac9/analyses/pycno/kallisto/2015_phel_transcriptome.index \
+-o /home/shared/8TB_HDD_02/graceac9/GitHub/project_pycno/analyses/Kallisto/2015Phel_transcriptome/PSC-36 \
+-t 4 \
+/home/shared/8TB_HDD_02/graceac9/data/pycno2021/PSC-36_R1_001.fastq.gz.fastp-trim.20220810.fq.gz /home/shared/8TB_HDD_02/graceac9/data/pycno2021/PSC-36_R2_001.fastq.gz.fastp-trim.20220810.fq.gz
+```
+
+PSC-37
+
+```{bash}
+/home/shared/kallisto/kallisto quant \
+-i /home/shared/8TB_HDD_02/graceac9/analyses/pycno/kallisto/2015_phel_transcriptome.index \
+-o /home/shared/8TB_HDD_02/graceac9/GitHub/project_pycno/analyses/Kallisto/2015Phel_transcriptome/PSC-37 \
+-t 4 \
+/home/shared/8TB_HDD_02/graceac9/data/pycno2021/PSC-37_R1_001.fastq.gz.fastp-trim.20220810.fq.gz /home/shared/8TB_HDD_02/graceac9/data/pycno2021/PSC-37_R2_001.fastq.gz.fastp-trim.20220810.fq.gz
+```
+
+PSC-38
+
+```{bash}
+/home/shared/kallisto/kallisto quant \
+-i /home/shared/8TB_HDD_02/graceac9/analyses/pycno/kallisto/2015_phel_transcriptome.index \
+-o /home/shared/8TB_HDD_02/graceac9/GitHub/project_pycno/analyses/Kallisto/2015Phel_transcriptome/PSC-38 \
+-t 4 \
+/home/shared/8TB_HDD_02/graceac9/data/pycno2021/PSC-38_R1_001.fastq.gz.fastp-trim.20220810.fq.gz /home/shared/8TB_HDD_02/graceac9/data/pycno2021/PSC-38_R2_001.fastq.gz.fastp-trim.20220810.fq.gz
+```
+
+PSC-39
+
+```{bash}
+/home/shared/kallisto/kallisto quant \
+-i /home/shared/8TB_HDD_02/graceac9/analyses/pycno/kallisto/2015_phel_transcriptome.index \
+-o /home/shared/8TB_HDD_02/graceac9/GitHub/project_pycno/analyses/Kallisto/2015Phel_transcriptome/PSC-39 \
+-t 4 \
+/home/shared/8TB_HDD_02/graceac9/data/pycno2021/PSC-39_R1_001.fastq.gz.fastp-trim.20220810.fq.gz /home/shared/8TB_HDD_02/graceac9/data/pycno2021/PSC-39_R2_001.fastq.gz.fastp-trim.20220810.fq.gz
+```
+
+PSC-40
+
+```{bash}
+/home/shared/kallisto/kallisto quant \
+-i /home/shared/8TB_HDD_02/graceac9/analyses/pycno/kallisto/2015_phel_transcriptome.index \
+-o /home/shared/8TB_HDD_02/graceac9/GitHub/project_pycno/analyses/Kallisto/2015Phel_transcriptome/PSC-40 \
+-t 4 \
+/home/shared/8TB_HDD_02/graceac9/data/pycno2021/PSC-40_R1_001.fastq.gz.fastp-trim.20220810.fq.gz /home/shared/8TB_HDD_02/graceac9/data/pycno2021/PSC-40_R2_001.fastq.gz.fastp-trim.20220810.fq.gz
+```
+
+PSC-42
+
+```{bash}
+/home/shared/kallisto/kallisto quant \
+-i /home/shared/8TB_HDD_02/graceac9/analyses/pycno/kallisto/2015_phel_transcriptome.index \
+-o /home/shared/8TB_HDD_02/graceac9/GitHub/project_pycno/analyses/Kallisto/2015Phel_transcriptome/PSC-42 \
+-t 4 \
+/home/shared/8TB_HDD_02/graceac9/data/pycno2021/PSC-42_R1_001.fastq.gz.fastp-trim.20220810.fq.gz /home/shared/8TB_HDD_02/graceac9/data/pycno2021/PSC-42_R2_001.fastq.gz.fastp-trim.20220810.fq.gz
+```
+
+PSC-43
+
+```{bash}
+/home/shared/kallisto/kallisto quant \
+-i /home/shared/8TB_HDD_02/graceac9/analyses/pycno/kallisto/2015_phel_transcriptome.index \
+-o /home/shared/8TB_HDD_02/graceac9/GitHub/project_pycno/analyses/Kallisto/2015Phel_transcriptome/PSC-43 \
+-t 4 \
+/home/shared/8TB_HDD_02/graceac9/data/pycno2021/PSC-43_R1_001.fastq.gz.fastp-trim.20220810.fq.gz /home/shared/8TB_HDD_02/graceac9/data/pycno2021/PSC-43_R2_001.fastq.gz.fastp-trim.20220810.fq.gz
+```
+
+PSC-48
+
+```{bash}
+/home/shared/kallisto/kallisto quant \
+-i /home/shared/8TB_HDD_02/graceac9/analyses/pycno/kallisto/2015_phel_transcriptome.index \
+-o /home/shared/8TB_HDD_02/graceac9/GitHub/project_pycno/analyses/Kallisto/2015Phel_transcriptome/PSC-48 \
+-t 4 \
+/home/shared/8TB_HDD_02/graceac9/data/pycno2021/PSC-48_R1_001.fastq.gz.fastp-trim.20220810.fq.gz /home/shared/8TB_HDD_02/graceac9/data/pycno2021/PSC-48_R2_001.fastq.gz.fastp-trim.20220810.fq.gz
+```
+
+PSC-49
+
+```{bash}
+/home/shared/kallisto/kallisto quant \
+-i /home/shared/8TB_HDD_02/graceac9/analyses/pycno/kallisto/2015_phel_transcriptome.index \
+-o /home/shared/8TB_HDD_02/graceac9/GitHub/project_pycno/analyses/Kallisto/2015Phel_transcriptome/PSC-49 \
+-t 4 \
+/home/shared/8TB_HDD_02/graceac9/data/pycno2021/PSC-49_R1_001.fastq.gz.fastp-trim.20220810.fq.gz /home/shared/8TB_HDD_02/graceac9/data/pycno2021/PSC-49_R2_001.fastq.gz.fastp-trim.20220810.fq.gz
+```
+
+PSC-52
+
+```{bash}
+/home/shared/kallisto/kallisto quant \
+-i /home/shared/8TB_HDD_02/graceac9/analyses/pycno/kallisto/2015_phel_transcriptome.index \
+-o /home/shared/8TB_HDD_02/graceac9/GitHub/project_pycno/analyses/Kallisto/2015Phel_transcriptome/PSC-52 \
+-t 4 \
+/home/shared/8TB_HDD_02/graceac9/data/pycno2021/PSC-52_R1_001.fastq.gz.fastp-trim.20220810.fq.gz /home/shared/8TB_HDD_02/graceac9/data/pycno2021/PSC-52_R2_001.fastq.gz.fastp-trim.20220810.fq.gz
+```
+
+PSC-54
+
+```{bash}
+/home/shared/kallisto/kallisto quant \
+-i /home/shared/8TB_HDD_02/graceac9/analyses/pycno/kallisto/2015_phel_transcriptome.index \
+-o /home/shared/8TB_HDD_02/graceac9/GitHub/project_pycno/analyses/Kallisto/2015Phel_transcriptome/PSC-54 \
+-t 4 \
+/home/shared/8TB_HDD_02/graceac9/data/pycno2021/PSC-54_R1_001.fastq.gz.fastp-trim.20220810.fq.gz /home/shared/8TB_HDD_02/graceac9/data/pycno2021/PSC-54_R2_001.fastq.gz.fastp-trim.20220810.fq.gz
+```
+
+
+PSC-56
+```{bash}
+/home/shared/kallisto/kallisto quant \
+-i /home/shared/8TB_HDD_02/graceac9/analyses/pycno/kallisto/2015_phel_transcriptome.index \
+-o /home/shared/8TB_HDD_02/graceac9/GitHub/project_pycno/analyses/Kallisto/2015Phel_transcriptome/PSC-56 \
+-t 4 \
+/home/shared/8TB_HDD_02/graceac9/data/pycno2021/PSC-56_R1_001.fastq.gz.fastp-trim.20220810.fq.gz /home/shared/8TB_HDD_02/graceac9/data/pycno2021/PSC-56_R2_001.fastq.gz.fastp-trim.20220810.fq.gz
+```
+
+
+PSC-57
+```{bash}
+/home/shared/kallisto/kallisto quant \
+-i /home/shared/8TB_HDD_02/graceac9/analyses/pycno/kallisto/2015_phel_transcriptome.index \
+-o /home/shared/8TB_HDD_02/graceac9/GitHub/project_pycno/analyses/Kallisto/2015Phel_transcriptome/PSC-57 \
+-t 4 \
+/home/shared/8TB_HDD_02/graceac9/data/pycno2021/PSC-57_R1_001.fastq.gz.fastp-trim.20220810.fq.gz /home/shared/8TB_HDD_02/graceac9/data/pycno2021/PSC-57_R2_001.fastq.gz.fastp-trim.20220810.fq.gz
+```
+
+
+PSC-58
+```{bash}
+/home/shared/kallisto/kallisto quant \
+-i /home/shared/8TB_HDD_02/graceac9/analyses/pycno/kallisto/2015_phel_transcriptome.index \
+-o /home/shared/8TB_HDD_02/graceac9/GitHub/project_pycno/analyses/Kallisto/2015Phel_transcriptome/PSC-58 \
+-t 4 \
+/home/shared/8TB_HDD_02/graceac9/data/pycno2021/PSC-58_R1_001.fastq.gz.fastp-trim.20220810.fq.gz /home/shared/8TB_HDD_02/graceac9/data/pycno2021/PSC-58_R2_001.fastq.gz.fastp-trim.20220810.fq.gz
+```
+
+PSC-59
+```{bash}
+/home/shared/kallisto/kallisto quant \
+-i /home/shared/8TB_HDD_02/graceac9/analyses/pycno/kallisto/2015_phel_transcriptome.index \
+-o /home/shared/8TB_HDD_02/graceac9/GitHub/project_pycno/analyses/Kallisto/2015Phel_transcriptome/PSC-59 \
+-t 4 \
+/home/shared/8TB_HDD_02/graceac9/data/pycno2021/PSC-59_R1_001.fastq.gz.fastp-trim.20220810.fq.gz /home/shared/8TB_HDD_02/graceac9/data/pycno2021/PSC-59_R2_001.fastq.gz.fastp-trim.20220810.fq.gz
+```
+
+PSC-61
+```{bash}
+/home/shared/kallisto/kallisto quant \
+-i /home/shared/8TB_HDD_02/graceac9/analyses/pycno/kallisto/2015_phel_transcriptome.index \
+-o /home/shared/8TB_HDD_02/graceac9/GitHub/project_pycno/analyses/Kallisto/2015Phel_transcriptome/PSC-61 \
+-t 4 \
+/home/shared/8TB_HDD_02/graceac9/data/pycno2021/PSC-61_R1_001.fastq.gz.fastp-trim.20220810.fq.gz /home/shared/8TB_HDD_02/graceac9/data/pycno2021/PSC-61_R2_001.fastq.gz.fastp-trim.20220810.fq.gz
+```
+
+PSC-63
+```{bash}
+/home/shared/kallisto/kallisto quant \
+-i /home/shared/8TB_HDD_02/graceac9/analyses/pycno/kallisto/2015_phel_transcriptome.index \
+-o /home/shared/8TB_HDD_02/graceac9/GitHub/project_pycno/analyses/Kallisto/2015Phel_transcriptome/PSC-63 \
+-t 4 \
+/home/shared/8TB_HDD_02/graceac9/data/pycno2021/PSC-63_R1_001.fastq.gz.fastp-trim.20220810.fq.gz /home/shared/8TB_HDD_02/graceac9/data/pycno2021/PSC-63_R2_001.fastq.gz.fastp-trim.20220810.fq.gz
+```
+
+
+PSC-64
+```{bash}
+/home/shared/kallisto/kallisto quant \
+-i /home/shared/8TB_HDD_02/graceac9/analyses/pycno/kallisto/2015_phel_transcriptome.index \
+-o /home/shared/8TB_HDD_02/graceac9/GitHub/project_pycno/analyses/Kallisto/2015Phel_transcriptome/PSC-64 \
+-t 4 \
+/home/shared/8TB_HDD_02/graceac9/data/pycno2021/PSC-64_R1_001.fastq.gz.fastp-trim.20220810.fq.gz /home/shared/8TB_HDD_02/graceac9/data/pycno2021/PSC-64_R2_001.fastq.gz.fastp-trim.20220810.fq.gz
+```
+
+PSC-67
+```{bash}
+/home/shared/kallisto/kallisto quant \
+-i /home/shared/8TB_HDD_02/graceac9/analyses/pycno/kallisto/2015_phel_transcriptome.index \
+-o /home/shared/8TB_HDD_02/graceac9/GitHub/project_pycno/analyses/Kallisto/2015Phel_transcriptome/PSC-67 \
+-t 4 \
+/home/shared/8TB_HDD_02/graceac9/data/pycno2021/PSC-67_R1_001.fastq.gz.fastp-trim.20220810.fq.gz /home/shared/8TB_HDD_02/graceac9/data/pycno2021/PSC-67_R2_001.fastq.gz.fastp-trim.20220810.fq.gz
+```
+
+
+PSC-69
+```{bash}
+/home/shared/kallisto/kallisto quant \
+-i /home/shared/8TB_HDD_02/graceac9/analyses/pycno/kallisto/2015_phel_transcriptome.index \
+-o /home/shared/8TB_HDD_02/graceac9/GitHub/project_pycno/analyses/Kallisto/2015Phel_transcriptome/PSC-69 \
+-t 4 \
+/home/shared/8TB_HDD_02/graceac9/data/pycno2021/PSC-69_R1_001.fastq.gz.fastp-trim.20220810.fq.gz /home/shared/8TB_HDD_02/graceac9/data/pycno2021/PSC-69_R2_001.fastq.gz.fastp-trim.20220810.fq.gz
+```
+
+PSC-71
+```{bash}
+/home/shared/kallisto/kallisto quant \
+-i /home/shared/8TB_HDD_02/graceac9/analyses/pycno/kallisto/2015_phel_transcriptome.index \
+-o /home/shared/8TB_HDD_02/graceac9/GitHub/project_pycno/analyses/Kallisto/2015Phel_transcriptome/PSC-71 \
+-t 4 \
+/home/shared/8TB_HDD_02/graceac9/data/pycno2021/PSC-71_R1_001.fastq.gz.fastp-trim.20220810.fq.gz /home/shared/8TB_HDD_02/graceac9/data/pycno2021/PSC-71_R2_001.fastq.gz.fastp-trim.20220810.fq.gz
+```
+
+PSC-73
+```{bash}
+/home/shared/kallisto/kallisto quant \
+-i /home/shared/8TB_HDD_02/graceac9/analyses/pycno/kallisto/2015_phel_transcriptome.index \
+-o /home/shared/8TB_HDD_02/graceac9/GitHub/project_pycno/analyses/Kallisto/2015Phel_transcriptome/PSC-73 \
+-t 4 \
+/home/shared/8TB_HDD_02/graceac9/data/pycno2021/PSC-73_R1_001.fastq.gz.fastp-trim.20220810.fq.gz /home/shared/8TB_HDD_02/graceac9/data/pycno2021/PSC-73_R2_001.fastq.gz.fastp-trim.20220810.fq.gz
+```
+
+PSC-75
+```{bash}
+/home/shared/kallisto/kallisto quant \
+-i /home/shared/8TB_HDD_02/graceac9/analyses/pycno/kallisto/2015_phel_transcriptome.index \
+-o /home/shared/8TB_HDD_02/graceac9/GitHub/project_pycno/analyses/Kallisto/2015Phel_transcriptome/PSC-75 \
+-t 4 \
+/home/shared/8TB_HDD_02/graceac9/data/pycno2021/PSC-75_R1_001.fastq.gz.fastp-trim.20220810.fq.gz /home/shared/8TB_HDD_02/graceac9/data/pycno2021/PSC-75_R2_001.fastq.gz.fastp-trim.20220810.fq.gz
+```
+
+PSC-76
+```{bash}
+/home/shared/kallisto/kallisto quant \
+-i /home/shared/8TB_HDD_02/graceac9/analyses/pycno/kallisto/2015_phel_transcriptome.index \
+-o /home/shared/8TB_HDD_02/graceac9/GitHub/project_pycno/analyses/Kallisto/2015Phel_transcriptome/PSC-76 \
+-t 4 \
+/home/shared/8TB_HDD_02/graceac9/data/pycno2021/PSC-76_R1_001.fastq.gz.fastp-trim.20220810.fq.gz /home/shared/8TB_HDD_02/graceac9/data/pycno2021/PSC-76_R2_001.fastq.gz.fastp-trim.20220810.fq.gz
+```
+
 
 

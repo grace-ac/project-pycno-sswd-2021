@@ -414,4 +414,11 @@ Some resources from Roberts Lab slack/EIMD 2019:
 - [`WGCNA`](https://horvath.genetics.ucla.edu/html/CoexpressionNetwork/Rpackages/WGCNA/)         
 - [`DESeq2`](http://bioconductor.org/packages/devel/bioc/vignettes/DESeq2/inst/doc/DESeq2.html)   
 - [`limma`](https://www.bioconductor.org/packages/devel/bioc/vignettes/limma/inst/doc/usersguide.pdf)    
-- [`limma-voom` example](https://ucdavis-bioinformatics-training.github.io/2018-June-RNA-Seq-Workshop/thursday/DE.html)
+- [`limma-voom` example](https://ucdavis-bioinformatics-training.github.io/2018-June-RNA-Seq-Workshop/thursday/DE.html)    
+- [`ballgown`](https://www.bioconductor.org/packages/release/bioc/manuals/ballgown/man/ballgown.pdf)    
+- [`salmon`](https://github.com/COMBINE-lab/salmon)    
+- [`stringTIE`](https://ccb.jhu.edu/software/stringtie/)   
+- [`DIAMOND`](https://github.com/bbuchfink/diamond)
+
+
+### Before I get into analyses, let's break down some different library comparisons we can do.

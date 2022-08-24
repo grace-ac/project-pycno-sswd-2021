@@ -24,7 +24,7 @@ Pachter Lab: using `kallisto`: https://pachterlab.github.io/kallisto/starting
 
 ---
 # Sample Info:
-[Summer 2021 _P. helianthoides_ Coelomocyte RNAseq Libraries](https://docs.google.com/spreadsheets/d/1PGXDiHRT69Q5sHBRkyLKHoukHb59LakS-MkE_Ksjl4A/edit#gid=1161241862)
+[Summer 2021 _P. helianthoides_ Coelomocyte RNAseq Libraries](https://github.com/grace-ac/project_pycno/blob/main/data/RNAseq_coelomocyte_sample_info_summer2021.csv)
 
 ---
 

@@ -1,0 +1,13 @@
+{
+	"n_targets": 29476,
+	"n_bootstraps": 0,
+	"n_processed": 21854798,
+	"n_pseudoaligned": 16776037,
+	"n_unique": 16724559,
+	"p_pseudoaligned": 76.8,
+	"p_unique": 76.5,
+	"kallisto_version": "0.46.1",
+	"index_version": 10,
+	"start_time": "Wed Aug 24 11:29:45 2022",
+	"call": "/home/shared/kallisto/kallisto quant -i /home/shared/8TB_HDD_02/graceac9/analyses/pycno/kallisto/2015_phel_transcriptome.index -o /home/shared/8TB_HDD_02/graceac9/GitHub/project_pycno/analyses/Kallisto/2015Phel_transcriptome/PSC-49 -t 4 /home/shared/8TB_HDD_02/graceac9/data/pycno2021/PSC-49_R1_001.fastq.gz.fastp-trim.20220810.fq.gz /home/shared/8TB_HDD_02/graceac9/data/pycno2021/PSC-49_R2_001.fastq.gz.fastp-trim.20220810.fq.gz"
+}

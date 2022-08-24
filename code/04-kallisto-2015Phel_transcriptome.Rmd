@@ -326,5 +326,30 @@ PSC-76
 /home/shared/8TB_HDD_02/graceac9/data/pycno2021/PSC-76_R1_001.fastq.gz.fastp-trim.20220810.fq.gz /home/shared/8TB_HDD_02/graceac9/data/pycno2021/PSC-76_R2_001.fastq.gz.fastp-trim.20220810.fq.gz
 ```
 
+PSC-78
+```{bash}
+/home/shared/kallisto/kallisto quant \
+-i /home/shared/8TB_HDD_02/graceac9/analyses/pycno/kallisto/2015_phel_transcriptome.index \
+-o /home/shared/8TB_HDD_02/graceac9/GitHub/project_pycno/analyses/Kallisto/2015Phel_transcriptome/PSC-78 \
+-t 4 \
+/home/shared/8TB_HDD_02/graceac9/data/pycno2021/PSC-78_R1_001.fastq.gz.fastp-trim.20220810.fq.gz /home/shared/8TB_HDD_02/graceac9/data/pycno2021/PSC-78_R2_001.fastq.gz.fastp-trim.20220810.fq.gz
+```
 
+PSC-81
+```{bash}
+/home/shared/kallisto/kallisto quant \
+-i /home/shared/8TB_HDD_02/graceac9/analyses/pycno/kallisto/2015_phel_transcriptome.index \
+-o /home/shared/8TB_HDD_02/graceac9/GitHub/project_pycno/analyses/Kallisto/2015Phel_transcriptome/PSC-81 \
+-t 4 \
+/home/shared/8TB_HDD_02/graceac9/data/pycno2021/PSC-81_R1_001.fastq.gz.fastp-trim.20220810.fq.gz /home/shared/8TB_HDD_02/graceac9/data/pycno2021/PSC-81_R2_001.fastq.gz.fastp-trim.20220810.fq.gz
+```
+
+PSC-83
+```{bash}
+/home/shared/kallisto/kallisto quant \
+-i /home/shared/8TB_HDD_02/graceac9/analyses/pycno/kallisto/2015_phel_transcriptome.index \
+-o /home/shared/8TB_HDD_02/graceac9/GitHub/project_pycno/analyses/Kallisto/2015Phel_transcriptome/PSC-83 \
+-t 4 \
+/home/shared/8TB_HDD_02/graceac9/data/pycno2021/PSC-83_R1_001.fastq.gz.fastp-trim.20220810.fq.gz /home/shared/8TB_HDD_02/graceac9/data/pycno2021/PSC-83_R2_001.fastq.gz.fastp-trim.20220810.fq.gz
+```
 

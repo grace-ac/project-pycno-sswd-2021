@@ -23,6 +23,10 @@ How `kallisto` works: https://tinyheero.github.io/2015/09/02/pseudoalignments-ka
 Pachter Lab: using `kallisto`: https://pachterlab.github.io/kallisto/starting
 
 ---
+# Sample Info:
+[Summer 2021 _P. helianthoides_ Coelomocyte RNAseq Libraries](https://docs.google.com/spreadsheets/d/1PGXDiHRT69Q5sHBRkyLKHoukHb59LakS-MkE_Ksjl4A/edit#gid=1161241862)
+
+---
 
 # RNAseq Workflow:
 ## 1. [Data Management](https://github.com/grace-ac/project_pycno/blob/main/protocols/RNAseq-pipeline.md#1-data-management)       

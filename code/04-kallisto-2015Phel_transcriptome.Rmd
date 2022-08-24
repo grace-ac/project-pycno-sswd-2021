@@ -31,7 +31,7 @@ index -i /home/shared/8TB_HDD_02/graceac9/GitHub/project_pycno/code/2015_phel_tr
 /home/shared/8TB_HDD_02/graceac9/data/transcriptomes/Phel_transcriptome.fasta
 ```
 
-Get `quant` info:
+## Get `quant` info:
 
 ```{bash}
 /home/shared/kallisto/kallisto \
@@ -352,4 +352,6 @@ PSC-83
 -t 4 \
 /home/shared/8TB_HDD_02/graceac9/data/pycno2021/PSC-83_R1_001.fastq.gz.fastp-trim.20220810.fq.gz /home/shared/8TB_HDD_02/graceac9/data/pycno2021/PSC-83_R2_001.fastq.gz.fastp-trim.20220810.fq.gz
 ```
+
+## Create Matrix
 

@@ -391,3 +391,10 @@ graceac9@raven:~/data/transcriptomes$ grep -o ">" Phel_transcriptome.fasta | wc 
 ```
 
  6. open Rstudio in Raven following instructions above.     
+ 7. Follow the script:    
+
+ `kallisto` count matrix for 32 summer 2021 pycno coeolomocyte RNAseq libraries with the 2015 Up in Arms _P. helianthoides_ transcriptome: [analyses/Kallisto/2015Phel_transcriptome/kallisto-20220824_2015.isoform.counts.matrix](https://github.com/grace-ac/project_pycno/blob/main/analyses/Kallisto/2015Phel_transcriptome/kallisto-20220824_2015.isoform.counts.matrix)
+
+ ---
+
+ # 5. Use `DESeq2` and other packages to get differential gene expression information 

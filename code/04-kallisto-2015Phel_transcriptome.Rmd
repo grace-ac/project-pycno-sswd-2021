@@ -397,5 +397,10 @@ perl /home/shared/trinityrnaseq-v2.12.0/util/abundance_estimates_to_matrix.pl \
   /home/shared/8TB_HDD_02/graceac9/GitHub/project_pycno/analyses/Kallisto/2015Phel_transcriptome/PSC-83/abundance.tsv
 ```
 
+Check out the top of the matrix: 
+
+```{bash}
+head /home/shared/8TB_HDD_02/graceac9/GitHub/project_pycno/analyses/Kallisto/2015Phel_transcriptome/kallisto-20220824_2015.isoform.counts.matrix
+```
 
 

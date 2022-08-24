@@ -397,4 +397,14 @@ graceac9@raven:~/data/transcriptomes$ grep -o ">" Phel_transcriptome.fasta | wc 
 
  ---
 
- # 5. Use `DESeq2` and other packages to get differential gene expression information 
+ # 5. Use `DESeq2` and other packages to get differential gene expression information
+
+Some resources from Roberts Lab slack/EIMD 2019:     
+- https://training.galaxyproject.org/training-material/topics/transcriptomics/tutorials/rna-seq-viz-with-volcanoplot-r/tutorial.html       
+- https://www.biorxiv.org/content/10.1101/2021.07.30.454464v1     
+- https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-019-2671-2      
+- https://sr320.github.io/weka-what/    
+- https://nf-co.re/pipelines     
+- GO-MWU    
+- EdgeR    
+- WGCNA     

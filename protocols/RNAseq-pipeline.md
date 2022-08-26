@@ -22,6 +22,8 @@ How `kallisto` works: https://tinyheero.github.io/2015/09/02/pseudoalignments-ka
 
 Pachter Lab: using `kallisto`: https://pachterlab.github.io/kallisto/starting
 
+what [`SAM`] format is: https://academic.oup.com/bioinformatics/article/25/16/2078/204688 
+
 ---
 # Sample Info:
 [Summer 2021 _P. helianthoides_ Coelomocyte RNAseq Libraries](https://github.com/grace-ac/project_pycno/blob/main/data/RNAseq_coelomocyte_sample_info_summer2021.csv)
@@ -340,7 +342,7 @@ Check out number of contigs of summer 2021 assembled transcriptome:
 Note: got a slurm output from this job that shows that `salmon` wasn't used due to it not being the correct version.     
 <img width="949" alt="Screen Shot 2022-08-26 at 2 55 29 PM" src="https://user-images.githubusercontent.com/14934314/186996143-1fbfd951-d622-48ab-8bcf-5a72bb24c3a5.png">
 
-Working on understanding this issue 20220825 afternoon. Will add notes here as I work through it. 
+Working on understanding this issue 20220825 afternoon. Will add notes here as I work through it.
 
 
 # Note: Up In Arms paper has a published transcriptome from taht study. So... while this new transcriptome is assembling, I'll move forward to psuedoalignment of the new libraries to the old transcriptome using `kallisto`.

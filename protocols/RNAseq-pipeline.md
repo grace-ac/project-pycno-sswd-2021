@@ -340,6 +340,7 @@ Check out number of contigs of summer 2021 assembled transcriptome:
 Note: got a slurm output from this job that shows that `salmon` wasn't used due to it not being the correct version.     
 <img width="949" alt="Screen Shot 2022-08-26 at 2 55 29 PM" src="https://user-images.githubusercontent.com/14934314/186996143-1fbfd951-d622-48ab-8bcf-5a72bb24c3a5.png">
 
+Working on understanding this issue 20220825 afternoon. Will add notes here as I work through it. 
 
 
 # Note: Up In Arms paper has a published transcriptome from taht study. So... while this new transcriptome is assembling, I'll move forward to psuedoalignment of the new libraries to the old transcriptome using `kallisto`.

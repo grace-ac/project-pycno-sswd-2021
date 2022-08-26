@@ -337,6 +337,10 @@ Check out number of contigs of summer 2021 assembled transcriptome:
 2352755
 ```
 
+Note: got a slurm output from this job that shows that `salmon` wasn't used due to it not being the correct version.
+
+
+
 # Note: Up In Arms paper has a published transcriptome from taht study. So... while this new transcriptome is assembling, I'll move forward to psuedoalignment of the new libraries to the old transcriptome using `kallisto`.
 
 ---

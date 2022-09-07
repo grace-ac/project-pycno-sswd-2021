@@ -444,4 +444,9 @@ Some resources from Roberts Lab slack/EIMD 2019:
 - [`DIAMOND`](https://github.com/bbuchfink/diamond)
 
 
-### Before I get into analyses, let's break down some different library comparisons we can do.
+Link to RNAseq library info spreadsheet: [here](https://docs.google.com/spreadsheets/d/1LtIQ-VBCQNi1jJCGmf7DlA4f8Y410-CxwM1z6l-EjIY/edit#gid=0)    
+
+20220907    
+`DESeq2` analyses healthy (n=8 libraries) vs sick (n=8 libraries).    
+Script: [code/05-DESeq2-2015PhelT-2021PSC.Rmd](https://github.com/grace-ac/project_pycno/blob/main/code/05-DESeq2-2015PhelT-2021PSC.Rmd)    
+DEGlist: [analyses/DESeq2/2015Phel/DEGlist_healthy-vs-sick.tab](https://github.com/grace-ac/project_pycno/blob/main/analyses/DESeq2/2015Phel/DEGlist_healthy-vs-sick.tab)

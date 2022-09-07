@@ -53,7 +53,8 @@ H07                 PSC.83
 H08                 PSC.75
 H09                 PSC.67
 
-### Need to subset the countmatrix for those 16 libraries:    
+### 2022-09-07    
+Need to subset the countmatrix for those 16 libraries:    
 ```{r}
 counts_hvs <- countmatrix[,c("PSC.56","PSC.81","PSC.61","PSC.76","PSC.52","PSC.48","PSC.49","PSC.54","PSC.59","PSC.63","PSC.69","PSC.58","PSC.57","PSC.83","PSC.75","PSC.67")]
 head(counts_hvs)

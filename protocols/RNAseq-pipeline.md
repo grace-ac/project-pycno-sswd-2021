@@ -22,7 +22,7 @@ How `kallisto` works: https://tinyheero.github.io/2015/09/02/pseudoalignments-ka
 
 Pachter Lab: using `kallisto`: https://pachterlab.github.io/kallisto/starting
 
-what [`SAM`] format is: https://academic.oup.com/bioinformatics/article/25/16/2078/204688 
+what [`SAM`] format is: https://academic.oup.com/bioinformatics/article/25/16/2078/204688
 
 ---
 # Sample Info:
@@ -344,6 +344,15 @@ Note: got a slurm output from this job that shows that `salmon` wasn't used due 
 
 Working on understanding this issue 20220825 afternoon. Will add notes here as I work through it.
 
+I believe the purpose of `salmon` is to quantify occurance of reads of individual libraries in an assembled transcriptome... ? So the output of `salmon` would be used in differential gene expression analyses...?
+
+20220907   
+I adjusted the .sh for running Trinity according to Sam's suggestions.     
+Script on Mox: `/gscratch/srlab/graceac9/jobs/20220811_pycno_trinity_RNAseq_transcriptome.sh`    
+
+I created a post in the google group for Trinity: https://groups.google.com/g/trinityrnaseq-users/c/JRXRD2bTI1M/m/aEtX__-LAAAJ?utm_medium=email&utm_source=footer&pli=1
+
+So I just re-ran the script and it says the node is unavailable due to maintenance, so we'll see what happens later I suppose.
 
 # Note: Up In Arms paper has a published transcriptome from taht study. So... while this new transcriptome is assembling, I'll move forward to psuedoalignment of the new libraries to the old transcriptome using `kallisto`.
 

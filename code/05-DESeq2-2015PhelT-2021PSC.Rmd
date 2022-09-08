@@ -32,7 +32,7 @@ countmatrix <- round(countmatrix, 0)
 head(countmatrix)
 ```
 
-## Get DEGs based on healthy vs sick
+## Get DEGs based on healthy vs sick (hvs)
 Healthy Stars:   Library ID:
 E06                 PSC.56
 E07                 PSC.81

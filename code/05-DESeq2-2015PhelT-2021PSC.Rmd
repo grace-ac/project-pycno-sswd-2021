@@ -7,6 +7,18 @@ Rmd to get Differential gene expression information for 2021 _Pycnopodia heliant
 
 RNAseq library information for figuring out different libraries to compare: [PSC_sample_comparison_options google sheets](https://docs.google.com/spreadsheets/d/1LtIQ-VBCQNi1jJCGmf7DlA4f8Y410-CxwM1z6l-EjIY/edit#gid=0)
 
+```{r}
+sessionInfo()
+```
+
+
+```{r}
+if (!require("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+
+BiocManager::install("DESeq2")
+```
+
 Load packages:
 ```{r}
 library(DESeq2)

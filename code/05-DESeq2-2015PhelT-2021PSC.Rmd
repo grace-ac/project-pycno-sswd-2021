@@ -28,6 +28,13 @@ library(RColorBrewer)
 library(data.table)
 ```
 
+```{r}
+packageVersion("rlang")
+```
+
+```{r}
+install.packages("rlang")
+```
 
 ## Read in count matrix from comparing the 2021 _Pycnopodia helianthoides_ coelomocyte RNAseq libraries with the 2015 _Pycnopodia helianthoides_ transcriptome:  
 ```{r}
@@ -36,7 +43,7 @@ rownames(countmatrix) <- countmatrix$X
 countmatrix <- countmatrix[,-1]
 head(countmatrix)
 ```
-29476 obs, 33 variables (32 libraries)
+29476 obs, 32 variables (32 libraries)
 
 Round integers up to whole numbers for analyses:    
 ```{r}
@@ -45,8 +52,8 @@ head(countmatrix)
 ```
 
 ## Get DEGs based on healthy vs sick
-NOTE: healthy stars are those that remained disease-sign free and were not exposed to tank sickness or to a filtered inoculate at time of sampling
-Healthy Stars:   Library ID:
+NOTE: healthy samples are those that had no disease signs at or before sampling and no exposure to tank illness or a filtered live inoculate
+Healthy :   Library ID:
 E06                 PSC.56
 E07                 PSC.81
 E09                 PSC.61
@@ -56,7 +63,8 @@ H03                 PSC.42
 H05                 PSC.37
 E18                 PSC.54
 
-Sick Stars:       Libary ID:
+Note: Sick samples are those that were sampled at or during disease sign development
+Sick :       Libary ID:
 H01                 PSC.59
 H03                 PSC.63 (toher option: PSC.73 a day after)
 H04                 PSC.69
@@ -99,7 +107,7 @@ head(res)
 # Count number of hits with adjusted p-value less then 0.05
 dim(res[!is.na(res$padj) & res$padj <= 0.05, ])
 ```
-8981 rows 
+4194 rows 
 
 ```{r}
 hvs_fig <- res
@@ -114,7 +122,7 @@ points(hvs_fig.sig$baseMean, hvs_fig.sig$log2FoldChange, pch=20, cex=0.45, col="
 # 2 FC lines
 abline(h=c(-1,1), col="blue")
 ```
-1,861 <=0 omitted from logarithmic plot
+1,858 <=0 omitted from logarithmic plot
 
 Write out DEG file: 
 ```{r}

@@ -33,21 +33,22 @@ head(countmatrix)
 ```
 
 ## Get DEGs based on healthy vs sick
+NOTE: healthy stars are those that remained disease-sign free and were not exposed to tank sickness or to a filtered inoculate at time of sampling
 Healthy Stars:   Library ID:
 E06                 PSC.56
 E07                 PSC.81
 E09                 PSC.61
 E10                 PSC.76
 E11                 PSC.52
-E14                 PSC.48
-E16                 PSC.49
+H03                 PSC.42
+H05                 PSC.37
 E18                 PSC.54
 
 Sick Stars:       Libary ID:
 H01                 PSC.59
-H03                 PSC.63 (also PSC.73 a day after)
+H03                 PSC.63 (toher option: PSC.73 a day after)
 H04                 PSC.69
-H05                 PSC.58 (also PSC.64 a day after)
+H05                 PSC.58 (other option: PSC.64 a day after)
 H06                 PSC.57
 H07                 PSC.83
 H08                 PSC.75
@@ -56,7 +57,7 @@ H09                 PSC.67
 ### 2022-09-07    
 Need to subset the countmatrix for those 16 libraries:    
 ```{r}
-counts_hvs <- countmatrix[,c("PSC.56","PSC.81","PSC.61","PSC.76","PSC.52","PSC.48","PSC.49","PSC.54","PSC.59","PSC.63","PSC.69","PSC.58","PSC.57","PSC.83","PSC.75","PSC.67")]
+counts_hvs <- countmatrix[,c("PSC.56","PSC.81","PSC.61","PSC.76","PSC.52","PSC.42","PSC.37","PSC.54","PSC.59","PSC.63","PSC.69","PSC.58","PSC.57","PSC.83","PSC.75","PSC.67")]
 head(counts_hvs)
 ```
 29476 rows, 16 columns (yay)

@@ -450,3 +450,13 @@ Link to RNAseq library info spreadsheet: [here](https://docs.google.com/spreadsh
 `DESeq2` analyses healthy (n=8 libraries) vs sick (n=8 libraries).    
 Script: [code/05-DESeq2-2015PhelT-2021PSC.Rmd](https://github.com/grace-ac/project_pycno/blob/main/code/05-DESeq2-2015PhelT-2021PSC.Rmd)    
 DEGlist: [analyses/DESeq2/2015Phel/DEGlist_healthy-vs-sick.tab](https://github.com/grace-ac/project_pycno/blob/main/analyses/DESeq2/2015Phel/DEGlist_healthy-vs-sick.tab)
+
+
+20221031    
+Re-ran [code/05-DESeq2-2015PhelT-2021PSC.Rmd](https://github.com/grace-ac/project_pycno/blob/main/code/05-DESeq2-2015PhelT-2021PSC.Rmd) and changed the Healthy libraries to 8 of the 9 that were samples from stars that had no pre-exposure or signs of disease at or before sampling time
+
+Found Up in Arms transcriptome blast output: https://github.com/sr320/eimd-sswd/blob/master/wd/Phel_uniprot_sprot.tab
+
+Will:    
+1. Compare the blast output from Up in Arms transcriptome to the updated DEG list: [analyses/DESeq2/2015Phel/DEGlist_healthy-vs-sick.tab](https://github.com/grace-ac/project_pycno/blob/main/analyses/DESeq2/2015Phel/DEGlist_healthy-vs-sick.tab)
+2. Get GO info and stuff 

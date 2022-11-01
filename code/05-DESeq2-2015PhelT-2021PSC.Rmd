@@ -128,7 +128,7 @@ Write out DEG file:
 ```{r}
 write.table(hvs_fig.sig, "../analyses/DESeq2/2015Phel/DEGlist_healthy-vs-sick.tab", sep = "\t", row.names = T, quote = FALSE, col.names = TRUE)
 ```
-Wrote out table 20220907 @ 15:52. 
+Wrote out table 20221031 @ 12:48. 
 
 
 

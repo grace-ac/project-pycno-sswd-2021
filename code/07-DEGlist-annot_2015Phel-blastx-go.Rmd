@@ -1,0 +1,15 @@
+---
+title: "annotate DEGlist with 2015 Phel blastx and GO"
+output: html_document
+date: "2022-11-01"
+---
+Rmd to annotate the DEGlist made by comparing Healthy (n=8) v Sick (n=8) 2021 coelomocyte RNA libraries to and the 2015 Phel transcriptome for counts
+
+2015 Phel transcriptome blast output annotated with GOslim in jupyter notebook: https://github.com/grace-ac/project_pycno/blob/main/code/06-DEGlist-healthy_v_sick_annot_2015Phel_transcriptome.ipynb
+
+The annotated 2015 Phel trancripomte with BLASTx and GO: https://raw.githubusercontent.com/grace-ac/project_pycno/main/analyses/DESeq2/2015Phel/Blastquery-GOslim.tab?token=GHSAT0AAAAAABZLW7F4A23IFERNKBSBZTFWY3AREDA
+
+In this Rmd I'll:
+`join` the two files based on the Phel contig 
+
+```

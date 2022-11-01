@@ -459,4 +459,10 @@ Found Up in Arms transcriptome blast output: https://github.com/sr320/eimd-sswd/
 
 Will:    
 1. Compare the blast output from Up in Arms transcriptome to the updated DEG list: [analyses/DESeq2/2015Phel/DEGlist_healthy-vs-sick.tab](https://github.com/grace-ac/project_pycno/blob/main/analyses/DESeq2/2015Phel/DEGlist_healthy-vs-sick.tab)
-2. Get GO info and stuff 
+2. Get GO info and stuff
+
+2015 Phel transcriptome blast output annotated with GOslim in jupyter notebook: https://github.com/grace-ac/project_pycno/blob/main/code/06-DEGlist-healthy_v_sick_annot_2015Phel_transcriptome.ipynb
+
+The annotated 2015 Phel trancripomte with BLASTx and GO: https://raw.githubusercontent.com/grace-ac/project_pycno/main/analyses/DESeq2/2015Phel/Blastquery-GOslim.tab?token=GHSAT0AAAAAABZLW7F4A23IFERNKBSBZTFWY3AREDA
+
+Rmd: https://github.com/grace-ac/project_pycno/blob/main/code/07-DEGlist-annot_2015Phel-blastx-go.Rmd

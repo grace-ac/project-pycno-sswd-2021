@@ -452,7 +452,7 @@ Script: [code/05-DESeq2-2015PhelT-2021PSC.Rmd](https://github.com/grace-ac/proje
 DEGlist: [analyses/DESeq2/2015Phel/DEGlist_healthy-vs-sick.tab](https://github.com/grace-ac/project_pycno/blob/main/analyses/DESeq2/2015Phel/DEGlist_healthy-vs-sick.tab)
 
 
-20221031    
+##### 20221031    
 Re-ran [code/05-DESeq2-2015PhelT-2021PSC.Rmd](https://github.com/grace-ac/project_pycno/blob/main/code/05-DESeq2-2015PhelT-2021PSC.Rmd) and changed the Healthy libraries to 8 of the 9 that were samples from stars that had no pre-exposure or signs of disease at or before sampling time
 
 Found Up in Arms transcriptome blast output: https://github.com/sr320/eimd-sswd/blob/master/wd/Phel_uniprot_sprot.tab
@@ -466,3 +466,12 @@ Will:
 The annotated 2015 Phel trancripomte with BLASTx and GO: https://raw.githubusercontent.com/grace-ac/project_pycno/main/analyses/DESeq2/2015Phel/Blastquery-GOslim.tab?token=GHSAT0AAAAAABZLW7F4A23IFERNKBSBZTFWY3AREDA
 
 Rmd: https://github.com/grace-ac/project_pycno/blob/main/code/07-DEGlist-annot_2015Phel-blastx-go.Rmd
+
+Annotated DEGlist: https://github.com/grace-ac/project_pycno/blob/main/analyses/DESeq2/2015Phel/DEGlist_annot.tab     
+I opened it in excel and filtered out the rows with no GOIDs and kept only the "biologogical processes". saved the file: https://github.com/grace-ac/project_pycno/blob/main/analyses/DESeq2/2015Phel/DEGlist_annot_onlyBP.csv
+
+in R ([code/07-DEGlist-annot_2015Phel-blastx-go.Rmd](https://github.com/grace-ac/project_pycno/blob/main/code/07-DEGlist-annot_2015Phel-blastx-go.Rmd)), got the lists for LESS expressed and MORE expressed in healthy samples:
+
+- less --> https://github.com/grace-ac/project_pycno/blob/main/analyses/DESeq2/2015Phel/DEGs_LESS-healthy-annot.tab
+
+- more --> https://github.com/grace-ac/project_pycno/blob/main/analyses/DESeq2/2015Phel/DEGs_MORE-healthy-annot.tab

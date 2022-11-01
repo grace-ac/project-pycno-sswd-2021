@@ -9,7 +9,46 @@ Rmd to annotate the DEGlist made by comparing Healthy (n=8) v Sick (n=8) 2021 co
 
 The annotated 2015 Phel trancripomte with BLASTx and GO: https://raw.githubusercontent.com/grace-ac/project_pycno/main/analyses/DESeq2/2015Phel/Blastquery-GOslim.tab?token=GHSAT0AAAAAABZLW7F4A23IFERNKBSBZTFWY3AREDA
 
+```{r}
+library(tibble)
+```
+
 In this Rmd I'll:
 `join` the two files based on the Phel contig 
 
+```{r}
+degs <- read.delim("../analyses/DESeq2/2015Phel/DEGlist_healthy-vs-sick.tab", sep = '\t')
+head(degs)
 ```
+Make the rownames into a column called "Phel_contig"
+```{r}
+degs <- tibble::rownames_to_column(degs, "Phel_contig")
+head(degs)
+```
+
+Read in Blastquery-GOslim.tab of Phel transcriptome from Up in Arms:
+```{r}
+phelannot <- read.delim("../analyses/DESeq2/2015Phel/Blastquery-GOslim.tab", sep = '\t', header = FALSE)
+head(phelannot)
+```
+
+Rename columns: 
+```{r}
+cols <- c("Phel_contig", "GO_ID", "GO_slim", "CC_MF_BP")
+colnames(phelannot) <- cols
+head(phelannot)
+```
+
+`join` degs and phelannot by "Phel_contig" column
+```{r}
+degsannot <- left_join(degs, phelannot, by = "Phel_contig")
+head(degsannot)
+```
+
+20293 rows and 10 columns... 
+
+Write out table:
+```{r}
+write.table(degsannot, file = "../analyses/DESeq2/2015Phel/DEGlist_annot.tab", row.names = FALSE, sep = '\t', quote = FALSE)
+```
+

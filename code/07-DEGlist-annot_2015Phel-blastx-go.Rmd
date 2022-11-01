@@ -52,3 +52,44 @@ Write out table:
 write.table(degsannot, file = "../analyses/DESeq2/2015Phel/DEGlist_annot.tab", row.names = FALSE, sep = '\t', quote = FALSE)
 ```
 
+
+20221031   
+Read in .csv file that was made in excel by openeing DEGlist_annot.tab and filtering out only contigs with biological process GOids and sorting from lowest to highest log2fold change
+```{r}
+degsannotBP <- read.delim("../analyses/DESeq2/2015Phel/DEGlist_annot_onlyBP.csv", sep = ',')
+head(degsannotBP)
+```
+
+Subset into 2 tables --> one with all the negative log2foldchange values and one with all the positive log2foldchange values      
+negative will be ones that are less expressed in the Healthy samples compared to the sick samples           
+positive will be contigs that are more expressed in the Healthy samples compared to the sick samples     
+
+```{r}
+attach(degsannotBP)
+degsLESShealthy <- degsannotBP[ which(log2FoldChange < 0),]
+detach(degsannotBP)
+head(degsLESShealthy)
+```
+2277 rows. Some Phel_contigs are repeats because multiple BP GOIDs per Phel_contig
+
+
+```{r}
+attach(degsannotBP)
+degsMOREhealthy <- degsannotBP[ which(log2FoldChange > 0),]
+detach(degsannotBP)
+head(degsMOREhealthy)
+```
+
+5714 rows. Some Phel_contigs are repeats because multiple BP GOIDs per Phel_contig
+
+Write out both tables:
+
+```{r}
+write.table(degsLESShealthy, file = "../analyses/DESeq2/2015Phel/DEGs_LESS-healthy-annot.tab", sep = '\t', quote = FALSE, row.names = FALSE)
+```
+
+```{r}
+write.table(degsMOREhealthy, file = "../analyses/DESeq2/2015Phel/DEGs_MORE-healthy-annot.tab", sep = '\t', quote = FALSE, row.names = FALSE)
+```
+
+

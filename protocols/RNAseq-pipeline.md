@@ -354,6 +354,32 @@ I created a post in the google group for Trinity: https://groups.google.com/g/tr
 
 So I just re-ran the script and it says the node is unavailable due to maintenance, so we'll see what happens later I suppose.
 
+20221202     
+Re-ran code to assemble summer 2021 transcriptome:    
+```
+sbatch 20220811_pycno_trinity_RNAseq_transcriptome.sh
+```
+Submitted batch job 4104648
+
+job failed in a couple seconds.
+
+Slurm output message:    
+```
+/var/spool/slurm/d/job4104648/slurm_script: line 31: unexpected EOF while looking for matching `"'
+/var/spool/slurm/d/job4104648/slurm_script: line 126: syntax error: unexpected end of file
+```
+
+Fixed """ issue in "PATH" thing line 31. Attempted to fix EOF for line 126... there was a return to a new line that I deleted.
+
+Re-ran script:    
+```
+sbatch 20220811_pycno_trinity_RNAseq_transcriptome.sh
+```
+Submitted batch job 4104649        
+Job doesn't show in queue... so likely another issue. Will look at slurm out when it's ready. 
+
+
+
 # Note: Up In Arms paper has a published transcriptome from taht study. So... while this new transcriptome is assembling, I'll move forward to psuedoalignment of the new libraries to the old transcriptome using `kallisto`.
 
 ---

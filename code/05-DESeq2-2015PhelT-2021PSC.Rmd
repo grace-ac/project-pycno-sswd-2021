@@ -230,9 +230,9 @@ Warning: 1865 x values <= 0 omitted from logarithmic plot
 
 Write out DEG file: 
 ```{r}
-write.table(hvs_fig.sig2, "../analyses/DESeq2/2015Phel/DEGlist_healthy-vs-sick_8x8.tab", sep = "\t", row.names = T, quote = FALSE, col.names = TRUE)
+#write.table(hvs_fig.sig2, "../analyses/DESeq2/2015Phel/DEGlist_healthy-vs-sick_8x8.tab", sep = "\t", row.names = T, quote = FALSE, col.names = TRUE)
 ```
-
+HUGE file
 wrote out 20221204
 
 ```{r}
@@ -251,9 +251,9 @@ head(hvs_fig.sig.final)
 
 Write out this new file:
 ```{r}
-write.table(hvs_fig.sig.final, "../analyses/DESeq2/2015Phel/DEGlist_healthy-vs-sick_signif.tab", sep = "\t", row.names = T, quote = FALSE, col.names = TRUE)
+#write.table(hvs_fig.sig.final, "../analyses/DESeq2/2015Phel/DEGlist_healthy-vs-sick_signif_8x8.tab", sep = "\t", row.names = T, quote = FALSE, col.names = TRUE)
 ```
-
-
+3876 degs
+wrote out 20221204
 
 

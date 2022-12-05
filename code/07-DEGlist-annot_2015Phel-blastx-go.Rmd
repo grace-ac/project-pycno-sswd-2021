@@ -45,11 +45,11 @@ degsannot <- left_join(degs, phelannot, by = "Phel_contig")
 head(degsannot)
 ```
 
-20293 rows and 10 columns... 
+32367 rows and 10 columns... 
 
 Write out table:
 ```{r}
-write.table(degsannot, file = "../analyses/DESeq2/2015Phel/DEGlist_annot.tab", row.names = FALSE, sep = '\t', quote = FALSE)
+write.table(degsannot, file = "../analyses/DESeq2/2015Phel/DEGlist_annot_4x4_healthyvsick.tab", row.names = FALSE, sep = '\t', quote = FALSE)
 ```
 
 

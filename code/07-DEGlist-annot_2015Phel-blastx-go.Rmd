@@ -129,8 +129,9 @@ head(degsannotvs)
 
 Write out table:
 ```{r}
-write.table(degsannotvs, file = "../analyses/DESeq2/2015Phel/DEGlist_annot_4x4_tankexposed_V_sick.tab", row.names = FALSE, sep = '\t', quote = FALSE)
+#write.table(degsannotvs, file = "../analyses/DESeq2/2015Phel/DEGlist_annot_4x4_tankexposed_V_sick.tab", row.names = FALSE, sep = '\t', quote = FALSE)
 ```
 wrote out 20221204
 
+BPonly table made in excel by filtering out "P" annotations and ordering contigs in ascending log2fc order. ([analyses/DESeq2/2015Phel/degs_annot_tankexposed_v_sick_BPonly.csv](https://github.com/grace-ac/project_pycno/blob/main/analyses/DESeq2/2015Phel/degs_annot_tankexposed_v_sick_BPonly.csv)). 109 annotations, with all positive log2fc, meaning that they are all MORE expressed in the 4 libraries of those from stars that were inoculated with the raw live inoculate in experiment 2 compared to those stars that died from the tank exposure. 
 

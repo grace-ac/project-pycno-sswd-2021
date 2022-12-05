@@ -376,7 +376,7 @@ Re-ran script:
 sbatch 20220811_pycno_trinity_RNAseq_transcriptome.sh
 ```
 Submitted batch job 4104649        
-Job doesn't show in queue... so likely another issue. Will look at slurm out when it's ready. 
+Job doesn't show in queue... so likely another issue. Will look at slurm out when it's ready.
 
 
 
@@ -478,7 +478,7 @@ Script: [code/05-DESeq2-2015PhelT-2021PSC.Rmd](https://github.com/grace-ac/proje
 DEGlist: [analyses/DESeq2/2015Phel/DEGlist_healthy-vs-sick.tab](https://github.com/grace-ac/project_pycno/blob/main/analyses/DESeq2/2015Phel/DEGlist_healthy-vs-sick.tab)
 
 
-##### 20221031    
+#### 20221031    
 Re-ran [code/05-DESeq2-2015PhelT-2021PSC.Rmd](https://github.com/grace-ac/project_pycno/blob/main/code/05-DESeq2-2015PhelT-2021PSC.Rmd) and changed the Healthy libraries to 8 of the 9 that were samples from stars that had no pre-exposure or signs of disease at or before sampling time
 
 Found Up in Arms transcriptome blast output: https://github.com/sr320/eimd-sswd/blob/master/wd/Phel_uniprot_sprot.tab
@@ -501,3 +501,15 @@ in R ([code/07-DEGlist-annot_2015Phel-blastx-go.Rmd](https://github.com/grace-ac
 - less --> https://github.com/grace-ac/project_pycno/blob/main/analyses/DESeq2/2015Phel/DEGs_LESS-healthy-annot.tab
 
 - more --> https://github.com/grace-ac/project_pycno/blob/main/analyses/DESeq2/2015Phel/DEGs_MORE-healthy-annot.tab
+
+
+#### 20221204
+R script: [code/05-DESeq2-2015PhelT-2021PSC.Rmd](https://github.com/grace-ac/project_pycno/blob/main/code/05-DESeq2-2015PhelT-2021PSC.Rmd)
+
+_Sick v healthy 4 libraries per trtmnt (summer '21 experiment 2):_       
+Re-ran DESeq2 using 4 libraries from healthy (only ever received heat-killed inoc) and 4 sick libraries (received heat-killed in exp. 1 then raw live in exp 2). Note, healthy libraries are from 2 stars whereas sick libraries are from 4 stars.
+
+Made a shorter list of DEGs from the above comparison by paring down to those with p-value <0.05 and log2FC >2.0 and <-2.0
+
+_Sick v healthy 8 libraries per trtmnt (summer '21 experiment 2):_    
+Run DESeq2 script with 8 libraries of sick stars that only had heat-killed prior, and 8 libraries of healthy stars though some had 0.45 live inoc 20210923 though never showed any disease signs. 

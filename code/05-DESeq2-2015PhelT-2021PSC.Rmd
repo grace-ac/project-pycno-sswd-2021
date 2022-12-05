@@ -327,7 +327,7 @@ Warning: 1977 x values <= 0 omitted from logarithmic plot
 
 Write out DEG file: 
 ```{r}
-write.table(tvs_fig.sig, "../analyses/DESeq2/2015Phel/DEGlist_tankexposed_v_sick_4x4.tab", sep = "\t", row.names = T, quote = FALSE, col.names = TRUE)
+#write.table(tvs_fig.sig, "../analyses/DESeq2/2015Phel/DEGlist_tankexposed_v_sick_4x4_pval.tab", sep = "\t", row.names = T, quote = FALSE, col.names = TRUE)
 ```
 wrote out 20221204
 
@@ -348,7 +348,7 @@ Write out this new file:
 ```{r}
 write.table(tvs_fig.sig.final, "../analyses/DESeq2/2015Phel/DEGlist_tankexposed_v_sick_4x4.tab", sep = "\t", row.names = T, quote = FALSE, col.names = TRUE)
 ```
-
+15 degs
 wrote out 20221204
 
 

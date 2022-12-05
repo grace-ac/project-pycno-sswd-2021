@@ -5,7 +5,7 @@ output: html_document
 
 Rmd to get Differential gene expression information for 2021 _Pycnopodia helianthoides_ coelomocyte RNAseq library `kallisto` counts from comparing them to the 2015 _Pycnopodia helianthoides_ transcriptome.     [code/04-kallisto-2015Phel_transcriptome.Rmd](https://github.com/grace-ac/project_pycno/blob/main/code/04-kallisto-2015Phel_transcriptome.Rmd)
 
-RNAseq library information for figuring out different libraries to compare: [PSC_sample_comparison_options google sheets](https://docs.google.com/spreadsheets/d/1LtIQ-VBCQNi1jJCGmf7DlA4f8Y410-CxwM1z6l-EjIY/edit#gid=0)
+RNAseq library information for figuring out different libraries to compare: [RNAseq_library_metadata google sheet](https://docs.google.com/spreadsheets/d/1j1J63iS9lp_Ey5VqdNH_IzyM-uNS_5mvW71V4OxYtOI/edit#gid=0)
 
 ```{r}
 sessionInfo()
@@ -33,7 +33,7 @@ packageVersion("rlang")
 ```
 
 ```{r}
-install.packages("rlang")
+#install.packages("rlang")
 ```
 
 ## Read in count matrix from comparing the 2021 _Pycnopodia helianthoides_ coelomocyte RNAseq libraries with the 2015 _Pycnopodia helianthoides_ transcriptome:  
@@ -53,40 +53,38 @@ head(countmatrix)
 
 ## Get DEGs based on healthy vs sick
 NOTE: healthy samples are those that had no disease signs at or before sampling and no exposure to tank illness or a filtered live inoculate
-Healthy :   Library ID:
-E06                 PSC.56
-E07                 PSC.81
-E09                 PSC.61
-E10                 PSC.76
-E11                 PSC.52
-H03                 PSC.42
-H05                 PSC.37
-E18                 PSC.54
+Healthy : 
 
-Note: Sick samples are those that were sampled at or during disease sign development
-Sick :       Libary ID:
-H01                 PSC.59
-H03                 PSC.63 (toher option: PSC.73 a day after)
-H04                 PSC.69
-H05                 PSC.58 (other option: PSC.64 a day after)
-H06                 PSC.57
-H07                 PSC.83
-H08                 PSC.75
-H09                 PSC.67
+| Library ID | Star ID | Sample Date | Star Death Date | Disease Signs at Time of Sampling | Notes                                                  |
+|------------|---------|-------------|-----------------|-----------------------------------|--------------------------------------------------------|
+| PSC.58     | H05     | 2021-10-14  | 2021-10-18      | NA                                | star remained healthy; sacrificed at end of experiment |
+| PSC.63     | H03     | 2021-10-15  | 2021-10-18      | NA                                | star remained healthy; sacrificed at end of experiment |
+| PSC.64     | H05     | 2021-10-15  | 2021-10-18      | NA                                | star remained healthy; sacrificed at end of experiment |
+| PSC.73     | H03     | 2021-10-16  | 2021-10-18      | NA                                | star remained healthy; sacrificed at end of experiment |
+
+
+Note: Sick samples are those that were sampled at or during disease sign development and received heat-killed inoculate prior to experiment 2 and did not have exposure to the tank outbreak       
+Sick :      
+| Library ID | Star ID | Sample Date | Star Death Date | Disease Signs at Time of Sampling         |
+|------------|---------|-------------|-----------------|-------------------------------------------|
+| PSC.57     | H06     | 2021-10-14  | 2021-10-16      | 1 arm lost, twisting, lesion              |
+| PSC.59     | H01     | 2021-10-14  | 2021-10-16      | 1 arm lost, twisting, lesions, stretching |
+| PSC.67     | H09     | 2021-10-15  | 2021-10-16      | 2 arms lost, twisting                     |
+| PSC.69     | H04     | 2021-10-15  | 2021-10-16      | 9 arms lost, twisting                     |
 
 ### 2022-09-07    
-Need to subset the countmatrix for those 16 libraries:    
+Need to subset the countmatrix for those 8 libraries:    
 ```{r}
-counts_hvs <- countmatrix[,c("PSC.56","PSC.81","PSC.61","PSC.76","PSC.52","PSC.42","PSC.37","PSC.54","PSC.59","PSC.63","PSC.69","PSC.58","PSC.57","PSC.83","PSC.75","PSC.67")]
+counts_hvs <- countmatrix[,c("PSC.58", "PSC.63", "PSC.64", "PSC.73", "PSC.57", "PSC.59", "PSC.67", "PSC.69")]
 head(counts_hvs)
 ```
-29476 rows, 16 columns (yay)
+29476 rows, 8 columns 
 
 
 Make a data frame for the comparison: 
 ```{r}
-colData <- data.frame(condition=factor(c("healthy","healthy","healthy","healthy","healthy","healthy","healthy","healthy","sick","sick","sick","sick","sick","sick","sick","sick")),
-                      type=factor(rep("paired-end",16)))
+colData <- data.frame(condition=factor(c("healthy","healthy","healthy","healthy","sick","sick","sick","sick")),
+                      type=factor(rep("paired-end",8)))
 rownames(colData) <- colnames(counts_hvs)
 dds <- DESeqDataSetFromMatrix(countData = counts_hvs,
                               colData = colData,
@@ -128,7 +126,7 @@ Write out DEG file:
 ```{r}
 write.table(hvs_fig.sig, "../analyses/DESeq2/2015Phel/DEGlist_healthy-vs-sick.tab", sep = "\t", row.names = T, quote = FALSE, col.names = TRUE)
 ```
-Wrote out table 20221031 @ 12:48. 
+Wrote out table 20221204 @ 19:23. 
 
 
 

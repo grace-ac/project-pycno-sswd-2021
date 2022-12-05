@@ -199,7 +199,7 @@ dds2 <- DESeqDataSetFromMatrix(countData = counts_hvs2,
 ```{r}
 dds2 <- DESeq(dds2)
 res2 <- results(dds2)
-res2 <- res2s[order(rownames(res2)), ]
+res2 <- res2[order(rownames(res2)), ]
 ```
 
 ```{r}
@@ -255,5 +255,55 @@ Write out this new file:
 ```
 3876 degs
 wrote out 20221204
+
+# Clear Rstudio environment
+
+## Get DEGs when comparing counts between 4 libraries of stars that died after tank exposure before experiment 2 start to 4 libraries of stars that  died in experiment 2 after inoculation with live unfiltered inoculum (were previously injected with heat-killed in experiment 1)
+
+### libraries of the 4 stars with tank exposure that died early in experiment 1 (likely died from tank exposure). 
+
+| Library ID | Star ID | Sample Date | Star Death Date | Disease Signs at Time of Sampling | Notes                                                                                                          |
+|------------|---------|-------------|-----------------|-----------------------------------|----------------------------------------------------------------------------------------------------------------|
+| PSC.19     | H16     | 2021-09-23  | 2021-09-24      | 2 arms lost, lesions, stretching  | had tank exposure (date of tank outbreak: ~20210908); inoculated with heat-killed for experiment 1 20210923    |
+| PSC.23     | H15     | 2021-09-26  | 2021-09-27      | 2 arms lost, lesions              | had tank exposure (date of tank outbreak: ~20210908); inoculated with heat-killed for experiment 1 20210923    |
+| PSC.24     | E13     | 2021-09-27  | 2021-09-28      | 6 arms lost                       | had tank exposure (date of tank outbreak: ~20210908); inoculated with 0.45um filtered live for exp. 1 20210923 |
+| PSC.34     | H12     | 2021-10-02  | 2021-10-02      | 11 arms lost                      | had tank exposure (date of tank outbreak: ~20210908); inoculated with heat-killed for experiment 1 20210923    |
+
+### libraries of 4 sick stars from experiment 2 that were injected with heat-killed for experiemnt 1, then live unfiltered for experiment 2]]
+
+| Library ID | Star ID | Sample Date | Star Death Date | Disease Signs at Time of Sampling         |
+|------------|---------|-------------|-----------------|-------------------------------------------|
+| PSC.57     | H06     | 2021-10-14  | 2021-10-16      | 1 arm lost, twisting, lesion              |
+| PSC.59     | H01     | 2021-10-14  | 2021-10-16      | 1 arm lost, twisting, lesions, stretching |
+| PSC.67     | H09     | 2021-10-15  | 2021-10-16      | 2 arms lost, twisting                     |
+| PSC.69     | H04     | 2021-10-15  | 2021-10-16      | 9 arms lost, twisting   
+
+Get counts for libraries of interest:
+```{r}
+counts_tvs <- countmatrix[,c("PSC.19", "PSC.23", "PSC.24", "PSC.34", "PSC.57", "PSC.59", "PSC.67", "PSC.69")]
+head(counts_tvs)
+```
+
+Make a data frame for the comparison: 
+```{r}
+colData <- data.frame(condition=factor(c("healthy","healthy","healthy","healthy", "sick","sick","sick","sick")),
+                      type=factor(rep("paired-end",8)))
+rownames(colData) <- colnames(counts_tvs)
+dds <- DESeqDataSetFromMatrix(countData = counts_tvs,
+                              colData = colData,
+                              design = ~ condition)
+```
+
+```{r}
+dds <- DESeq(dds)
+res <- results(dds)
+res <- res[order(rownames(res)), ]
+```
+
+
+
+
+
+
 
 

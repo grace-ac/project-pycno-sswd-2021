@@ -325,10 +325,30 @@ abline(h=c(-2,2), col="blue")
 ```
 Warning: 1977 x values <= 0 omitted from logarithmic plot
 
+Write out DEG file: 
+```{r}
+write.table(tvs_fig.sig, "../analyses/DESeq2/2015Phel/DEGlist_tankexposed_v_sick_4x4.tab", sep = "\t", row.names = T, quote = FALSE, col.names = TRUE)
+```
+wrote out 20221204
 
+```{r}
+# Try to get number of hits with adj-p-value less than 0.05; as well as those with log2FC >2.00 and <-2.00
+# get those greater than 2.00 log2FC
+tvs_fig.sig <- subset.data.frame(tvs_fig.sig, tvs_fig.sig$log2FoldChange > 2.00)
+# get those less than -2.00 log2FC
+tvs_fig.sig2 <- subset.data.frame(tvs_fig.sig, tvs_fig.sig$log2FoldChange < -2.00)
+# combine the two into 1 list of DEGs with p-values </= 0.05 and log2FC >2.00 and <-2.00
+tvs_fig.sig.final <- rbind(tvs_fig.sig, tvs_fig.sig2)
 
+#look at head of combined file:
+head(tvs_fig.sig.final)
 
+```
+Write out this new file:
+```{r}
+write.table(tvs_fig.sig.final, "../analyses/DESeq2/2015Phel/DEGlist_tankexposed_v_sick_4x4.tab", sep = "\t", row.names = T, quote = FALSE, col.names = TRUE)
+```
 
-
+wrote out 20221204
 
 

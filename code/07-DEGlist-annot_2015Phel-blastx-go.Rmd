@@ -53,10 +53,11 @@ write.table(degsannot, file = "../analyses/DESeq2/2015Phel/DEGlist_annot_4x4_hea
 ```
 
 
-20221031   
+20221205
+NEED TO DO THIS WITH BIG TABLE
 Read in .csv file that was made in excel by openeing DEGlist_annot.tab and filtering out only contigs with biological process GOids and sorting from lowest to highest log2fold change
 ```{r}
-degsannotBP <- read.delim("../analyses/DESeq2/2015Phel/DEGlist_annot_onlyBP.csv", sep = ',')
+#degsannotBP <- read.delim("../analyses/DESeq2/2015Phel/DEGlist_annot_onlyBP.csv", sep = ',')
 head(degsannotBP)
 ```
 
@@ -91,5 +92,45 @@ write.table(degsLESShealthy, file = "../analyses/DESeq2/2015Phel/DEGs_LESS-healt
 ```{r}
 write.table(degsMOREhealthy, file = "../analyses/DESeq2/2015Phel/DEGs_MORE-healthy-annot.tab", sep = '\t', quote = FALSE, row.names = FALSE)
 ```
+
+20221204
+annotate 120 degs from comparing the 4 tank exposed libraries to the 4 experiment 2 inoculate live unfiltered exposure:   
+
+read in list of degs:
+```{r}
+degstvs <- read.delim("../analyses/DESeq2/2015Phel/DEGlist_tankexposed_v_sick_4x4_pval.tab", sep = '\t')
+head(degstvs)
+```
+
+Make the rownames into a column called "Phel_contig"
+```{r}
+degstvs <- tibble::rownames_to_column(degstvs, "Phel_contig")
+head(degstvs)
+```
+
+Read in Blastquery-GOslim.tab of Phel transcriptome from Up in Arms:
+```{r}
+phelannot <- read.delim("../analyses/DESeq2/2015Phel/Blastquery-GOslim.tab", sep = '\t', header = FALSE)
+head(phelannot)
+```
+Rename columns: 
+```{r}
+cols <- c("Phel_contig", "GO_ID", "GO_slim", "CC_MF_BP")
+colnames(phelannot) <- cols
+head(phelannot)
+```
+
+`join` degs and phelannot by "Phel_contig" column
+```{r}
+degsannotvs <- left_join(degstvs, phelannot, by = "Phel_contig")
+head(degsannotvs)
+```
+389 degs, 10 columns
+
+Write out table:
+```{r}
+write.table(degsannotvs, file = "../analyses/DESeq2/2015Phel/DEGlist_annot_4x4_tankexposed_V_sick.tab", row.names = FALSE, sep = '\t', quote = FALSE)
+```
+wrote out 20221204
 
 

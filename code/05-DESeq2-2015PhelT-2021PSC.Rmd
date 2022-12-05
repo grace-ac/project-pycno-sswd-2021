@@ -300,6 +300,31 @@ res <- results(dds)
 res <- res[order(rownames(res)), ]
 ```
 
+```{r}
+head(res)
+```
+
+```{r}
+# Count number of hits with adjusted p-value less than 0.05
+dim(res[!is.na(res$padj) & res$padj <= 0.05, ])
+```
+120 degs 
+
+```{r}
+tvs_fig <- res
+# The main plot
+plot(tvs_fig$baseMean, tvs_fig$log2FoldChange, pch=20, cex=0.45, ylim=c(-15, 15), log="x", col="darkgray",
+     main="Tank exposed vs Sick  (pval </= 0.05) ",
+     xlab="mean of normalized counts",
+     ylab="Log2 Fold Change")
+# Getting the significant points and plotting them again so they're a different color
+tvs_fig.sig <- res[!is.na(res$padj) & res$padj <= 0.05, ]
+points(tvs_fig.sig$baseMean, tvs_fig.sig$log2FoldChange, pch=20, cex=0.45, col="red")
+# 2 FC lines
+abline(h=c(-2,2), col="blue")
+```
+Warning: 1977 x values <= 0 omitted from logarithmic plot
+
 
 
 

@@ -152,6 +152,8 @@ Write out this new file:
 ```
 wrote out 20221202. 3,138 DEGs
 
+# Clear environment in R studio and re-import the count matrix above.
+
 ## Get DEGs based on healthy vs sick with more libraries per group (some of healthy had been previously inoculated with 0.45 filtered live, but NEVER showed any disease signs)
 
 ### Sick stars
@@ -232,4 +234,26 @@ write.table(hvs_fig.sig2, "../analyses/DESeq2/2015Phel/DEGlist_healthy-vs-sick_8
 ```
 
 wrote out 20221204
+
+```{r}
+# Try to get number of hits with adj-p-value less than 0.05; as well as those with log2FC >2.00 and <-2.00
+# get those greater than 2.00 log2FC
+hvs_fig.sig3 <- subset.data.frame(hvs_fig.sig2, hvs_fig.sig2$log2FoldChange > 2.00)
+# get those less than -2.00 log2FC
+hvs_fig.sig4 <- subset.data.frame(hvs_fig.sig2, hvs_fig.sig2$log2FoldChange < -2.00)
+# combine the two into 1 list of DEGs with p-values </= 0.05 and log2FC >2.00 and <-2.00
+hvs_fig.sig.final <- rbind(hvs_fig.sig3, hvs_fig.sig4)
+
+#look at head of combined file:
+head(hvs_fig.sig.final)
+
+```
+
+Write out this new file:
+```{r}
+write.table(hvs_fig.sig.final, "../analyses/DESeq2/2015Phel/DEGlist_healthy-vs-sick_signif.tab", sep = "\t", row.names = T, quote = FALSE, col.names = TRUE)
+```
+
+
+
 

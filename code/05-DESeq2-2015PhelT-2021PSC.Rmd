@@ -325,6 +325,17 @@ res <- results(dds)
 res <- res[order(rownames(res)), ]
 ```
 
+From [Bioconductor `DESeq2` Vignette](http://bioconductor.org/packages/release/bioc/vignettes/DESeq2/inst/doc/DESeq2.html):     
+```{r}
+vsd <- vst(dds, blind=FALSE)
+rld <- rlog(dds, blind=FALSE)
+head(assay(vsd), 3)
+```
+
+```{r}
+plotPCA(vsd, intgroup=c("condition", "type"))
+```
+
 ```{r}
 head(res)
 ```

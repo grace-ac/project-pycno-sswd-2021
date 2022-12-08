@@ -512,4 +512,7 @@ Re-ran DESeq2 using 4 libraries from healthy (only ever received heat-killed ino
 Made a shorter list of DEGs from the above comparison by paring down to those with p-value <0.05 and log2FC >2.0 and <-2.0
 
 _Sick v healthy 8 libraries per trtmnt (summer '21 experiment 2):_    
-Run DESeq2 script with 8 libraries of sick stars that only had heat-killed prior, and 8 libraries of healthy stars though some had 0.45 live inoc 20210923 though never showed any disease signs. 
+Run DESeq2 script with 8 libraries of sick stars that only had heat-killed prior, and 8 libraries of healthy stars though some had 0.45 live inoc 20210923 though never showed any disease signs.
+
+_Tank exposed 4 libraries v live unfiltered inoc. 4 libraries:_    
+Added a comparison between the above groupings. Found 15 degs that satisfied pval <0.05 and log2fc >2.0 and <-2.0. Annotated and working on getting deeper into what's potentially going on. 

@@ -13,10 +13,10 @@ sessionInfo()
 
 
 ```{r}
-if (!require("BiocManager", quietly = TRUE))
+#if (!require("BiocManager", quietly = TRUE))
     install.packages("BiocManager")
 
-BiocManager::install("DESeq2")
+#BiocManager::install("DESeq2")
 ```
 
 Load packages:
@@ -26,6 +26,7 @@ library(tidyverse)
 library(pheatmap)
 library(RColorBrewer)
 library(data.table)
+library(ggplot2)
 ```
 
 ```{r}
@@ -91,11 +92,23 @@ dds <- DESeqDataSetFromMatrix(countData = counts_hvs,
                               design = ~ condition)
 ```
 
+
 ```{r}
 dds <- DESeq(dds)
 res <- results(dds)
 res <- res[order(rownames(res)), ]
 ```
+
+From [Bioconductor `DESeq2` Vignette](http://bioconductor.org/packages/release/bioc/vignettes/DESeq2/inst/doc/DESeq2.html):     
+```{r}
+vsd <- vst(dds, blind=FALSE)
+rld <- rlog(dds, blind=FALSE)
+head(assay(vsd), 3)
+```
+```{r}
+plotPCA(vsd, intgroup=c("condition", "type"))
+```
+
 
 ```{r}
 head(res)

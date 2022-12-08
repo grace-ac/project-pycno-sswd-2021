@@ -202,39 +202,51 @@ head(counts_hvs2)
  
 Make a data frame for the comparison: 
 ```{r}
-colData2 <- data.frame(condition=factor(c("healthy","healthy","healthy","healthy","healthy", "healthy", "healthy" ,"healthy", "sick","sick","sick","sick", "sick", "sick", "sick", "sick")),
+colData <- data.frame(condition=factor(c("healthy","healthy","healthy","healthy","healthy", "healthy", "healthy" ,"healthy", "sick","sick","sick","sick", "sick", "sick", "sick", "sick")),
                       type=factor(rep("paired-end",16)))
-rownames(colData2) <- colnames(counts_hvs2)
-dds2 <- DESeqDataSetFromMatrix(countData = counts_hvs2,
-                              colData = colData2,
+rownames(colData) <- colnames(counts_hvs2)
+dds <- DESeqDataSetFromMatrix(countData = counts_hvs2,
+                              colData = colData,
                               design = ~ condition)
 ```
 ```{r}
-dds2 <- DESeq(dds2)
-res2 <- results(dds2)
-res2 <- res2[order(rownames(res2)), ]
+dds <- DESeq(dds)
+res <- results(dds)
+res <- res[order(rownames(res)), ]
+```
+From [Bioconductor `DESeq2` Vignette](http://bioconductor.org/packages/release/bioc/vignettes/DESeq2/inst/doc/DESeq2.html):     
+```{r}
+vsd <- vst(dds, blind=FALSE)
+rld <- rlog(dds, blind=FALSE)
+head(assay(vsd), 3)
 ```
 
 ```{r}
-head(res2)
+plotPCA(vsd, intgroup=c("condition", "type"))
+```
+
+
+
+```{r}
+head(res)
 ```
 
 ```{r}
 # Count number of hits with adjusted p-value less than 0.05
-dim(res2[!is.na(res2$padj) & res2$padj <= 0.05, ])
+dim(res[!is.na(res$padj) & res$padj <= 0.05, ])
 ```
 12424 degs
 
 ```{r}
-hvs_fig2 <- res2
+hvs_fig <- res
 # The main plot
-plot(hvs_fig2$baseMean, hvs_fig2$log2FoldChange, pch=20, cex=0.45, ylim=c(-15, 15), log="x", col="darkgray",
+plot(hvs_fig$baseMean, hvs_fig$log2FoldChange, pch=20, cex=0.45, ylim=c(-15, 15), log="x", col="darkgray",
      main="Healthy vs Sick  (pval </= 0.05)",
      xlab="mean of normalized counts",
      ylab="Log2 Fold Change")
 # Getting the significant points and plotting them again so they're a different color
-hvs_fig.sig2 <- res2[!is.na(res2$padj) & res2$padj <= 0.05, ]
-points(hvs_fig.sig2$baseMean, hvs_fig.sig2$log2FoldChange, pch=20, cex=0.45, col="red")
+hvs_fig.sig <- res[!is.na(res$padj) & res$padj <= 0.05, ]
+points(hvs_fig.sig$baseMean, hvs_fig.sig$log2FoldChange, pch=20, cex=0.45, col="red")
 # 2 FC lines
 abline(h=c(-1,1), col="blue")
 ```
@@ -243,7 +255,7 @@ Warning: 1865 x values <= 0 omitted from logarithmic plot
 
 Write out DEG file: 
 ```{r}
-#write.table(hvs_fig.sig2, "../analyses/DESeq2/2015Phel/DEGlist_healthy-vs-sick_8x8.tab", sep = "\t", row.names = T, quote = FALSE, col.names = TRUE)
+write.table(hvs_fig.sig, "../analyses/DESeq2/2015Phel/DEGlist_healthy-vs-sick_8x8.tab", sep = "\t", row.names = T, quote = FALSE, col.names = TRUE)
 ```
 HUGE file
 wrote out 20221204
@@ -251,11 +263,11 @@ wrote out 20221204
 ```{r}
 # Try to get number of hits with adj-p-value less than 0.05; as well as those with log2FC >2.00 and <-2.00
 # get those greater than 2.00 log2FC
-hvs_fig.sig3 <- subset.data.frame(hvs_fig.sig2, hvs_fig.sig2$log2FoldChange > 2.00)
+hvs_fig.sig2 <- subset.data.frame(hvs_fig.sig, hvs_fig.sig$log2FoldChange > 2.00)
 # get those less than -2.00 log2FC
-hvs_fig.sig4 <- subset.data.frame(hvs_fig.sig2, hvs_fig.sig2$log2FoldChange < -2.00)
+hvs_fig.sig3 <- subset.data.frame(hvs_fig.sig, hvs_fig.sig$log2FoldChange < -2.00)
 # combine the two into 1 list of DEGs with p-values </= 0.05 and log2FC >2.00 and <-2.00
-hvs_fig.sig.final <- rbind(hvs_fig.sig3, hvs_fig.sig4)
+hvs_fig.sig.final <- rbind(hvs_fig.sig2, hvs_fig.sig3)
 
 #look at head of combined file:
 head(hvs_fig.sig.final)
@@ -264,7 +276,7 @@ head(hvs_fig.sig.final)
 
 Write out this new file:
 ```{r}
-#write.table(hvs_fig.sig.final, "../analyses/DESeq2/2015Phel/DEGlist_healthy-vs-sick_signif_8x8.tab", sep = "\t", row.names = T, quote = FALSE, col.names = TRUE)
+write.table(hvs_fig.sig.final, "../analyses/DESeq2/2015Phel/DEGlist_healthy-vs-sick_signif_8x8.tab", sep = "\t", row.names = T, quote = FALSE, col.names = TRUE)
 ```
 3876 degs
 wrote out 20221204

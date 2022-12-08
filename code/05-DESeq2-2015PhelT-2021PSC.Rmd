@@ -30,7 +30,7 @@ library(ggplot2)
 ```
 
 ```{r}
-packageVersion("rlang")
+#packageVersion("rlang")
 ```
 
 ```{r}
@@ -220,9 +220,15 @@ vsd <- vst(dds, blind=FALSE)
 rld <- rlog(dds, blind=FALSE)
 head(assay(vsd), 3)
 ```
-
 ```{r}
 plotPCA(vsd, intgroup=c("condition", "type"))
+```
+
+
+```{r}
+plot <- plotPCA(vsd, intgroup=c("condition", "type"))
+nudge <- position_nudge(y = 2)
+plot + geom_text(aes(label = name), position = nudge)
 ```
 
 

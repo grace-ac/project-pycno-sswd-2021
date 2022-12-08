@@ -135,3 +135,43 @@ wrote out 20221204
 
 BPonly table made in excel by filtering out "P" annotations and ordering contigs in ascending log2fc order. ([analyses/DESeq2/2015Phel/degs_annot_tankexposed_v_sick_BPonly.csv](https://github.com/grace-ac/project_pycno/blob/main/analyses/DESeq2/2015Phel/degs_annot_tankexposed_v_sick_BPonly.csv)). 109 annotations, with all positive log2fc, meaning that they are all MORE expressed in the 4 libraries of those from stars that were inoculated with the raw live inoculate in experiment 2 compared to those stars that died from the tank exposure. 
 
+
+20221208    
+Annotate DEG list of 8x8 healthy V sick comparison that are <0.05 pvalue and >2.0 and <-2.0 log2FC. 
+
+```{r}
+degs <- read.delim("../analyses/DESeq2/2015Phel/DEGlist_healthy-vs-sick_signif_8x8.tab", sep = '\t')
+head(degs)
+```
+
+Make the rownames into a column called "Phel_contig"
+```{r}
+degs <- tibble::rownames_to_column(degs, "Phel_contig")
+head(degs)
+```
+
+Read in Blastquery-GOslim.tab of Phel transcriptome from Up in Arms:
+```{r}
+phelannot <- read.delim("../analyses/DESeq2/2015Phel/Blastquery-GOslim.tab", sep = '\t', header = FALSE)
+head(phelannot)
+```
+
+Rename columns: 
+```{r}
+cols <- c("Phel_contig", "GO_ID", "GO_slim", "CC_MF_BP")
+colnames(phelannot) <- cols
+head(phelannot)
+```
+
+`join` degs and phelannot by "Phel_contig" column
+```{r}
+degsannot <- left_join(degs, phelannot, by = "Phel_contig")
+head(degsannot)
+```
+
+Write out table:
+```{r}
+write.table(degsannot, file = "../analyses/DESeq2/2015Phel/DEGlist_annot_8x8_healthyvsick.tab", row.names = FALSE, sep = '\t', quote = FALSE)
+```
+
+

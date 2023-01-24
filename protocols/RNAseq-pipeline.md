@@ -523,3 +523,45 @@ PCA plots for DESeq2
 Used this manual: [Bioconductor `DESeq2` Vignettes](http://bioconductor.org/packages/release/bioc/vignettes/DESeq2/inst/doc/DESeq2.html)
 
 Ran in this Rmd: [code/05-DESeq2-2015PhelT-2021PSC.Rmd](https://github.com/grace-ac/project_pycno/blob/main/code/05-DESeq2-2015PhelT-2021PSC.Rmd)
+
+#### 202230124
+Status of where I'm at:     
+In process of getting back to assembling transcriptome from summer 2021 coelomocyte RNAseq. Tried to re-run assembly from 20220811 that I've been re-running every time with modifications, but got a quick slurm output:
+
+```
+Trinity version: Trinity-v2.12.0
+-ERROR: couldn't run the network check to confirm latest Trinity software version.
+
+which: no samtools in (/gscratch/srlab/programs/trinityrnaseq-v2.12.0/trinity-plugins/BIN:/gscratch/sw/intel-201703/compilers_and_libraries_2017.2.174/linux/mpi/intel64/bin:/gscratch/sw/intel-201703/compilers_and_libraries_2017.2.174/linux/bin/intel64:/gscratch/sw/intel-201703/debugger_2017/gdb/intel64_mic/bin:/sw/intel-python-2017.2.045/intelpython3/bin:/sw/local/bin:/usr/lib64/qt-3.3/bin:/sw/modules-1.775/bin:/usr/lpp/mmfs/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/usr/lusers/graceac9/bin:/usr/lusers/graceac9/edirect:/usr/lusers/graceac9/edirect:/gscratch/srlab/programs/bowtie2-2.3.5.1-linux-x86_64)
+Error, cannot find samtools. Please be sure samtools is installed and included in your PATH setting.
+Error: Couldn't open trinity_out_dir/Trinity.fasta
+Can't open trinity_out_dir/Trinity.fasta: No such file or directory at /gscratch/srlab/programs/trinityrnaseq-v2.12.0/util/support_scripts/get_Trinity_gene_to_trans_map.pl line 7.
+Error: Couldn't open trinity_out_dir/Trinity.fasta
+/var/spool/slurm/d/job4400203/slurm_script: line 124: faidx: command not found
+
+
+/var/spool/slurm/d/job4400203/slurm_script: line 33: /gscratch/srlab/programs/jellyfish-2.3.0/bin: Is a directory
+/var/spool/slurm/d/job4400203/slurm_script: line 34: /gscratch/srlab/programs/salmon-1.1.0_linux_x86_64/bin: Is a directory
+/var/spool/slurm/d/job4400203/slurm_script: line 35: /gscratch/srlab/programs/samtools-1.10: Is a directory
+/var/spool/slurm/d/job4400203/slurm_script: line 36: /gscratch/srlab/programs/R-3.6.2/bin: Is a directory
+
+```
+I think that it's just to do with paths for things. Working on it and also posted comment in ongoing RNAseq pipeline GitHub issue: [#1476](https://github.com/RobertsLab/resources/issues/1476)
+
+Starting to plan timeline milestones from now until June 2023:
+
+Overall big things to do:
+1. Assemble transcriptome from summer 2021
+2. Combine summer 2021 transcriptome with Up In Arms transcriptome
+3. Annotate
+4. DEG analyses between library groupings (healthy v sick; pre-exposed; etc)
+      a. Pair down DEG lists using 2FC AND </= 0.05 pval
+      b. Annotate with uniprot, gene names, gene ontology
+5. From Annotated DEG lists:
+      a. Find signatures of anti-viral/anti-bacterial responses
+6. Match seqs to taxonomy data bases
+      a. Look at what matches for echinoderms for sea star immunity
+      b. Look at what doesn't match for any Poly-A tail viruses, protists, etc
+7. Extract RNA from Summer 2022 coelomocytes (large and small stars; healthy v sick)
+      a. Send for sequencing
+      b. Do what I can to get some analyses done that match pipeline for summer 2021 before June 2023 pycno experiments

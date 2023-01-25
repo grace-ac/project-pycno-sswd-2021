@@ -565,3 +565,9 @@ Overall big things to do:
 7. Extract RNA from Summer 2022 coelomocytes (large and small stars; healthy v sick)
       a. Send for sequencing
       b. Do what I can to get some analyses done that match pipeline for summer 2021 before June 2023 pycno experiments
+
+#### 20230125
+Re-ran assembly with correct PATH to samtools as per Sam's code in the GitHub Issue [#1476](https://github.com/RobertsLab/resources/issues/1476)
+
+Made a new directory in `/gscratch/scrubbed/graceac9/analyses/pycno/20230125_trinity_out`, and made a new .sh script: `/gscratch/srlab/graceac9/jobs/20230125_pycno_trinity_RNAseq_trancriptome.sh`
+NOTE: I made a type in script name :/ "trancriptome" instead of "transcriptome"

@@ -569,5 +569,7 @@ Overall big things to do:
 #### 20230125
 Re-ran assembly with correct PATH to samtools as per Sam's code in the GitHub Issue [#1476](https://github.com/RobertsLab/resources/issues/1476)
 
-Made a new directory in `/gscratch/scrubbed/graceac9/analyses/pycno/20230125_trinity_out`, and made a new .sh script: `/gscratch/srlab/graceac9/jobs/20230125_pycno_trinity_RNAseq_trancriptome.sh`
-NOTE: I made a type in script name :/ "trancriptome" instead of "transcriptome"
+Made a new directory in `/gscratch/scrubbed/graceac9/analyses/pycno/20230125_trinity_out`, and made a new .sh script: `/gscratch/srlab/graceac9/jobs/20230125_pycno_trinity_RNAseq_transcriptome.sh`
+
+New slurm output: `/gscratch/scrubbed/graceac9/analyses/pycno/20230125_trinity_out/slurm-4408009.out`
+Looks like an issue with Trinity and jellyfish

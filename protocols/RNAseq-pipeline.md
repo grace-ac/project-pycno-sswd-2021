@@ -582,3 +582,15 @@ New slurm:
 /var/spool/slurm/d/job4408063/slurm_script: line 37: unexpected EOF while looking for matching `"'
 /var/spool/slurm/d/job4408063/slurm_script: line 127: syntax error: unexpected end of file
 ```
+
+Sam had a `"` at end of:
+```
+export PATH="$PATH:"\
+/gscratch/srlab/programs/bowtie2-2.3.5.1-linux-x86_64:\
+/gscratch/srlab/programs/jellyfish-2.3.0/bin:\
+/gscratch/srlab/programs/salmon-1.1.0_linux_x86_64/bin:\
+/gscratch/srlab/programs/samtools-1.10:\
+/gscratch/srlab/programs/R-3.6.2/bin:\
+"
+```
+Removed the `"`, job now running! Woo! 

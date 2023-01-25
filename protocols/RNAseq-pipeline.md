@@ -573,3 +573,12 @@ Made a new directory in `/gscratch/scrubbed/graceac9/analyses/pycno/20230125_tri
 
 New slurm output: `/gscratch/scrubbed/graceac9/analyses/pycno/20230125_trinity_out/slurm-4408009.out`
 Looks like an issue with Trinity and jellyfish
+
+
+Fixed PATHs according to Sam's notes in issue: [#1476](https://github.com/RobertsLab/resources/issues/1476)
+
+New slurm:    
+```
+/var/spool/slurm/d/job4408063/slurm_script: line 37: unexpected EOF while looking for matching `"'
+/var/spool/slurm/d/job4408063/slurm_script: line 127: syntax error: unexpected end of file
+```

@@ -1,0 +1,7 @@
+---
+title: "gene_IDs-DEGs-8x8-hVs"
+output: html_document
+date: "2022-12-08"
+---
+Rmd to get Gene IDs for the healthy v sick DEG list (8x8) comparison from 05-DESeq2-2015PhelT-2021PSC.Rmd. 
+

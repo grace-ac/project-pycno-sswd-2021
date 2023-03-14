@@ -593,4 +593,13 @@ export PATH="$PATH:"\
 /gscratch/srlab/programs/R-3.6.2/bin:\
 "
 ```
-Removed the `"`, job now running! Woo! 
+Removed the `"`, job now running! Woo!
+
+
+#### 2023-03-14
+The previous job completed and a transcriptome was assembled... however I left it for WAY more than 21 days... and now the assembly is gone from `scrubbed`
+
+Made a new directory: `/gscratch/scrubbed/graceac9/analyses/pycno/20230314_trinity_out`, will re-run script (but will make a new one for today: `/gscratch/srlab/graceac9/jobs/20230314_pycno_trinity_RNAseq_transcriptome_PSC21.sh`).
+
+Start running: 20230314 @ 1045.
+NEED TO MOVE FINISHED ASSEMBLY FROM SCRUBBED ONCE IT IS DONE

@@ -612,3 +612,6 @@ Easy code to make a copy of the script into a new .sh script:
 in the `/gscratch/srlab/graceac9/jobs`, enter: `cp 20230314_pycno_trinity_RNAseq_transcriptome_PSC21.sh 20230414_pycno_trinity_RNAseq_transcriptome_PSC21.sh`. This will copy the code from the 20230314 into the new script dated 20230413. Need to make a new output directory in scrubbed: `/gscratch/scrubbed/graceac9/analyses/pycno`, make a new directory for this date: `/20230413_trinity_out`.
 
 Submitted a new job for re-assembling the transcriptome.
+
+#### 2023-04-27
+There wasn't space on Mox to run the script, so I changed the SLURM to use 120GB of mem instead of 500GB, so let's see if it will run now. 

@@ -46,7 +46,7 @@ Received data from Azenta (FKA Genewiz)
 Downloaded to genefish using: [cyberduck](https://cyberduck.io/download/)     
 Azenta provided log-in credentials of how to access their servers.
 
-All downloaded files were put into a folder in Documents on genefish called: "P_helianthoides_RNAseq", with subfolders for each year's project. Summer 2021 data is in folder: "30-666390649", and Summer 2022 data is in folder: "30-833328413". 
+All downloaded files were put into a folder in Documents on genefish called: "P_helianthoides_RNAseq", with subfolders for each year's project. Summer 2021 data is in folder: "30-666390649", and Summer 2022 data is in folder: "30-833328413".
 
 Azenta (FKA Genewiz) pdf of different ways to download the data: [here](https://f.hubspotusercontent00.net/hubfs/3478602/Sell%20Sheet%20Collateral%20Library/NGS/NGS%20User%20Guides/NGS_sFTP-Data-Download-Guide_Option%201_Nov03_2020.pdf)
 
@@ -615,3 +615,6 @@ Submitted a new job for re-assembling the transcriptome.
 
 #### 2023-04-27
 There wasn't space on Mox to run the script, so I changed the SLURM to use 120GB of mem instead of 500GB, so let's see if it will run now.
+
+#### 2023-05-06 through 2023-05-08
+Downloaded the new RNAseq data (summer 2022) to genefish. Then transferred to OWL/nightingales, then added the checksums to owl. 

@@ -1,0 +1,17 @@
+---
+title: "20230522-for-prwg-mtg"
+output: html_document
+date: "2023-05-23"
+---
+Rmd for compiling just the results I'll share on Thursday May 25, 2023 at PRWG meeting. 
+
+Goal of what to share:
+1. DEGs of healthy vs sick (all samples are ~1.5weeks after exp. start date)
+Healthy PSC: 56, 81, 61, 76, 52, 54
+Sick PSC: 59, 69, 75, 67, 78, 71
+1a. heatmap showing differences in expression between these groups
+2. Specific cool genes: any anti-viral? anti-bacterial? immune-related?
+2a. Include interpretation of what that might mean
+3. Pull out those genes and follow the pattern within individual star over time, if found. 
+3a. can follow 2 time points of sick star (H04), or healthy stars H03 or H05. 
+

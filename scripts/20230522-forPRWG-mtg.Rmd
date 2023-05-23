@@ -129,8 +129,34 @@ write.table(hvs_fig.sig.final, "../analyses/DESeq2/2015Phel/20230523-DEGlist_hea
 ```
 wrote out 20230523
 
+# `join` deg lists with library counts
+load the 20230523-DEGlist_healthy-vs-sick_signif_5x5.tab
+```{r}
+deglist <- read.delim("../analyses/DESeq2/2015Phel/20230523-DEGlist_healthy-vs-sick_signif_5x5.tab")
+head(deglist)
+```
 
 
 
+`join` with the count data from the libraries i compared:
+make row names for both files into a column called "contig"
+```{r}
+counts_hvs <- rownames_to_column(counts_hvs, var = "contig")
+head(counts_hvs)
+```
+```{r}
+deglist <- rownames_to_column(deglist, var = "contig")
+head(deglist)
+```
 
+```{r}
+deglistcount <- left_join(deglist, counts_hvs, by = "contig")
+head(deglistcount)
+```
+write out file:
+
+```{r}
+write.table(deglistcount, "../analyses/DESeq2/2015Phel/20230523-DEGlist_healthy-vs-sick_signif_5x5_counts.tab", sep = "\t", row.names = T, quote = FALSE, col.names = TRUE)
+```
+wrote out 20230523
 

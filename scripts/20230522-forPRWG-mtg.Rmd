@@ -7,11 +7,130 @@ Rmd for compiling just the results I'll share on Thursday May 25, 2023 at PRWG m
 
 Goal of what to share:
 1. DEGs of healthy vs sick (all samples are ~1.5weeks after exp. start date)
-Healthy PSC: 56, 81, 61, 76, 52, 54
-Sick PSC: 59, 69, 75, 67, 78, 71
+Healthy PSC: 58, 63, 61, 52, 54
+Sick PSC: 59, 69, 67, 78, 71
 1a. heatmap showing differences in expression between these groups
+1b. PCA of these libraries showing how similar they are to each other
+1c. DEG figure... but maybe it's not super interesting compared to heatmap
 2. Specific cool genes: any anti-viral? anti-bacterial? immune-related?
 2a. Include interpretation of what that might mean
 3. Pull out those genes and follow the pattern within individual star over time, if found. 
 3a. can follow 2 time points of sick star (H04), or healthy stars H03 or H05. 
+
+Load packages:
+```{r}
+library(DESeq2)
+library(tidyverse)
+library(pheatmap)
+library(RColorBrewer)
+library(data.table)
+library(ggplot2)
+```
+
+
+## Read in count matrix from comparing the 2021 _Pycnopodia helianthoides_ coelomocyte RNAseq libraries with the 2015 _Pycnopodia helianthoides_ transcriptome:  
+```{r}
+countmatrix <- read.delim("../analyses/Kallisto/2015Phel_transcriptome/kallisto-20220824_2015.isoform.counts.matrix", header = TRUE, sep = '\t')
+rownames(countmatrix) <- countmatrix$X
+countmatrix <- countmatrix[,-1]
+head(countmatrix)
+```
+
+Round integers up to whole numbers for analyses:    
+```{r}
+countmatrix <- round(countmatrix, 0)
+head(countmatrix)
+```
+
+## Get DEGs based on healthy vs sick
+###   
+Need to subset the countmatrix for those 12 libraries:    
+```{r}
+counts_hvs <- countmatrix[,c("PSC.58", "PSC.63", "PSC.61", "PSC.52", "PSC.54", "PSC.59", "PSC.69", "PSC.67", "PSC.78", "PSC.71")]
+head(counts_hvs)
+```
+
+Make a data frame for the comparison: 
+```{r}
+colData <- data.frame(condition=factor(c("healthy","healthy","healthy", "healthy", "healthy", "sick","sick","sick","sick", "sick")),
+                      type=factor(rep("paired-end",10)))
+rownames(colData) <- colnames(counts_hvs)
+dds <- DESeqDataSetFromMatrix(countData = counts_hvs,
+                              colData = colData,
+                              design = ~ condition)
+```
+```{r}
+dds <- DESeq(dds)
+res <- results(dds)
+res <- res[order(rownames(res)), ]
+```
+
+From [Bioconductor `DESeq2` Vignette](http://bioconductor.org/packages/release/bioc/vignettes/DESeq2/inst/doc/DESeq2.html):     
+```{r}
+vsd <- vst(dds, blind=FALSE)
+rld <- rlog(dds, blind=FALSE)
+head(assay(vsd), 3)
+```
+
+```{r}
+plot <- plotPCA(vsd, intgroup=c("condition", "type"))
+nudge <- position_nudge(y = 4)
+plot + geom_text(aes(label = name), position = nudge)
+```
+
+```{r}
+head(res)
+```
+
+```{r}
+# Count number of hits with adjusted p-value less than 0.05
+dim(res[!is.na(res$padj) & res$padj <= 0.05, ])
+```
+9936
+
+```{r}
+hvs_fig <- res
+# The main plot
+plot(hvs_fig$baseMean, hvs_fig$log2FoldChange, pch=20, cex=0.45, ylim=c(-15, 15), log="x", col="darkgray",
+     main="Healthy vs Sick  (pval </= 0.05)",
+     xlab="mean of normalized counts",
+     ylab="Log2 Fold Change")
+# Getting the significant points and plotting them again so they're a different color
+hvs_fig.sig <- res[!is.na(res$padj) & res$padj <= 0.05, ]
+points(hvs_fig.sig$baseMean, hvs_fig.sig$log2FoldChange, pch=20, cex=0.45, col="red")
+# 2 FC lines
+abline(h=c(-1,1), col="blue")
+```
+
+Warning: 1958 x values <= 0 omitted from logarithmic plot
+
+Write out DEG file: 
+```{r}
+write.table(hvs_fig.sig, "../analyses/DESeq2/2015Phel/20230523_DEGlist_healthy-vs-sick_5x5.tab", sep = "\t", row.names = T, quote = FALSE, col.names = TRUE)
+```
+wrote out 20230523
+
+```{r}
+# Try to get number of hits with adj-p-value less than 0.05; as well as those with log2FC >2.00 and <-2.00
+# get those greater than 2.00 log2FC
+hvs_fig.sig2 <- subset.data.frame(hvs_fig.sig, hvs_fig.sig$log2FoldChange > 2.00)
+# get those less than -2.00 log2FC
+hvs_fig.sig3 <- subset.data.frame(hvs_fig.sig, hvs_fig.sig$log2FoldChange < -2.00)
+# combine the two into 1 list of DEGs with p-values </= 0.05 and log2FC >2.00 and <-2.00
+hvs_fig.sig.final <- rbind(hvs_fig.sig2, hvs_fig.sig3)
+
+#look at head of combined file:
+head(hvs_fig.sig.final)
+
+```
+Write out this new file:
+```{r}
+write.table(hvs_fig.sig.final, "../analyses/DESeq2/2015Phel/20230523-DEGlist_healthy-vs-sick_signif_5x5.tab", sep = "\t", row.names = T, quote = FALSE, col.names = TRUE)
+```
+wrote out 20230523
+
+
+
+
+
 

@@ -160,3 +160,147 @@ write.table(deglistcount, "../analyses/DESeq2/2015Phel/20230523-DEGlist_healthy-
 ```
 wrote out 20230523
 
+
+# MAKE HEATMAP
+Load in packages:
+```{r}
+library(tidyverse)
+library(pheatmap)
+library(RColorBrewer)
+library(data.table)
+```
+
+Set heatmap colors:
+```{r}
+heatmapPurpleOrange <- RColorBrewer::brewer.pal(11, "PuOr")
+```
+
+Set Trinity_ID column as rownames:
+```{r}
+rownames(deglistcount) <- deglistcount$contig #set Trinity IDs as rownames
+hvsheatmap <- deglistcount[,-1] #remove redundant column
+head(hvsheatmap)
+```
+
+Pull out just the sample count data:
+```{r}
+hvsheatmap <- select(hvsheatmap, "PSC.58", "PSC.63", "PSC.61", "PSC.52", "PSC.54", "PSC.59", "PSC.69", "PSC.67", "PSC.78", "PSC.71" )
+head(hvsheatmap)
+```
+
+
+Going to remove all rows that have "0" for all samples: 
+```{r}
+noz_hvsheatmap <- hvsheatmap[rowSums(hvsheatmap[, -1] >0) !=0, ]
+head(noz_hvsheatmap)
+```
+
+```{r}
+pheatmap(noz_hvsheatmap, scale = "row", cluster_row = TRUE, cluster_cols = FALSE, clustering_distance_rows = "euclidean", clustering_method = "average", show_rownames = FALSE, show_colnames = TRUE, treeheight_col = 80, legend = TRUE, color = heatmapPurpleOrange, fontsize_col = 15, fontsize_row = 12)
+```
+
+Annotate heatmap with healthy or sick:
+Add column annotations for the samples denoting temperature treatment and infection status:
+```{r}
+sample_col <- data.frame(health_status = c("healthy", "healthy", "healthy", "healthy", "healthy", "sick", "sick", "sick", "sick", "sick"))
+row.names(sample_col) <-colnames(noz_hvsheatmap)
+sample_col
+```
+
+
+specify colors for annotation columns:
+```{r}
+my_colors <- list(
+  health_status = c(healthy = "cyan3", sick = "coral3")
+)
+```
+
+```{r}
+pheatmap(noz_hvsheatmap, scale = "row", cluster_row = TRUE, cluster_cols = FALSE, clustering_distance_rows = "euclidean", clustering_method = "average", annotation_colors = my_colors, annotation_col = sample_col, show_rownames = FALSE, show_colnames = TRUE, treeheight_col = 80, legend = TRUE, color = heatmapPurpleOrange, fontsize_col = 12, fontsize_row = 12)
+```
+
+cluster the heatmap
+Set heatmap for temperature contrast as an object:
+```{r}
+results <- pheatmap(noz_hvsheatmap, scale = "row", cluster_row = TRUE, cluster_cols = FALSE, clustering_distance_rows = "euclidean", clustering_method = "average", show_rownames = FALSE, show_colnames = TRUE, treeheight_col = 80, legend = TRUE, color = heatmapPurpleOrange, fontsize_col = 12, fontsize_row = 12)
+```
+
+Extract 4 clusters:
+```{r}
+contrast.clust <- cbind(noz_hvsheatmap,
+                   cluster = cutree(results$tree_row,
+                                     k = 4))
+head(contrast.clust)
+```
+
+Pull out just the column of cluster numbers:
+```{r}
+clusters <- select(contrast.clust, "cluster")
+head(clusters)
+```
+
+Rename the clusters in the rows to "cluster #" instead of just the number. 
+```{r}
+clusters <- data.frame(cluster = ifelse(clusters == 1, "cluster1", ifelse(clusters == 2, "cluster2", ifelse(clusters == 3, "cluster3", "cluster4"))))
+head(clusters)
+```
+
+Add column annotations for the samples denoting health status:
+```{r}
+sample_col <- data.frame(health_status = c("healthy", "healthy", "healthy", "healthy", "healthy", "sick", "sick", "sick", "sick", "sick"))
+row.names(sample_col) <-colnames(noz_hvsheatmap)
+sample_col
+```
+
+my_colors <- list(
+  health_status = c(healthy = "chartreuse4", sick = "coral3")
+)
+specify colors for annotation columns:
+```{r}
+my_colors <- list(
+  health_status = c(healthy = "cyan3", sick = "coral3"),
+  cluster = c(cluster1 = "#1B9E77", cluster2 = "#D95F02", cluster3 = "#7570B3", cluster4 = "#E7298A")
+)
+```
+
+```{r}
+pheatmap(noz_hvsheatmap, scale = "row", cluster_row = TRUE, cluster_cols = FALSE, clustering_distance_rows = "euclidean", clustering_method = "average", annotation_colors = my_colors, annotation_row = clusters, annotation_col = sample_col, show_rownames = FALSE, show_colnames = TRUE, treeheight_col = 80, legend = TRUE, color = heatmapPurpleOrange, fontsize_col = 12, fontsize_row = 12)
+```
+
+
+Set rownames in heatmap matrix as column called "Phel_contig":
+```{r}
+head(contrast.clust)
+```
+
+
+```{r}
+contrast.clust <- tibble::rownames_to_column(contrast.clust, "Phel_contig")
+head(contrast.clust)
+```
+
+
+`join` the deglist cluster list with annotation:
+
+```{r}
+phelannot <- read.delim("../analyses/DESeq2/2015Phel/Blastquery-GOslim.tab", sep = '\t', header = FALSE)
+head(phelannot)
+```
+
+```{r}
+cols <- c("Phel_contig", "GO_ID", "GO_slim", "CC_MF_BP")
+colnames(phelannot) <- cols
+head(phelannot)
+```
+
+```{r}
+deglist_heatmap.go <- left_join(contrast.clust, phelannot, by = "Phel_contig")
+head(deglist_heatmap.go)
+```
+
+write out table:
+```{r}
+write.table(deglist_heatmap.go, "../analyses/DESeq2/2015Phel/20230523_DEGs-clusters-annot.tab", sep = '\t', quote = FALSE, row.names = FALSE)
+```
+Wrote out 20230523. Commented out code. 
+

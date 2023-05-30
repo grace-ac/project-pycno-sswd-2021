@@ -52,7 +52,7 @@ head(counts_hvs)
 
 Make a data frame for the comparison: 
 ```{r}
-colData <- data.frame(condition=factor(c("healthy","healthy","healthy", "healthy", "healthy", "sick","sick","sick","sick", "sick")),
+colData <- data.frame(condition=factor(c("control","control","control", "control", "control", "exposed","exposed","exposed","exposed", "exposed")),
                       type=factor(rep("paired-end",10)))
 rownames(colData) <- colnames(counts_hvs)
 dds <- DESeqDataSetFromMatrix(countData = counts_hvs,
@@ -92,7 +92,7 @@ dim(res[!is.na(res$padj) & res$padj <= 0.05, ])
 hvs_fig <- res
 # The main plot
 plot(hvs_fig$baseMean, hvs_fig$log2FoldChange, pch=20, cex=0.45, ylim=c(-15, 15), log="x", col="darkgray",
-     main="Healthy vs Sick  (pval </= 0.05)",
+     main="Control vs Exposed  (pval </= 0.05)",
      xlab="mean of normalized counts",
      ylab="Log2 Fold Change")
 # Getting the significant points and plotting them again so they're a different color
@@ -202,7 +202,7 @@ pheatmap(noz_hvsheatmap, scale = "row", cluster_row = TRUE, cluster_cols = FALSE
 Annotate heatmap with healthy or sick:
 Add column annotations for the samples denoting temperature treatment and infection status:
 ```{r}
-sample_col <- data.frame(health_status = c("healthy", "healthy", "healthy", "healthy", "healthy", "sick", "sick", "sick", "sick", "sick"))
+sample_col <- data.frame(treatment = c("control", "control", "control", "control", "control", "exposed", "exposed", "exposed", "exposed", "exposed"))
 row.names(sample_col) <-colnames(noz_hvsheatmap)
 sample_col
 ```
@@ -211,7 +211,7 @@ sample_col
 specify colors for annotation columns:
 ```{r}
 my_colors <- list(
-  health_status = c(healthy = "cyan3", sick = "coral3")
+  treatment = c(control = "cyan3", exposed = "coral3")
 )
 ```
 
@@ -303,4 +303,48 @@ write out table:
 write.table(deglist_heatmap.go, "../analyses/DESeq2/2015Phel/20230523_DEGs-clusters-annot.tab", sep = '\t', quote = FALSE, row.names = FALSE)
 ```
 Wrote out 20230523. Commented out code. 
+
+
+`join` _blast_annot.tab with the 20230523_DEGs-clusters-annot.tab 
+```{r}
+blastannot <- read.delim("../analyses/DESeq2/2015Phel/_blast-annot.tab", sep = '\t', header = FALSE)
+head(blastannot)
+```
+Name column V2 Phel_contig:
+```{r}
+colsblast <- c("V1", "Phel_contig", "V3", "V4", "V5", "V6", "V7", "V8", "V9", "V10", "V11", "V12", "V13", "V14")
+colnames(blastannot) <- colsblast
+head(blastannot)
+```
+
+```{r}
+degs.count.annot <- read.delim("../analyses/DESeq2/2015Phel/20230523_DEGs-clusters-annot.tab", sep = '\t', header = TRUE)
+head(degs.count.annot)
+```
+
+```{r}
+fullannot.degs <- left_join(degs.count.annot, blastannot, by = "Phel_contig")
+head(fullannot.degs)
+```
+3651 rows, 30 columns
+
+write out
+```{r}
+write.table(fullannot.degs, "../analyses/DESeq2/2015Phel/20230523-annotated_deglist-healthyVsick.tab", sep = "\t", row.names = F, quote = FALSE, col.names = TRUE)
+```
+wrote out 20230523
+
+```{r}
+highsick <- read.delim("../analyses/DESeq2/2015Phel/sick_20230524_phel_DAVIDout.rtf")
+head(highsick)
+```
+
+# get unique contigs of degs to get number within sick and low sick groups:
+```{r}
+degshvs.filt <- read.delim("../analyses/DESeq2/2015Phel/20230523-annotated_deglist-healthyVsick.tab")
+head(degshvs.filt)
+```
+```{r}
+vignette("DESeq2")
+```
 

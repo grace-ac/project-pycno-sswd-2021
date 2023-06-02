@@ -617,4 +617,10 @@ Submitted a new job for re-assembling the transcriptome.
 There wasn't space on Mox to run the script, so I changed the SLURM to use 120GB of mem instead of 500GB, so let's see if it will run now.
 
 #### 2023-05-06 through 2023-05-08
-Downloaded the new RNAseq data (summer 2022) to genefish. Then transferred to OWL/nightingales, then added the checksums to owl. 
+Downloaded the new RNAseq data (summer 2022) to genefish. Then transferred to OWL/nightingales, then added the checksums to owl.
+
+#### Work done for PRWG meeting
+Rmd of what I did to show:
+https://github.com/grace-ac/project_pycno/blob/main/scripts/20230522-forPRWG-mtg.Rmd
+
+Slide deck of what I shared: https://docs.google.com/presentation/d/1B-NI7IGZlJRKPkcikuf1f7SRUkxux-9YVttJDF49axA/edit#slide=id.p

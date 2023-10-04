@@ -17,9 +17,19 @@ Multiple tissue types from an adult _Pycnopodia helianthoides_ wasting from the 
 
 The following inoculate types were made:   
 1. Heat-killed (control): supernatant was placed in a falcon tube and held in boiling water with a stir bar for 10 minutes
-2. 0.22um filtered (exposed): supernatant was filtered through a SteriFlip unit - flow-through is virus-sized particles
-3. 0.45um filtered (exposed): supernatant was filtered through a vacuum bottle unit - flow-through is larger viruses and bacteria
-4. unfiltered (exposed): supernatant was unfiltered, so it would contain anything from a large protist to a small virus
+2. 0.45um filtered (exposed): supernatant was filtered through a vacuum bottle unit - flow-through is larger viruses and bacteria
+3. unfiltered (exposed): supernatant was unfiltered, so it would contain anything from a large protist to a small virus
+
+Due to this summer being in the very early stages of our group's work, aspects of this work was a bit more on the exploratory side and there were several different inoculation dates.
+
+### September 23, 2021
+- Control: n=13 stars injected with heat-killed inoculum
+- Exposed: n=12 stars injected with 0.45um filtered live inoculum
+- Exposed: n=4 stars injected with unfiltered live inoculum
+
+### October 5, 2021
+- Control: n=9 stars injected with heat-killed inoculum
+- Exposed: n=9 stars injected with unfiltered live inoculum
 
 
 

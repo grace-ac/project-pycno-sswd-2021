@@ -636,4 +636,10 @@ There's a newly [published genome for _Pycnopodia helianthoides_!](https://www.n
 
 I have never done transcriptomics with a reference genome before, so in preparation for WSN, I'll be re-running my analyses with the 2021 data by using the QC'ed and trimmed rnaseq data, aligning it with the genome using `HISAT2`, then re-running DESeq2 stuff... I don't really know how to do any of that, but Ariana shared a script with me that uses something a little different, but will be applicable: [TagSeq_BioInf_genomeV3.md](https://github.com/AHuffmyer/EarlyLifeHistory_Energetics/blob/master/Mcap2020/Scripts/TagSeq/Genome_V3/TagSeq_BioInf_genomeV3.md).
 
-Hoping I can get this done quick so that I can put my talk together! I'll be giving a practice talk next Thursday to the Roberts Lab, and another next Friday for Drew and Steven... and then ANOTHER the following Monday for Melanie, Alyssa, and Katy. 
+Hoping I can get this done quick so that I can put my talk together! I'll be giving a practice talk next Thursday to the Roberts Lab, and another next Friday for Drew and Steven... and then ANOTHER the following Monday for Melanie, Alyssa, and Katy.
+
+I `ssh` into Mox.
+Made a new directory where the pycno genome will go:
+`/gscratch/srlab/graceac9/data/pycno`
+
+## Move genome to this directory:   

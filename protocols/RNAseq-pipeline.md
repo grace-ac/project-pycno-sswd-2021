@@ -643,3 +643,30 @@ Made a new directory where the pycno genome will go:
 `/gscratch/srlab/graceac9/data/pycno`
 
 ## Move genome to this directory:   
+[command-line/datasets/](https://www.ncbi.nlm.nih.gov/datasets/docs/v2/reference-docs/command-line/datasets/)
+
+datasets is a command line tool to facilitate downloads of seq data.
+
+how to get genome to mox:
+1. on mox navigate to directory where you want genome to live (`/gscratch/srlab/graceac9/data/pycno/genome`). Then run code below.
+
+```curl -OJX GET "https://api.ncbi.nlm.nih.gov/datasets/v2alpha/genome/accession/GCA_032158295.1/download?include_annotation_type=GENOME_FASTA,GENOME_GFF,RNA_FASTA,CDS_FASTA,PROT_FASTA,SEQUENCE_REPORT&filename=GCA_032158295.1.zip" -H "Accept: application/zip"
+```
+
+You'll have a .zip file called: GCA_032158295.1.zip
+
+2. then get the genome annotation file: interproscan.gff3
+from [https://datadryad.org/stash/dataset/doi:10.5061/dryad.51c59zwfd](https://datadryad.org/stash/dataset/doi:10.5061/dryad.51c59zwfd)
+
+in the same mox directory `/gscratch/srlab/graceac9/data/pycno/genome`, run code:
+```
+wget https://datadryad.org/stash/downloads/file_stream/2634383
+```
+
+Then you'll have the following in the directory:
+```
+[graceac9@mox1 genome]$ ls
+2634383  GCA_032158295.1.zip
+```
+
+3. unzip genome file... 

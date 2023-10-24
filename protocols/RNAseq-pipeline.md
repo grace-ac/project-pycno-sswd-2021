@@ -36,6 +36,12 @@ what [`SAM`] format is: https://academic.oup.com/bioinformatics/article/25/16/20
 ## 3. [Transcriptome Assembly](https://github.com/grace-ac/project_pycno/blob/main/protocols/RNAseq-pipeline.md#3-assemble-transcriptome)       
 ## 4. [Alignment and Count Matrices with `kallisto`](https://github.com/grace-ac/project_pycno/blob/main/protocols/RNAseq-pipeline.md#4-pseudoalign-new-rnaseq-data-to-up-in-arms-transcriptome-using-kallisto)         
 
+# Genome-Based RNAseq Workflow (October 2023)
+## A. [Data Management](https://github.com/grace-ac/project_pycno/blob/main/protocols/RNAseq-pipeline.md#1-data-management)  
+## B. [Quality Checks and Trimming](https://github.com/grace-ac/project_pycno/blob/main/protocols/RNAseq-pipeline.md#2-quality-check-and-trimming)    
+## C. Alignment to Genome
+## D. `DESeq2`: Differential Gene Experession
+
 ---
 
 # 1. Data Management
@@ -623,4 +629,11 @@ Downloaded the new RNAseq data (summer 2022) to genefish. Then transferred to OW
 Rmd of what I did to show:
 https://github.com/grace-ac/project_pycno/blob/main/scripts/20230522-forPRWG-mtg.Rmd
 
-Slide deck of what I shared: https://docs.google.com/presentation/d/1B-NI7IGZlJRKPkcikuf1f7SRUkxux-9YVttJDF49axA/edit#slide=id.p
+Slide deck of what I shared: https://docs.google.com/presentation/d/1B-NI7IGZlJRKPkcikuf1f7SRUkxux-9YVttJDF49axA/edit#slide=id.
+
+# 2023-10-24
+There's a newly [published genome for _Pycnopodia helianthoides_!](https://www.ncbi.nlm.nih.gov/datasets/genome/?taxon=7614)
+
+I have never done transcriptomics with a reference genome before, so in preparation for WSN, I'll be re-running my analyses with the 2021 data by using the QC'ed and trimmed rnaseq data, aligning it with the genome using `HISAT2`, then re-running DESeq2 stuff... I don't really know how to do any of that, but Ariana shared a script with me that uses something a little different, but will be applicable: [TagSeq_BioInf_genomeV3.md](https://github.com/AHuffmyer/EarlyLifeHistory_Energetics/blob/master/Mcap2020/Scripts/TagSeq/Genome_V3/TagSeq_BioInf_genomeV3.md).
+
+Hoping I can get this done quick so that I can put my talk together! I'll be giving a practice talk next Thursday to the Roberts Lab, and another next Friday for Drew and Steven... and then ANOTHER the following Monday for Melanie, Alyssa, and Katy. 

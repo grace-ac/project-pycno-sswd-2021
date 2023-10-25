@@ -9,7 +9,7 @@
 ## Walltime (days-hours:minutes:seconds format)
 #SBATCH --time=2-00:00:00
 ## Memory per node
-#SBATCH --mem=500G
+#SBATCH --mem=120GB
 ##turn on e-mail notification
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user=graceac9@uw.edu

@@ -669,6 +669,30 @@ Then you'll have the following in the directory:
 2634383  GCA_032158295.1.zip
 ```
 
+NOTE: the above did not work. Here's what did work:
+used the `curl` code to download the .zip into my downloads via command line.
+
+I then `rsync` the .zip onto Mox in my user directory `/usr/lusers/graceac9`
+
+I now have a zipped file called:
+GCA_032158295.1.zip
+
+I then `rsync`-ed the .zip into my scrubbed directory: `/gscratch/scrubbed/graceac9`
+
+then i unzipped:
+```
+unzip GCA_032158295
+```
+
+Then I have a directory in my scrubbed called: ncbi_dataset/data/
+
+And in there a directory called GCA_032158295.1
+
+and in there is a genome: GCA_032158295.1_ASM3215829v1_genomic.fna
+
+The fasta can't be moved out of scrubbed because there's not enough disc space, so it'll live there and now i can work on `HISAT2` script
+
+
 3. run `hisat2`
 
 output directory: `/gscratch/srlab/graceac9/analyses/20231024-hisat2-2021data
@@ -678,4 +702,4 @@ in `/gscratch/srlab/graceac9/jobs`, create a .sh script.
 20231024_hisat2_2021rnaseq_align.sh
 
 ### 20231024 1719:
-currently stuck at genome unzipping phase... do i even have the correct file? gah. 
+currently stuck at genome unzipping phase... do i even have the correct file? gah.

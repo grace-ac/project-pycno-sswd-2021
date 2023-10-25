@@ -669,4 +669,13 @@ Then you'll have the following in the directory:
 2634383  GCA_032158295.1.zip
 ```
 
-3. unzip genome file... 
+3. run `hisat2`
+
+output directory: `/gscratch/srlab/graceac9/analyses/20231024-hisat2-2021data
+`
+
+in `/gscratch/srlab/graceac9/jobs`, create a .sh script.
+20231024_hisat2_2021rnaseq_align.sh
+
+### 20231024 1719:
+currently stuck at genome unzipping phase... do i even have the correct file? gah. 

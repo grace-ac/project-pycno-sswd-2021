@@ -14,7 +14,7 @@
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user=graceac9@uw.edu
 ## Specify the working directory for this job
-#SBATCH --chdir=/gscratch/srlab/graceac9/jobs/
+#SBATCH --chdir=/gscratch/srlab/graceac9/analyses/20231025-hisat2
 
 #Code modified from A. Huffmeyer: https://github.com/AHuffmyer/EarlyLifeHistory_Energetics/blob/master/Mcap2020/Scripts/TagSeq/TagSeq_BioInf.md
 
@@ -22,8 +22,8 @@
 set -e
 
 #Load modules needed
-module load bio
-module load samtools/1.12
+module load /gscratch/srlab/programs/hisat2-2.1.0
+module load /gscratch/srlab/programs/samtools-1.9
 
 #Set variable paths
 data_dir="/gscratch/scrubbed/graceac9/ncbi_dataset/data/GCA_032158295.1"

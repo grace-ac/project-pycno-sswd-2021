@@ -31,20 +31,50 @@ head(smdata)
 # Trimmed Reads 
 On Gannet: https://gannet.fish.washington.edu/gcrandall/bu-mox/20220810_PSC2021_trimming/ 
 
-```{r}
+```{bash}
 wget -r \
 --no-directories --no-parent \
 -P ../data \
 -A "*.fq.gz" https://gannet.fish.washington.edu/gcrandall/bu-mox/20220810_PSC2021_trimming/
 ```
 
+
 # `HiSat` Indexing of Genome
 See: https://github.com/grace-ac/project-pycno-sizeclass-2022/blob/main/code/05-hisat.md#hisat-indexing-of-genome
 
-Data files are: 
-https://github.com/grace-ac/project-pycno-sizeclass-2022/tree/main/analyses/05-hisat 
 
-exon.tab https://github.com/grace-ac/project-pycno-sizeclass-2022/blob/main/analyses/05-hisat/exon.tab
+## genome
+```{bash}
+cd ../data
+/home/shared/datasets download genome accession GCA_032158295.1 --include gff3,rna,cds,protein,genome,seq-report
+```
+
+
+
+
+# Alignment
+```{bash}
+
+# Loop through all  files
+for file in ../data/*_R1*fq.gz; do
+    # Remove the  part to get the base name
+    base=$(basename "$file" _R1_001.fastq.gz.fastp-trim.20220810.fq.gz)
+    # Construct the names of the pair of files
+    file1=${base}_R1_001.fastq.gz.fastp-trim.20220810.fq.gz
+    file2=${base}_R2_001.fastq.gz.fastp-trim.20220810.fq.gz
+    # Run the hisat2 command
+    /home/shared/hisat2-2.2.1/hisat2 \
+    -x ../analyses/05-hisat/GCA_032158295.1_02 \
+    -p 20 \
+    -1 ../data/$file1 \
+    -2 ../data/$file2 \
+    -S ../analyses/05-hisat/${base}.sam \
+    2> ../analyses/05-hisat/${base}_hisat2_stats.txt
+done
+```
+
+
+
 
 
 

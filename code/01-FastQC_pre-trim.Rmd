@@ -22,8 +22,6 @@ Check working directory:
 pwd
 ```
 
-<<<<<<< HEAD
-=======
 Files are stored on Raven in: `pycnornaseq`
 
 Run FASTQC on untrimmed RNAseq .fastq.gz files (08/03/2022):
@@ -45,27 +43,7 @@ fastqc_list=$(echo "${fastq_array[*]}")
 --outdir /home/shared/8TB_HDD_02/graceac9/analyses/pycno/ \
 ${fastqc_list}
 ```
->>>>>>> 81fcf3e261236ad841f8aa1d2415a632c3de54ea
 
 
- Files are stored on Raven in: `pycnornaseq`
 
- Run FASTQC on untrimmed RNAseq .fastq.gz files (08/03/2022):
- Below modified from Roberts Lab [Code Snippets](https://robertslab.github.io/resources/code_Snippets/)     
- 
-```{bash}
- # Set CPU threads to use
- threads=48
- # Populate array with FastQ files
- fastq_array=(/home/shared/8TB_HDD_02/graceac9/pycnornaseq/*.fastq.gz)
- # Pass array contents to new variable
- fastqc_list=$(echo "${fastq_array[*]}")
- # Run FastQC
- # NOTE: Do NOT quote ${fastqc_list}
- /home/shared/FastQC/fastqc \
- --threads ${threads} \
- --outdir /home/shared/8TB_HDD_02/graceac9/analyses/pycno/ \
- ${fastqc_list}
-```
- 
 

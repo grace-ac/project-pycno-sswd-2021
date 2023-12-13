@@ -1,0 +1,57 @@
+---
+title: "09-hisat2-summer21.Rmd"
+output: html_document
+date: "2023-12-12"
+---
+Rmd to align the Summer 2021 _Pycnopodia helianthoides_ RNAseq data to the _Pycnopodia helianthoides_ genome. Based on code put together by SR: https://github.com/grace-ac/project-pycno-sizeclass-2022/blob/main/code/05-hisat.md 
+
+Order of steps:
+1. `HiSat` - index genome (will use what SR did in https://github.com/grace-ac/project-pycno-sizeclass-2022/blob/main/code/05-hisat.md)
+2. Extract exons and splice sites 
+3. Index with splice sites
+4. Align RNAseq trimmed reads to genome
+5. convert sam to sorted bams
+6. `StringTie` to combine bam files 
+
+# Sample Information:
+https://github.com/grace-ac/project-pycno-sswd-2021/blob/main/data/RNAseq_coelomocyte_sample_info_summer2021.csv 
+
+```{r}
+mdata <- read.delim("../data/RNAseq_coelomocyte_sample_info_summer2021.csv", sep = ",")
+head(mdata)
+```
+
+Simplify metadata: 
+```{r}
+library(dplyr)
+smdata <- select(mdata, sample_ID, sample_date, most.recent.inoc.type_at_sampling_time)
+head(smdata)
+```
+
+# Trimmed Reads 
+On Gannet: https://gannet.fish.washington.edu/gcrandall/bu-mox/20220810_PSC2021_trimming/ 
+
+```{r}
+wget -r \
+--no-directories --no-parent \
+-P ../data \
+-A "*.fq.gz" https://gannet.fish.washington.edu/gcrandall/bu-mox/20220810_PSC2021_trimming/
+```
+
+# `HiSat` Indexing of Genome
+See: https://github.com/grace-ac/project-pycno-sizeclass-2022/blob/main/code/05-hisat.md#hisat-indexing-of-genome
+
+Data files are: 
+https://github.com/grace-ac/project-pycno-sizeclass-2022/tree/main/analyses/05-hisat 
+
+exon.tab https://github.com/grace-ac/project-pycno-sizeclass-2022/blob/main/analyses/05-hisat/exon.tab
+
+
+
+
+
+
+
+
+
+

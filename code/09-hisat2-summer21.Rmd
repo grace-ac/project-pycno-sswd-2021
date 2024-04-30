@@ -1,8 +1,10 @@
 ---
 title: "09-hisat2-summer21.Rmd"
 output: html_document
-date: "2023-12-12"
+date: "2024-04-16"
 ---
+Perform on Raven. 
+
 Rmd to align the Summer 2021 _Pycnopodia helianthoides_ RNAseq data to the _Pycnopodia helianthoides_ genome. Based on code put together by SR: https://github.com/grace-ac/project-pycno-sizeclass-2022/blob/main/code/05-hisat.md 
 
 Order of steps:
@@ -30,12 +32,12 @@ head(smdata)
 
 # Trimmed Reads 
 On Gannet: https://gannet.fish.washington.edu/gcrandall/bu-mox/20220810_PSC2021_trimming/ 
-
+# trimmed reads were already moved into directory previously 
 ```{bash}
-wget -r \
---no-directories --no-parent \
--P ../data \
--A "*.fq.gz" https://gannet.fish.washington.edu/gcrandall/bu-mox/20220810_PSC2021_trimming/
+#wget -r \
+#--no-directories --no-parent \
+#-P ../data \
+#-A "*.fq.gz" https://gannet.fish.washington.edu/gcrandall/bu-mox/20220810_PSC2021_trimming/
 ```
 
 

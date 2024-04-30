@@ -404,3 +404,24 @@ head /home/shared/8TB_HDD_02/graceac9/GitHub/project_pycno/analyses/Kallisto/201
 ```
 
 
+
+# 2024-04-30 re-run `kallisto` and get alignment counts 
+
+```{bash}
+pwd
+```
+
+
+```{bash}
+#mkdir ../analyses/Kallisto/phel_genome
+
+find ../data/*_R1_001.fastq.gz.fastp-trim.20220810.fq.gz \
+| xargs basename -s _R1_001.fastq.gz.fastp-trim.20220810.fq.gz | xargs -I{} /home/shared/kallisto/kallisto quant \
+-i /home/shared/8TB_HDD_02/graceac9/GitHub/project_pycno/code/2015_phel_transcriptome.index \
+-o ../analyses/Kallisto/phel_genome/{} \
+-t 20 \
+--fr-stranded ../data/{}_R1_001.fastq.gz.fastp-trim.20220810.fq.gz \
+--rf-stranded ../data/{}_R2_001.fastq.gz.fastp-trim.20220810.fq.gz \
+2> ../analyses/Kallisto/phel_genome/kallisto.out
+```
+

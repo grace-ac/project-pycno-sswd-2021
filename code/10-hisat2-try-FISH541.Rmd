@@ -1,0 +1,152 @@
+---
+title: "10-hisat2-try-FISH541"
+output: html_document
+date: "2024-04-16"
+---
+Perform on Raven. 
+
+Rmd to try `hisat2` with summer 2021 trimmed rnaseq data with the published _P. helianthoides_ genome. 
+Genome files: https://datadryad.org/stash/dataset/doi:10.5061/dryad.51c59zwfd 
+
+Download augustus.hints.gtf     
+Move into the data folder on raven for this repo:
+```{bash}
+#on my laptop terminal, run:
+#rsync /Users/graciecrandall/Downloads/augustus.hints.gtf #graceac9@raven.fish.washington.edu:/home/shared/8TB_HDD_02/graceac9/GitHub/project-pycno-sswd-2021/data
+```
+
+Download the genome fasta: augustus.hints.codingseq
+Move into the data folder in raven:
+```{bash}
+#on my laptop terminal, run:
+#rsync /Users/graciecrandall/Downloads/augustus.hints.codingseq graceac9@raven.fish.washington.edu:/home/shared/8TB_HDD_02/graceac9/GitHub/project-pycno-sswd-2021/data
+```
+
+Download the genome annotation file: interproscan.gff3    
+Move into the data folder in raven:
+```{bash}
+#on my laptop terminal, run:
+#rsync /Users/graciecrandall/Downloads/interproscan.gff3  graceac9@raven.fish.washington.edu:/home/shared/8TB_HDD_02/graceac9/GitHub/project-pycno-sswd-2021/data
+```
+
+
+# 1. BUILD AN INDEX
+
+Follow this code: https://htmlpreview.github.io/?https://github.com/urol-e5/deep-dive/blob/8fd4ad4546d1d95464952f0509406efd9e42ffa0/D-Apul/code/04-Apulcra-hisat.html 
+
+```{bash}
+pwd
+```
+
+
+```{bash}
+/home/shared/hisat2-2.2.1/hisat2_extract_exons.py \
+../data/augustus.hints.gtf \
+> ../analyses/10-hisat2-try/m_exon.tab
+```
+
+```{bash}
+head ../analyses/10-hisat2-try/m_exon.tab
+```
+
+```{bash}
+#!/bin/bash
+
+# This script will extract splice sites from the gtf file
+
+# This is the command to extract splice sites from the gtf file
+/home/shared/hisat2-2.2.1/hisat2_extract_splice_sites.py \
+../data/augustus.hints.gtf \
+> ../analyses/10-hisat2-try/m_splice_sites.tab
+
+```
+
+```{bash}
+# build an index 
+/home/shared/hisat2-2.2.1/hisat2-build \
+../data/augustus.hints.codingseq \
+../data/Phel_genome_index \
+--exon ../analyses/10-hisat2-try/m_exon.tab \
+--ss ../analyses/10-hisat2-try/m_splice_sites.tab \
+-p 40 \
+../data/augustus.hints.gtf \
+2> ../analyses/10-hisat2-try/hisat2-build_stats.txt
+```
+
+# 2. ALIGNMENT
+```{bash}
+for file in ../data/*_R1*fq.gz; do
+    # Remove the  part to get the base name
+    base=$(basename "$file" _R1_001.fastq.gz.fastp-trim.20220810.fq.gz)
+    # Construct the names of the pair of files
+    file1=${base}_R1_001.fastq.gz.fastp-trim.20220810.fq.gz
+    file2=${base}_R2_001.fastq.gz.fastp-trim.20220810.fq.gz
+    # Run the hisat2 command
+    /home/shared/hisat2-2.2.1/hisat2 \
+    -x ../data/Phel_genome_index \
+    -p 20 \
+    -1 ../data/$file1 \
+    -2 ../data/$file2 \
+    -S ../analyses/10-hisat2-try/${base}.sam \
+    2> ../analyses/10-hisat2-try/${base}_hisat2_stats.txt
+done
+```
+
+
+
+
+```{bash}
+
+# run hisat2 to align reads to the reference genome
+/home/shared/hisat2-2.2.1/hisat2 \
+-x ../data/Phel_genome_index \
+-p 40 \
+-1 ../data/SRR8601366_1.fastq \
+-2 ../data/SRR8601366_2.fastq \
+-S ../analyses/10-hisat2-try/ \
+2>&1 | tee ../analyses/10-hisat2-try/hisat2_stats.txt
+```
+
+#3. Convert sam to sorted bams:
+```{bash}
+for samfile in ../analyses/10-hisat2-try/*.sam; do
+  bamfile="${samfile%.sam}.bam"
+  sorted_bamfile="${samfile%.sam}.sorted.bam"
+  
+  # Convert SAM to BAM
+  /home/shared/samtools-1.12/samtools view -bS -@ 20 "$samfile" > "$bamfile"
+  
+  # Sort BAM
+  /home/shared/samtools-1.12/samtools sort -@ 20 "$bamfile" -o "$sorted_bamfile"
+  
+  # Index sorted BAM
+  /home/shared/samtools-1.12/samtools index -@ 20 "$sorted_bamfile"
+done
+```
+
+```{bash}
+pwd
+```
+
+
+# 4. `featureCounts` in `subread` to make a count matrix from the sorted bamfiles 
+```{bash}
+/home/shared/subread-2.0.5-Linux-x86_64/bin/featureCounts \
+-p --countReadPairs \
+--primary \
+-B \
+-T 20 \
+-C \
+-O \
+-t exon \
+-g gene_id \
+-a ../data/interproscan.gff3 \
+-o ../analyses/10-hisat2-try/featurecounts_gene \
+../analyses/10-hisat2-try/*bam
+```
+
+
+
+
+
+

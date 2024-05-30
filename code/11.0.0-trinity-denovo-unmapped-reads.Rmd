@@ -1,0 +1,79 @@
+---
+title: "11.0.0-trinity-denovo-unmapped-reads"
+author: "Sam White"
+date: "2024-05-30"
+output: 
+  bookdown::html_document2:
+    theme: cosmo
+    toc: true
+    toc_float: true
+    number_sections: true
+    code_folding: show
+    code_download: true
+  github_document:
+    toc: true
+    number_sections: true
+  html_document:
+    theme: cosmo
+    toc: true
+    toc_float: true
+    number_sections: true
+    code_folding: show
+    code_download: true
+bibliography: references.bib
+link-citations: true
+---
+
+Trinity _de novo_ assembly of unmapped, HiSat2 reads, per [this GitHub Issue](https://github.com/RobertsLab/resources/issues/1915).
+
+
+
+```{r setup, include=FALSE}
+library(knitr)
+library(dplyr)
+knitr::opts_chunk$set(
+  echo = TRUE,         # Display code chunks
+  eval = FALSE,        # Evaluate code chunks
+  warning = FALSE,     # Hide warnings
+  message = FALSE,     # Hide messages
+  comment = ""         # Prevents appending '##' to beginning of lines in code output
+)
+```
+
+# Create a Bash variables file
+
+This allows usage of Bash variables across R Markdown chunks.
+
+```{r save-bash-variables-to-rvars-file, engine='bash', eval=TRUE}
+{
+echo "#### Assign Variables ####"
+echo ""
+
+echo "# Trimmed FastQ naming pattern"
+
+echo "# Data directories"
+
+echo 'export output_dir='
+echo ""
+
+echo "# Input file"
+echo 'export output_fasta=""'
+
+echo ""
+echo "# Output files"
+
+
+echo ""
+
+echo "# Set number of CPUs to use"
+echo 'export threads=40'
+echo ""
+
+echo "# Programs"
+echo 'export samtools=/home/shared/samtools-1.12/samtools'
+
+
+} > .bashvars
+
+cat .bashvars
+```

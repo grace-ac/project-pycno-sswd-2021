@@ -3,6 +3,9 @@ title: "11.0.0-trinity-denovo-unmapped-reads"
 author: "Sam White"
 date: "2024-05-30"
 output: 
+  github_document:
+    toc: true
+    number_sections: true
   bookdown::html_document2:
     theme: cosmo
     toc: true
@@ -10,9 +13,6 @@ output:
     number_sections: true
     code_folding: show
     code_download: true
-  github_document:
-    toc: true
-    number_sections: true
   html_document:
     theme: cosmo
     toc: true
@@ -20,8 +20,6 @@ output:
     number_sections: true
     code_folding: show
     code_download: true
-bibliography: references.bib
-link-citations: true
 ---
 
 Trinity _de novo_ assembly of unmapped, HiSat2 reads, per [this GitHub Issue](https://github.com/RobertsLab/resources/issues/1915).
@@ -137,7 +135,7 @@ py_config()
 
 # Download PSC-34_unmapped_reads*
 
-```{r download-Pmea-genome-fasta, engine='bash', eval=TRUE}
+```{r download-unmapped-reads, engine='bash', eval=TRUE}
 # Load bash variables into memory
 source .bashvars
 
@@ -256,7 +254,7 @@ done
 # CHECK OUTPUTS
 
 ## Assembly Stats
-```{r transcriptome, engine='bash', eval=TRUE}
+```{r assembly-stats, engine='bash', eval=TRUE}
 # Load bash variables into memory
 source .bashvars
 

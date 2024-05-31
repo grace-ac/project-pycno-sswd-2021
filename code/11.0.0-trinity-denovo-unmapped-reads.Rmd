@@ -158,7 +158,7 @@ ls -lh "${reads_dir}"
 
 # ASSEMBLY
 
-```{r assembly, engine='bash', eval=TRUE}
+```{r assembly, engine='bash', eval=FALSE}
 # Load bash variables into memory
 source .bashvars
 

@@ -252,3 +252,13 @@ do
 done
 
 ```
+
+# CHECK OUTPUTS
+
+## Assembly Stats
+```{r transcriptome, engine='bash', eval=TRUE}
+# Load bash variables into memory
+source .bashvars
+
+cat "${output_dir}"/${assembly_stats}
+```

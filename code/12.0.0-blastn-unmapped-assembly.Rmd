@@ -1,0 +1,23 @@
+---
+title: "12.0.0-blastn-unmapped-assembly"
+author: "Sam White"
+date: "2024-06-03"
+output: html_document
+---
+
+Run NCBI BLASTn on [Trinity _de novo_ assembly of unmapped, HiSat2 reads](./11.0.0-trinity-denovo-unmapped-reads.Rmd) using NCBI `nr` database.
+
+
+
+```{r setup, include=FALSE}
+library(reticulate)
+library(knitr)
+library(dplyr)
+knitr::opts_chunk$set(
+  echo = TRUE,         # Display code chunks
+  eval = FALSE,        # Evaluate code chunks
+  warning = FALSE,     # Hide warnings
+  message = FALSE,     # Hide messages
+  comment = ""         # Prevents appending '##' to beginning of lines in code output
+)
+```

@@ -81,9 +81,12 @@ Look for top match (`-max_hsps 1` & `-max_target_seqs 1`) for each query.
 # Load bash variables into memory
 source .bashvars
 
+# Make output directory, if it doesn't exit
+mkdir --parents "${blast_output}"
+
 time \
 ${ncbi_blastn} \
--db ${blast_dbs_dir}/${mirbase_mature_fasta_no_U%.*} \
+-db ${blast_dbs_dir}/${blast_db} \
 -query ${query_fasta} \
 -out ${blast_output} \
 -max_hsps 1 \

@@ -7,6 +7,11 @@ output: html_document
 
 Run NCBI BLASTn on [Trinity _de novo_ assembly of unmapped, HiSat2 reads](./11.0.0-trinity-denovo-unmapped-reads.Rmd) using NCBI `nr` database.
 
+NCBI `nr` BLAST database was downloaded 20240603 by Sam White, using the following command:
+
+```bash
+update_blastdb.pl --num_threads 0 --decompress nr
+```
 
 
 ```{r setup, include=FALSE}
@@ -20,4 +25,70 @@ knitr::opts_chunk$set(
   message = FALSE,     # Hide messages
   comment = ""         # Prevents appending '##' to beginning of lines in code output
 )
+```
+
+
+# Create a Bash variables file
+
+This allows usage of Bash variables across R Markdown chunks.
+
+```{r save-bash-variables-to-rvars-file, engine='bash', eval=TRUE}
+{
+echo "#### Assign Variables ####"
+echo ""
+
+echo "# Data directories"
+echo 'export blast_dbs_dir="/home/shared/8TB_HDD_01/sam/data/blastdbs/20240603-nr"'
+echo ""
+
+echo "# Input files"
+echo 'export blast_db="nr"'
+echo 'export query_fasta="../analyses/11.0.0-trinity-denovo-unmapped-reads/pcoe-unmapped-de_novo-transcriptome_v1.0.fasta"'
+echo ""
+
+echo "# Output files"
+echo 'export output_dir="../analyses/12.0.0-blastn-unmapped-assembly"'
+echo 'export blast_output="${output_dir}/pcoe-unmapped-de_novo-blastn.outfmt6"'
+echo ""
+
+
+echo "# Paths to programs"
+echo 'export ncbi_blast_dir="/home/shared/ncbi-blast-2.15.0+/bin/"'
+echo 'export ncbi_blastn="${ncbi_blast_dir}/blastn"'
+echo ""
+
+echo "# Set number of CPUs to use"
+echo 'export threads=46'
+echo ""
+
+echo "# Initialize arrays"
+echo 'export trimmed_fastqs_array=()'
+
+
+} > .bashvars
+
+cat .bashvars
+```
+
+# Run BLASTn
+
+Look for top match (`-max_hsps 1` & `-max_target_seqs 1`) for each query.
+
+  - Suppress subsequent warning `Examining 5 or more matches is recommended` by
+  redirecting stdout: `2> /dev/null`
+
+```{r BLASTn, engine='bash', cache=TRUE}
+# Load bash variables into memory
+source .bashvars
+
+time \
+${ncbi_blastn} \
+-db ${blast_dbs_dir}/${mirbase_mature_fasta_no_U%.*} \
+-query ${query_fasta} \
+-out ${blast_output} \
+-max_hsps 1 \
+-max_target_seqs 1 \
+-outfmt 6 \
+-num_threads ${threads} \
+2> /dev/null
 ```

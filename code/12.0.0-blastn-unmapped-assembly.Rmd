@@ -10,7 +10,7 @@ Run NCBI BLASTn on [Trinity _de novo_ assembly of unmapped, HiSat2 reads](./11.0
 NCBI `nr` BLAST database was downloaded 20240603 by Sam White, using the following command:
 
 ```bash
-update_blastdb.pl --num_threads 0 --decompress nr
+update_blastdb.pl --num_threads 0 --decompress nt
 ```
 
 

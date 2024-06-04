@@ -48,7 +48,7 @@ echo ""
 
 echo "# Output files"
 echo 'export output_dir="../analyses/12.0.0-blastn-unmapped-assembly"'
-echo 'export blast_output="${output_dir}/pcoe-unmapped-de_novo-blastn.outfmt6"'
+echo 'export blast_output="pcoe-unmapped-de_novo-blastn.outfmt6"'
 echo ""
 
 
@@ -60,9 +60,6 @@ echo ""
 echo "# Set number of CPUs to use"
 echo 'export threads=46'
 echo ""
-
-echo "# Initialize arrays"
-echo 'export trimmed_fastqs_array=()'
 
 
 } > .bashvars
@@ -84,14 +81,14 @@ source .bashvars
 # Make output directory, if it doesn't exit
 mkdir --parents "${blast_output}"
 
-time \
+# Run BLASTn
 ${ncbi_blastn} \
 -db ${blast_dbs_dir}/${blast_db} \
 -query ${query_fasta} \
--out ${blast_output} \
+-out ${output_dir}/${blast_output} \
 -max_hsps 1 \
 -max_target_seqs 1 \
 -outfmt 6 \
 -num_threads ${threads} \
-2> /dev/null
+2> ${output_dir}/blast.log
 ```

@@ -38,11 +38,11 @@ echo "#### Assign Variables ####"
 echo ""
 
 echo "# Data directories"
-echo 'export blast_dbs_dir="/home/shared/8TB_HDD_01/sam/data/blastdbs/20240603-nr"'
+echo 'export blast_dbs_dir="/home/shared/8TB_HDD_01/sam/data/blastdbs/20240603-nt"'
 echo ""
 
 echo "# Input files"
-echo 'export blast_db="nr"'
+echo 'export blast_db="nt"'
 echo 'export query_fasta="../analyses/11.0.0-trinity-denovo-unmapped-reads/pcoe-unmapped-de_novo-transcriptome_v1.0.fasta"'
 echo ""
 

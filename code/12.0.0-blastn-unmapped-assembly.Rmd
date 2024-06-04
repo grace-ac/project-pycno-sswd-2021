@@ -58,7 +58,7 @@ echo 'export ncbi_blastn="${ncbi_blast_dir}/blastn"'
 echo ""
 
 echo "# Set number of CPUs to use"
-echo 'export threads=46'
+echo 'export threads=35'
 echo ""
 
 
@@ -72,7 +72,9 @@ cat .bashvars
 Look for top match (`-max_hsps 1` & `-max_target_seqs 1`) for each query.
 
   - Suppress subsequent warning `Examining 5 or more matches is recommended` by
-  redirecting stdout: `2> /dev/null`
+  redirecting stdout: `2>blast.log`
+  
+  - Uses customize output format 6 to include taxonomic IDs and scientific names.
 
 ```{r BLASTn, engine='bash', cache=TRUE}
 # Load bash variables into memory
@@ -88,7 +90,8 @@ ${ncbi_blastn} \
 -out ${output_dir}/${blast_output} \
 -max_hsps 1 \
 -max_target_seqs 1 \
--outfmt 6 \
+-outfmt "6 delim=@ qaccver saccver ssciname staxid pident length mismatch gapopen qstart qend sstart send
+   evalue bitscore" \
 -num_threads ${threads} \
 2> ${output_dir}/blast.log
 ```

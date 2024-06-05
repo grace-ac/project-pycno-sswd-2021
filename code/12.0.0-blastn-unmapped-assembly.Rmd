@@ -37,8 +37,9 @@ This allows usage of Bash variables across R Markdown chunks.
 echo "#### Assign Variables ####"
 echo ""
 
-echo "# Data directories"
+echo "# BLAST Database Directory"
 echo 'export blast_dbs_dir="/home/shared/8TB_HDD_01/sam/data/blastdbs/20240603-nt"'
+echo 'export BLASTDB="$BLASTDB:${blast_dbs_dir}"'
 echo ""
 
 echo "# Input files"
@@ -85,13 +86,22 @@ mkdir --parents "${blast_output}"
 
 # Run BLASTn
 ${ncbi_blastn} \
--db ${blast_dbs_dir}/${blast_db} \
+-db ${blast_db} \
 -query ${query_fasta} \
 -out ${output_dir}/${blast_output} \
 -max_hsps 1 \
 -max_target_seqs 1 \
--outfmt "6 delim=@ qaccver saccver ssciname staxid pident length mismatch gapopen qstart qend sstart send
+-outfmt "6 qaccver saccver ssciname staxid pident length mismatch gapopen qstart qend sstart send
    evalue bitscore" \
 -num_threads ${threads} \
 2> ${output_dir}/blast.log
+```
+
+
+# Inspect output
+```{r inspect-output, engine='bash', cache=TRUE}
+# Load bash variables into memory
+source .bashvars
+
+head ${output_dir}/${blast_output}
 ```

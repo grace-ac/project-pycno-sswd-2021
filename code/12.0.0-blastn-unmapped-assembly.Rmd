@@ -26,7 +26,7 @@ link-citations: true
 
 Run NCBI BLASTn [@camacho2009] on [Trinity *de novo* assembly of unmapped, HiSat2 reads](./11.0.0-trinity-denovo-unmapped-reads.Rmd) using NCBI `nr` database.
 
-NCBI `nr` BLAST database was downloaded 20240603 by Sam White, using the following command:
+NCBI `nt` BLAST database was downloaded 20240603 by Sam White, using the following command:
 
 ``` bash
 update_blastdb.pl --num_threads 0 --decompress nt
@@ -115,9 +115,25 @@ ${ncbi_blastn} \
 
 # Inspect output
 
-```{r inspect-output, engine='bash', cache=FALSE, eval=TRUE}
+## Preview BLAST output
+```{r head-BLAST-output, engine='bash', cache=FALSE, eval=TRUE}
 # Load bash variables into memory
 source .bashvars
 
 head ${output_dir}/${blast_output}
 ```
+
+## Count species
+
+```{r count-species, engine='bash', cache=FALSE, eval=TRUE}
+# Load bash variables into memory
+source .bashvars
+
+awk -F"\t" '{print $3}' ${output_dir}/${blast_output} \
+| sort \
+| uniq --count \
+| sort --numeric-sort --reverse |
+head
+```
+
+

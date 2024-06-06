@@ -2,7 +2,26 @@
 title: "12.0.0-blastn-unmapped-assembly"
 author: "Sam White"
 date: "2024-06-03"
-output: html_document
+output: 
+  bookdown::html_document2:
+    theme: cosmo
+    toc: true
+    toc_float: true
+    number_sections: true
+    code_folding: show
+    code_download: true
+  github_document:
+    toc: true
+    number_sections: true
+  html_document:
+    theme: cosmo
+    toc: true
+    toc_float: true
+    number_sections: true
+    code_folding: show
+    code_download: true
+bibliography: references.bib
+link-citations: true
 ---
 
 Run NCBI BLASTn on [Trinity _de novo_ assembly of unmapped, HiSat2 reads](./11.0.0-trinity-denovo-unmapped-reads.Rmd) using NCBI `nr` database.
@@ -99,7 +118,7 @@ ${ncbi_blastn} \
 
 
 # Inspect output
-```{r inspect-output, engine='bash', cache=TRUE}
+```{r inspect-output, engine='bash', cache=FALSE, eval=TRUE}
 # Load bash variables into memory
 source .bashvars
 
